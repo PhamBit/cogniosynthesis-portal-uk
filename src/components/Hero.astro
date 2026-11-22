@@ -1,0 +1,131 @@
+---
+interface Props {
+  headline: string;
+  subheadline?: string;
+  primaryCta?: string;
+  secondaryCta?: string;
+  primaryCtaLink?: string;
+  secondaryCtaLink?: string;
+  backgroundImage?: string;
+}
+
+const { 
+  headline, 
+  subheadline = 'Enterprise AI & Technology Solutions for the Modern World',
+  primaryCta = 'Get Started',
+  secondaryCta = 'Learn More',
+  primaryCtaLink = '/contact',
+  secondaryCtaLink = '/solutions',
+  backgroundImage = '/images/heroes/dxc-hero-bg.jpg'
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-background">
+    <!-- Background image -->
+    <img 
+      src={backgroundImage} 
+      alt="" 
+      class="hero-image"
+      fetchpriority="high"
+    />
+    <!-- Gradient overlay - DXC style -->
+    <div class="hero-gradient"></div>
+  </div>
+  
+  <div class="container hero-content">
+    <h1 class="hero-headline">{headline}</h1>
+    
+    {subheadline && (
+      <p class="hero-subheadline">{subheadline}</p>
+    )}
+    
+    <div class="hero-ctas">
+      <a href={primaryCtaLink} class="btn btn-primary btn-lg">
+        {primaryCta}
+      </a>
+      
+      {secondaryCta && (
+        <a href={secondaryCtaLink} class="btn btn-secondary btn-lg">
+          {secondaryCta}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-96) 0;
+    overflow: hidden;
+  }
+  
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right, 
+      rgba(14, 16, 32, 0.9) 0%, 
+      rgba(14, 16, 32, 0.7) 50%,
+      rgba(14, 16, 32, 0.4) 100%
+    );
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+  
+  .hero-headline {
+    font-family: var(--font-primary);
+    font-size: var(--hero-font-hero);
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: var(--spacing-24);
+    font-weight: 500;
+    
+    @media (min-width: 768px) {
+      font-size: var(--hero-font-xlarge);
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: var(--hero-font-hero);
+    }
+  }
+  
+  .hero-subheadline {
+    font-family: var(--font-secondary);
+    font-size: var(--fontsize-body-lg);
+    line-height: var(--line-height-body-lg);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--spacing-32);
+    max-width: 650px;
+  }
+  
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-16);
+  }
+</style>

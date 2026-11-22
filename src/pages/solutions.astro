@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import { Astro } from 'astro';
+
+// Redirect to /explore/ since that's the actual service page now
+const url = Astro.url;
+if (!url.pathname.endsWith('/explore/')) {
+  return Astro.redirect('/explore/');
+}
+---
+
+<!-- This page redirects to /explore/ - AI Exploration is our primary service page -->
+<BaseLayout 
+  title="AI Exploration"
+  description="Not sure what AI could do for you? We come to your building and show you, offline."
+>
+  <div class="container" style="padding: 80px 0; text-align: center;">
+    <h2>Redirecting to AI Exploration...</h2>
+    <p><a href="/explore/">Click here if not redirected automatically</a></p>
+  </div>
+  <Footer />
+</BaseLayout>

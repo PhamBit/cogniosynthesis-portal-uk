@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="AI Health Check"
+  description="Already using AI? We check what your settings and supplier terms say about your data, in your building, offline."
+>
+  <div class="page-hero">
+    <div class="container">
+      <h1>AI Health Check</h1>
+      <p class="hero-subtitle">Already using AI? We check what your settings and supplier terms say about your data, in your building, offline.</p>
+    </div>
+  </div>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p><strong>For small firms, law and accountancy practices, charities, schools, councils and other public bodies.</strong></p>
+      <p><strong>Based in Lampeter, Wales. We visit within 60 road miles, and up to 120 miles by arrangement.</strong></p>
+      <p><em>Conversations can be booked now; visits from February 2027.</em></p>
+      
+      <h2 style="margin-top: 48px;">It starts with a free 45-minute conversation.</h2>
+
+      <h2 style="margin-top: 48px;">How it works</h2>
+      <ol class="steps-list">
+        <li><strong>A conversation first.</strong> Free, 45 minutes, by phone or in person. You tell us which AI tools you use: chatbots, copilots, or AI features in your software. Then you decide whether to book a visit.</li>
+        <li><strong>We come to you.</strong> A day in your building.</li>
+        <li><strong>You show us.</strong> You show us your settings, policies and supplier terms in the room, or on your own USB stick.</li>
+        <li><strong>Offline.</strong> Our machine is fully offline, sealed from the internet and from your network. We show you.</li>
+        <li><strong>Your finding.</strong> The written finding on your set-up, with sources, on paper or a fresh stick.</li>
+        <li><strong>Wiped clean.</strong> Anything that went onto our machine is wiped clean in front of you.</li>
+      </ol>
+
+      <h2 style="margin-top: 48px;">What you get</h2>
+      <p>A written finding on the set-up, from what you show us: what your settings and supplier terms say about who can see your data, where it goes and how long it is kept, and what your own policies and notices don't mention. For each point, the source: your own settings, policy or supplier terms, with the clause cited.</p>
+      <p>The security part reviews your AI set-up from what you show us in the room: settings, policies, supplier terms and exports. We note what they say about who has access, where data goes and how long it is kept. We work only from what you show us; your systems stay untouched.</p>
+      <p class="warning"><strong>Before the visit, please remove passwords, API keys and customer records from any exports.</strong></p>
+
+      <h2 style="margin-top: 48px;">What we specialise in</h2>
+      <ul class="capabilities-list">
+        <li>Reading AI supplier terms in plain English, with the clause cited.</li>
+        <li>Tracing what your settings say about your data: who can see it, where it goes, how long it's kept.</li>
+        <li>Finding the gaps between what you show us of your AI tools and your own policies and notices.</li>
+        <li>Your information stays yours. What you show us is used only for your finding.</li>
+        <li>Working entirely offline, in your building. Our machine is fully offline, and we work from what you show us.</li>
+      </ul>
+
+      <h2 style="margin-top: 48px;">What it costs</h2>
+      <p>Published prices.</p>
+
+      <div class="pricing-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Visit</th>
+              <th>Price</th>
+              <th>What it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Free first conversation — 45 minutes</td>
+              <td>Free</td>
+              <td>You tell us what you need; you decide whether to book</td>
+            </tr>
+            <tr>
+              <td>AI Health Check — a day</td>
+              <td>£2,500 + VAT</td>
+              <td>At most 7 hours on site, and a written finding on the set-up</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="pricing-note">On-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</p>
+      </div>
+
+      <h2 style="margin-top: 48px;">Terms of a visit</h2>
+      <ul class="terms-list">
+        <li><strong>Notice:</strong> 10 working days for a first visit, so your IT or security team can sign off; we send a one-page device statement.</li>
+        <li><strong>You provide:</strong> a private room with a table, one UK power socket, your settings, policies and supplier terms to show us on screen or on your own USB stick.</li>
+        <li><strong>AI Health Check:</strong> at most 7 hours on site; a written finding of up to 5 pages.</li>
+        <li><strong>Cancellation:</strong> free to move or cancel up to 5 working days before. Later than that, or if there is no room or no one from your team on the day, the fee carries to one new date within 60 days. If we cancel, you choose a full refund or a new date.</li>
+        <li><strong>Payment:</strong> private firms pay on booking; public bodies by purchase order, invoiced on the day at 30 days.</li>
+        <li><strong>Travel:</strong> on-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</li>
+      </ul>
+
+      <div class="cta-banner" style="margin-top: 48px;">
+        <h3 style="margin: 0 0 16px 0;">Book a conversation</h3>
+        <p style="margin: 0 0 20px 0;">It starts with a free 45-minute conversation. Tell us what AI tools you use and a few dates that suit you.</p>
+        <a href="mailto:info@cogniosynthesisportal.uk?subject=AI%20Health%20Check%20conversation" class="btn btn-primary">Email to book</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #f6f3f0 0%, #ebe7e4 100%);
+    padding: 80px 0;
+    border-bottom: 1px solid #e0dcd8;
+  }
+
+  .page-hero h1 {
+    font-size: 48px;
+    color: #0e1020;
+    margin: 0 0 16px 0;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    color: #4b4d5d;
+    max-width: 700px;
+    margin: 0;
+  }
+
+  .steps-list, .capabilities-list, .terms-list {
+    padding-left: 24px;
+    margin: 16px 0;
+  }
+
+  .steps-list li, .capabilities-list li, .terms-list li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #4b4d5d;
+    line-height: 28px;
+  }
+
+  .warning {
+    background: #fef3e2;
+    border-left: 4px solid #f59e0b;
+    padding: 16px 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #78350f;
+  }
+
+  .pricing-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+  }
+
+  .pricing-table th,
+  .pricing-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #dcdce0;
+  }
+
+  .pricing-table th {
+    background: #f6f3f0;
+    font-weight: 600;
+    color: #0e1020;
+  }
+
+  .pricing-note {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #4b4d5d;
+  }
+
+  .cta-banner {
+    background: #f6f3f0;
+    padding: 32px;
+    border-radius: 8px;
+  }
+
+  .cta-banner h3 {
+    font-size: 24px;
+    color: #0e1020;
+    margin: 0 0 16px 0;
+  }
+
+  .cta-banner p {
+    font-size: 16px;
+    color: #4b4d5d;
+    line-height: 28px;
+  }
+</style>

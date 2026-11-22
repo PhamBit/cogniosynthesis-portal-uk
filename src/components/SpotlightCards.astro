@@ -1,0 +1,128 @@
+---
+interface SpotlightCard {
+  title: string;
+  description: string;
+  icon?: string;
+  link?: string;
+  linkText?: string;
+}
+
+interface Props {
+  heading?: string;
+  intro?: string;
+  cards: SpotlightCard[];
+  class?: string;
+}
+
+const { 
+  heading, 
+  intro = 'Discover how we empower enterprises to transform their operations',
+  cards = [],
+  class: className = ''
+} = Astro.props;
+---
+
+<section class={`spotlight-section section section--alt ${className}`}>
+  <div class="container">
+    {heading && (
+      <h2 class="section__heading heading--h2">{heading}</h2>
+    )}
+    
+    {intro && (
+      <p class="section__intro text--body-lg">{intro}</p>
+    )}
+    
+    <div class="spotlight-grid">
+      {cards.map(card => (
+        <article class="spotlight-card">
+          {card.icon && (
+            <div class="card-icon">
+              <img src={card.icon} alt="" aria-hidden="true" />
+            </div>
+          )}
+          
+          <h3 class="card-title heading--h3">{card.title}</h3>
+          <p class="card-description">{card.description}</p>
+          
+          {card.link && (
+            <a href={card.link} class="card-link">
+              {card.linkText || 'Learn more'} →
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .spotlight-section {
+    padding: var(--spacing-96) 0;
+    background-color: var(--color-background-section);
+  }
+  
+  .spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+    margin-top: var(--spacing-48);
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .spotlight-card {
+    background: var(--color-background-surface);
+    border: 1px solid var(--color-border-default);
+    padding: var(--spacing-32);
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+  }
+  
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--spacing-24);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  .card-title {
+    font-size: var(--fontsize-heading-h3);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-16);
+    color: #0e1020;
+  }
+  
+  .card-description {
+    font-size: var(--fontsize-body-md);
+    line-height: var(--line-height-body-lg);
+    color: #4b4d5d;
+    margin-bottom: var(--spacing-24);
+  }
+  
+  .card-link {
+    font-family: var(--font-primary);
+    font-size: var(--fontsize-body-sm);
+    font-weight: 500;
+    color: #2f6fd5;
+    transition: color 150ms ease-in-out;
+    
+    &:hover {
+      color: #0e1020;
+    }
+  }
+</style>
