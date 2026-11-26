@@ -1,9 +1,26 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://cogniosynthesisportal.uk',
-  integrations: [tailwind()],
+  integrations: [
+    tailwind(),
+    sitemap({
+      // Leave out the addresses that only forward elsewhere.
+      filter: (page) => !/\/(cookies|solutions)\/$/.test(page),
+      // Parts of the site that are served beside this build and were in the live sitemap.
+      customPages: [
+        'https://cogniosynthesisportal.uk/feedmesafe/',
+        'https://cogniosynthesisportal.uk/knowledge-ecosystem/'
+      ]
+    })
+  ],
+  // Addresses the live site uses today, kept so existing links and search results still land.
+  redirects: {
+    '/privacy.html': '/privacy',
+    '/terms.html': '/terms'
+  },
   build: {
     inlineStylesheets: 'auto'
   },

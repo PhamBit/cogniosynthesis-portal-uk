@@ -81,8 +81,6 @@ const footerLinks = {
         <a href="/privacy">Privacy Policy</a>
         <span class="footer-divider">•</span>
         <a href="/terms">Terms of Service</a>
-        <span class="footer-divider">•</span>
-        <a href="/cookies">Cookie Policy</a>
       </nav>
     </div>
   </div>
@@ -181,14 +179,19 @@ const footerLinks = {
   .footer-legal {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--spacing-16);
-    margin-top: var(--spacing-16);
+    margin-top: var(--spacing-8);
     
     a {
       font-size: var(--fontsize-body-xs);
       color: var(--color-text-secondary);
       text-decoration: none;
       transition: color 150ms ease-in-out;
+      /* Tall enough to tap on a phone */
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       
       &:hover {
         color: var(--color-primary-blue);

@@ -1,0 +1,14 @@
+# https://cogniosynthesisportal.uk/robots.txt
+User-agent: *
+Allow: /
+Disallow: /feedmesafe/api/
+Disallow: /summer-leys-app/api/
+
+Sitemap: https://cogniosynthesisportal.uk/sitemap-index.xml
+
+Sitemap: https://cogniosynthesisportal.uk/stancewatch/sitemap.xml
+Sitemap: https://cogniosynthesisportal.uk/ghost-ledger/sitemap.xml
+
+Sitemap: https://cogniosynthesisportal.uk/ministry/sitemap.xml
+Sitemap: https://cogniosynthesisportal.uk/cogniomap/sitemap.xml
+Sitemap: https://cogniosynthesisportal.uk/enacted/sitemap.xml

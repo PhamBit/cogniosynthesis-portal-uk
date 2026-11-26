@@ -1,178 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+// The wording is the live page's own, held whole in src/data/legal/privacy.html
+// (taken from https://cogniosynthesisportal.uk/privacy.html on 26 Nov 2026). Edit it there.
+import legal from '../data/legal/privacy.html?raw';
 ---
 
-<BaseLayout title="Privacy Policy">
-  <div class="container section">
-    <h1>Privacy Policy</h1>
-    
-    <p><strong>Company:</strong> Cogniosynthesis Portal Ltd (trading as CognioNews, CognioEngine, FestivalFocus)</p>
-    <p><strong>Company Number:</strong> 16225073</p>
-    <p><strong>VAT Number:</strong> GB 531 4777 86</p>
-    <p><strong>Registered in:</strong> England and Wales</p>
-    <p><strong>Registered office:</strong> 15 Neptune Court, Vanguard Way, Cardiff CF24 5PJ</p>
-    <p><strong>Data protection registration:</strong> ZC269688</p>
-    <p><strong>Privacy contact:</strong> <a href="mailto:privacy@cogniosynthesisportal.uk">privacy@cogniosynthesisportal.uk</a></p>
-    <p><strong>Version:</strong> 1.6 | <strong>Last reviewed:</strong> 2026-11-16 | <strong>Effective Date:</strong> 17 November 2026</p>
-
-    <h2 id="who-we-are">1. WHO WE ARE</h2>
-    <p><strong>Controller:</strong> Cogniosynthesis Portal Ltd, company number 16225073, registered office 15 Neptune Court, Vanguard Way, Cardiff CF24 5PJ. We are registered in England and Wales and trade as CognioNews, CognioEngine and FestivalFocus.</p>
-    <p>This notice covers <strong>cogniosynthesisportal.uk</strong> and its subdomains, and the services we provide through them. Where a specific product has its own additional notice, that notice applies alongside this one.</p>
-    <p>We are registered with the Information Commission, the UK data protection regulator, under registration number ZC269688.</p>
-    <p>We have not appointed a data protection officer, because the law does not require us to. Kenny Lewis, Director, is responsible for data protection. You can contact us about anything in this notice at <a href="mailto:privacy@cogniosynthesisportal.uk">privacy@cogniosynthesisportal.uk</a>.</p>
-
-    <h2 id="what-data-we-collect">2. WHAT PERSONAL DATA WE COLLECT</h2>
-    <p>We collect only what we need to run the service and to deal with you as a customer, reader or business contact.</p>
-    <ul>
-      <li><strong>Contact and account data:</strong> name, email address, and where relevant your organisation, role and telephone number, when you subscribe, register, submit a story or contact us.</li>
-      <li><strong>Subscription and payment data:</strong> the plan you hold, its status, billing period and renewal date, and payment references from Stripe. Stripe collects and holds your card details. We do not receive or store your card number, expiry date or security code.</li>
-      <li><strong>Content you give us:</strong> story submissions, comments, survey responses, emails and other messages you send us, including any files you attach.</li>
-      <li><strong>Usage and device data:</strong> the pages you view on this site, the page you arrived from, approximate location (city level), device type, browser and operating system, and your IP address in our server logs.</li>
-      <li><strong>Correspondence and support records:</strong> the history of your enquiries and our replies.</li>
-      <li><strong>Business prospect data:</strong> see the supplementary section on B2B prospect data below.</li>
-    </ul>
-    <p>If you subscribe to CognioNews Premium, you need to give us your email address to subscribe and sign in. Without it we cannot provide Premium. The <a href="https://cognionews.com/privacy.html#premium">CognioNews privacy notice</a> describes the Premium data in full.</p>
-    <p>We do <strong>not</strong> knowingly collect special category data (for example health, ethnicity, religion, political opinions, biometric or genetic data), and we do not buy personal data from data brokers.</p>
-
-    <h2 id="audits">3. AUDITS</h2>
-    <p>We carry out Epistemic Audits and AI Health Checks at your premises on our own machine, which is not connected to the internet or to your network. Your documents are loaded from your own storage, are never sent to us, and are not kept: at the end of the visit the machine is wiped clean in front of you and you receive a signed visit record of what was loaded, what was produced and when it was wiped clean. We keep one copy of the signed visit record: the date, the number of files, their digital fingerprints, the start and finish times, and the name of the person from your team who was present. It holds no file names and no document content. We keep it for six years as our business record. We do not use your documents to train any system. The written finding belongs to you.</p>
-
-    <h2 id="how-we-use-data">4. HOW WE USE YOUR PERSONAL DATA</h2>
-    <ul>
-      <li>To provide the service: publishing content, delivering the pages you request, and managing your access and preferences.</li>
-      <li>To create and administer your subscription or account, and to take and manage payment.</li>
-      <li>To send you the newsletters, digests and service messages you have asked for, and to handle unsubscribes.</li>
-      <li>To answer your enquiries, deal with complaints and provide support.</li>
-      <li>To keep our own records, including accounting, tax and VAT records required by law.</li>
-      <li>To keep the service secure and available: detecting abuses, fraud, scraping, attacks and technical faults.</li>
-      <li>To introduce our services to named people at organisations, under the B2B section below.</li>
-      <li>To establish, exercise or defend legal claims.</li>
-    </ul>
-    <p>We do not use your personal data for automated decision-making that produces legal or similarly significant effects about you, and we do not sell your personal data. Our AI analysis is applied to published news content and, during an on-site audit, to the documents a client chooses to load on our offline machine (see section 3), not to profiles of individual readers.</p>
-
-    <h2 id="lawful-bases">5. OUR LAWFUL BASES</h2>
-    <table style="width: 100%; border-collapse: collapse;">
-      <tr><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Purpose</th><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Lawful basis (UK GDPR)</th></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Providing the service you have asked for, including a paid subscription such as CognioNews Premium, and administering your subscription or account</td><td style="border: 1px solid #ddd; padding: 8px;">Performance of a contract — Article 6(1)(b)</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Taking payment and managing billing, refunds and cancellations</td><td style="border: 1px solid #ddd; padding: 8px;">Performance of a contract — Article 6(1)(b)</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Sending newsletters and digests you have subscribed to</td><td style="border: 1px solid #ddd; padding: 8px;">Consent — Article 6(1)(a), or soft opt-in under the Privacy and Electronic Communications Regulations 2003 where you are an existing customer</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Responding to enquiries and providing support</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f): serving our customers</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Keeping the service secure, preventing abuse and maintaining logs, including a log of sign-in events and limiting repeated sign-in requests</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f): preventing misuse of the service and of your account</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Keeping your account details for 90 days after a subscription ends, to deal with refunds, cancellations and queries, or a quick restart</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f)</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">B2B prospect outreach</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f), as set out in the B2B section below</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Keeping a signed record of each on-site audit visit: the date, the number of files and their digital fingerprints, start and finish times, and the name of the person from the client's team who was present</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f): showing what took place at a visit and dealing with any later query or claim</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Billing records, accounting, tax and other statutory records</td><td style="border: 1px solid #ddd; padding: 8px;">Legal obligation — Article 6(1)(c)</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Establishing, exercising or defending legal claims</td><td style="border: 1px solid #ddd; padding: 8px;">Legitimate interests — Article 6(1)(f), or legal obligation where a claim is compulsory</td></tr>
-    </table>
-
-    <h2 id="who-we-share-with">6. WHO WE SHARE IT WITH</h2>
-    <p>We do not sell personal data. We share it only where we need to in order to run the service, and only with organisations that are bound to protect it.</p>
-    <ul>
-      <li><strong>Payment processing:</strong> Stripe Payments UK Ltd and the Stripe group. Stripe processes card data as an independent controller for payment processing and fraud prevention. We receive limited transaction data back from Stripe to reconcile your subscription.</li>
-      <li><strong>Hosting and infrastructure:</strong> our hosting provider, with servers in the United Kingdom. It hosts our websites, server logs and service data.</li>
-      <li><strong>Email delivery:</strong> our email provider (UK), which sends our newsletters and service emails such as receipts and sign-in links.</li>
-      <li><strong>Professional advisers:</strong> our accountants, auditors and lawyers, where necessary and under duties of confidence.</li>
-      <li><strong>Authorities and third parties:</strong> where we are required by law, by a court order, or where necessary to establish, exercise or defend legal claims, or to protect someone's vital interests.</li>
-      <li><strong>Business transfers:</strong> if we sell or transfer all or part of the business, relevant data may be transferred to the buyer under equivalent protections.</li>
-    </ul>
-    <p>We do not use advertising networks or social media tracking pixels on this site, and we do not share personal data for others' marketing.</p>
-
-    <h2 id="international-transfers">7. INTERNATIONAL TRANSFERS</h2>
-    <p>Our hosting provider's servers are in the United Kingdom, and our email provider is in the United Kingdom. Some of our processors are based in, or may access data from, the United States:</p>
-    <ul>
-      <li><strong>Stripe, LLC</strong> — covered by the UK–US Data Bridge (the UK Extension to the EU–US Data Privacy Framework). If the Data Bridge cannot be used, Stripe's Data Transfers Addendum applies the UK International Data Transfer Addendum instead.</li>
-    </ul>
-    <p>Where we transfer personal data outside the UK, we rely on UK adequacy regulations, including the UK–US Data Bridge. If those regulations stop applying to a recipient, we will only continue the transfer under another lawful safeguard, such as the UK International Data Transfer Addendum, after checking that the transfer meets the legal test for that safeguard. You can ask us for details of the safeguards used for a particular transfer.</p>
-
-    <h2 id="how-long-we-keep-it">8. HOW LONG WE KEEP IT</h2>
-    <table style="width: 100%; border-collapse: collapse;">
-      <tr><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Data</th><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Retention period</th></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">CognioNews Premium accounts: email address, name (from Stripe), preferences, subscription status, renewal or end date, and Stripe customer and subscription references</td><td style="border: 1px solid #ddd; padding: 8px;">While your subscription is active, then 90 days after it ends. We check every subscription with Stripe about once a day</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Email addresses entered at Premium sign-in that do not belong to a Premium subscription</td><td style="border: 1px solid #ddd; padding: 8px;">Deleted within about 25 hours. The security log keeps a record of the attempt for 12 months, in a form that does not reveal the address</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Billing and payment records (held by Stripe and in our accounts)</td><td style="border: 1px solid #ddd; padding: 8px;">6 years from the end of the company financial year they relate to, because tax and company law require it</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Newsletter subscription details</td><td style="border: 1px solid #ddd; padding: 8px;">Until you unsubscribe, then 30 days, except a minimal suppression record kept so we do not email you again</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Enquiries, complaints and support correspondence</td><td style="border: 1px solid #ddd; padding: 8px;">24 months from the last contact</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Story submissions and other content you send us</td><td style="border: 1px solid #ddd; padding: 8px;">While published, and 12 months after we stop using it</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Sign-in sessions</td><td style="border: 1px solid #ddd; padding: 8px;">Up to 30 days while you are signed in, then deleted within a further 30 days</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Security log of sign-in events</td><td style="border: 1px solid #ddd; padding: 8px;">12 months</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Records used to limit repeated sign-in requests, including IP addresses</td><td style="border: 1px solid #ddd; padding: 8px;">24 hours</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Web server logs, including IP addresses</td><td style="border: 1px solid #ddd; padding: 8px;">Up to 15 days</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Service system logs (which hold a coded reference to your email, not the address itself)</td><td style="border: 1px solid #ddd; padding: 8px;">Up to 30 days</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Backup copies of our service data</td><td style="border: 1px solid #ddd; padding: 8px;">Up to 30 days. Data deleted from our systems may remain in a backup until then</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">B2B prospect data</td><td style="border: 1px solid #ddd; padding: 8px;">As described in the B2B section below</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">Signed record of an on-site audit visit (date, number of files, digital fingerprints, start and finish times, name of the person present; no file names or document content)</td><td style="border: 1px solid #ddd; padding: 8px;">Six years from the visit</td></tr>
-    </table>
-
-    <h2 id="your-rights">9. YOUR RIGHTS</h2>
-    <p>Under UK data protection law, you have the following rights:</p>
-    <ul>
-      <li><strong>Right of access:</strong> You can ask for a copy of the personal data we hold about you.</li>
-      <li><strong>Right to rectification:</strong> You can ask us to correct inaccurate or incomplete data.</li>
-      <li><strong>Right to erasure:</strong> You can ask us to delete your personal data in certain circumstances.</li>
-      <li><strong>Right to restrict processing:</strong> You can ask us to limit how we use your data in certain circumstances.</li>
-      <li><strong>Right to data portability:</strong> You can ask for your data in a structured, machine-readable format and transfer it to another service.</li>
-      <li><strong>Right to object:</strong> You can object to our use of your personal data for direct marketing, and in some other circumstances.</li>
-      <li><strong>Right not to be subject to automated decision-making:</strong> You have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects or similarly significantly affects you. We do not use such processing about individuals. Our AI analysis is applied to published news content and, during an on-site audit, to the documents a client chooses to load on our offline machine.</li>
-      <li><strong>Right to complain:</strong> You have the right to complain to us or to the Information Commission.</li>
-    </ul>
-
-    <h2 id="cookies-and-choices">10. COOKIES AND CHOICES</h2>
-    <p>This site sets no cookies and runs no analytics. You can browse without giving us any personal data except what you choose to put in a form or an email.</p>
-
-    <h2 id="b2b-prospect-data">11. B2B PROSPECT DATA</h2>
-    <p>We sometimes introduce our services to named people at organisations we think could benefit from them. We do this under the legitimate interests lawful basis.</p>
-    <p><strong>What we use:</strong> Name, work email address, job title, and organisation name — collected from public sources (company websites, LinkedIn, conference lists) or given to us at an event. We do not use personal email addresses (for example @gmail.com) for B2B outreach.</p>
-    <p><strong>What we send:</strong> One initial introduction email, and, if you engage, further emails about our services. You can ask us to stop at any time by emailing <a href="mailto:privacy@cogniosynthesisportal.uk">privacy@cogniosynthesisportal.uk</a> or using the unsubscribe link in any email.</p>
-    <p><strong>How long we keep it:</strong> We keep your contact details for 12 months from our last contact with you. If you ask us to stop contacting you, we keep a minimal suppression record so we do not email you again.</p>
-    <p><strong>Your rights:</strong> You have the right to object to this use of your data. If you do, we will stop contacting you and will delete your details except for a minimal suppression record.</p>
-
-    <h2 id="data-security">12. DATA SECURITY</h2>
-    <p>We take appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, destruction or damage. These include encryption in transit and at rest, access controls, regular security updates, and staff training.</p>
-
-    <h2 id="data-breaches">13. DATA BREACHES</h2>
-    <p>If a personal data breach is likely to put your rights and freedoms at risk, we will report it to the Information Commission, where feasible within 72 hours of becoming aware of it. If it is likely to put you at high risk, we will tell you without undue delay. We keep a record of every breach and what we did about it.</p>
-
-    <h2 id="complaints">14. COMPLAINTS</h2>
-    <p>If you are unhappy with how we have used your personal data, you have the right to complain to us. Email <a href="mailto:privacy@cogniosynthesisportal.uk">privacy@cogniosynthesisportal.uk</a> or write to Cogniosynthesis Portal Ltd, 15 Neptune Court, Vanguard Way, Cardiff CF24 5PJ. We will acknowledge your complaint within 30 days, look into it, keep you updated and tell you the outcome without undue delay.</p>
-    <p>You also have the right to complain to the Information Commission, the UK data protection regulator. It replaced the Information Commissioner's Office (ICO) on 30 September 2026.</p>
-    <ul>
-      <li>Website: <a href="https://ico.org.uk/make-a-complaint/">ico.org.uk/make-a-complaint</a></li>
-      <li>Helpline: 0303 123 1113</li>
-    </ul>
-
-    <h2 id="changes">15. CHANGES TO THIS POLICY</h2>
-    <p>We may update this policy from time to time. Material changes will be communicated via email or a prominent notice on our website. The "Last reviewed" date at the top indicates the latest revision.</p>
-
-    <h2 id="contact">16. CONTACT US</h2>
-    <p><strong>Email:</strong> <a href="mailto:privacy@cogniosynthesisportal.uk">privacy@cogniosynthesisportal.uk</a></p>
-    <p>We check this mailbox on working days.</p>
-    <p><strong>Post:</strong> Cogniosynthesis Portal Ltd, 15 Neptune Court, Vanguard Way, Cardiff CF24 5PJ</p>
-    <p><strong>Company number:</strong> 16225073 (registered in England and Wales)</p>
-    <p><strong>Data protection registration:</strong> ZC269688</p>
-
-    <hr />
-    <p><strong>Document History:</strong></p>
-    <table style="width: 100%; border-collapse: collapse;">
-      <tr><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Version</th><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Author</th><th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Changes</th></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.0</td><td style="border: 1px solid #ddd; padding: 8px;">Feb 2026</td><td style="border: 1px solid #ddd; padding: 8px;">Kenny Lewis</td><td style="border: 1px solid #ddd; padding: 8px;">Initial version</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.1</td><td style="border: 1px solid #ddd; padding: 8px;">2026-02-10</td><td style="border: 1px solid #ddd; padding: 8px;">Kenny Lewis</td><td style="border: 1px solid #ddd; padding: 8px;">Added Art. 22 automated decision-making section, data retention schedule, UK IDTA/SCCs for international transfers, PECR references</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.2</td><td style="border: 1px solid #ddd; padding: 8px;">2026-10-15</td><td style="border: 1px solid #ddd; padding: 8px;">Cogniosynthesis Portal Ltd</td><td style="border: 1px solid #ddd; padding: 8px;">Added B2B prospect data, lawful basis, retention and direct-marketing objection rights; verified registered office; incorporated cookie-consent update.</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.3</td><td style="border: 1px solid #ddd; padding: 8px;">2026-10-20</td><td style="border: 1px solid #ddd; padding: 8px;">Cogniosynthesis Portal Ltd</td><td style="border: 1px solid #ddd; padding: 8px;">Restored sections 1–9 (controller, data collected, purposes, lawful bases, sharing and processors, international transfers, retention, rights, cookies and choices); corrected registered office to 15 Neptune Court, Cardiff CF24 5PJ; replaced the broken information-security link; repaired navigation links; annual review date set.</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.4</td><td style="border: 1px solid #ddd; padding: 8px;">2026-10-21</td><td style="border: 1px solid #ddd; padding: 8px;">Cogniosynthesis Portal Ltd</td><td style="border: 1px solid #ddd; padding: 8px;">Corrected the hosting provider and server location; corrected the card-details and international-transfer statements; added the right to complain to us and updated the regulator to the Information Commission; added our data protection registration number; replaced the data protection officer label with a privacy contact; set retention periods, including for sign-in records, email addresses entered at sign-in and backups; replaced the security-measures list; updated the data-breach wording; updated the B2B section.</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.5</td><td style="border: 1px solid #ddd; padding: 8px;">2026-11-05</td><td style="border: 1px solid #ddd; padding: 8px;">Cogniosynthesis Portal Ltd</td><td style="border: 1px solid #ddd; padding: 8px;">Added section 3, Audits: on-site, offline audits; documents not sent to us or kept.</td></tr>
-      <tr><td style="border: 1px solid #ddd; padding: 8px;">1.6</td><td style="border: 1px solid #ddd; padding: 8px;">2026-11-16</td><td style="border: 1px solid #ddd; padding: 8px;">Cogniosynthesis Portal Ltd</td><td style="border: 1px solid #ddd; padding: 8px;">Section 10: the site sets no cookies and runs no analytics, so the analytics, cookie-banner and consent-record text is removed; one trading-name list; Epistemic Audit name.</td></tr>
-    </table>
-
-    <p><strong>Approval:</strong></p>
-    <p>Kenny Lewis, Director<br />Approved: 5 November 2026</p>
-  </div>
+<BaseLayout title="Privacy Policy" description="How Cogniosynthesis Portal Ltd collects, uses, shares and protects personal data, our lawful bases, retention periods, cookies and your UK GDPR rights.">
+  <div class="container section legal-content" set:html={legal} />
+  <Footer />
 </BaseLayout>
 
-<style>
-  h1 { margin-bottom: var(--spacing-32); }
-  h2 { margin-top: var(--spacing-48); margin-bottom: var(--spacing-16); }
-  p, li { margin-bottom: var(--spacing-12); }
-  table { margin: var(--spacing-24) 0; font-size: var(--fontsize-body-sm); }
-  th, td { vertical-align: top; }
-  hr { margin: var(--spacing-48) 0; border: none; border-top: 1px solid var(--color-border-default); }
+<style is:global>
+  /* The wording arrives as ready-made HTML, so its styles cannot be scoped. */
+  .legal-content { max-width: 860px; }
+  .legal-content h1 { margin-bottom: var(--spacing-32); }
+  .legal-content h2 { margin-top: var(--spacing-48); margin-bottom: var(--spacing-16); font-size: clamp(20px, 3vw, 26px); line-height: 1.3; }
+  .legal-content h3 { margin-top: var(--spacing-24); margin-bottom: var(--spacing-12); font-size: 18px; line-height: 1.4; }
+  .legal-content p, .legal-content li { margin-bottom: var(--spacing-12); line-height: 1.7; }
+  .legal-content ul { list-style: disc; padding-left: 22px; }
+  .legal-content a { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .legal-content table { width: 100%; border-collapse: collapse; margin: var(--spacing-24) 0; font-size: var(--fontsize-body-sm); }
+  .legal-content th, .legal-content td { border: 1px solid #dcdce0; padding: 8px; text-align: left; vertical-align: top; }
+  .legal-content hr { margin: var(--spacing-48) 0; border: none; border-top: 1px solid var(--color-border-default); }
 </style>

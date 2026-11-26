@@ -2,6 +2,7 @@
 import Layout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
 import products from '../../data/products.json';
+import { PRODUCT_SITES_NOT_OPEN } from '../../data/site';
 
 export function getStaticPaths() {
   return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
@@ -11,6 +12,7 @@ const { product } = Astro.props;
 const bySlug = Object.fromEntries(products.map((p) => [p.slug, p]));
 const parent = product.parent ? bySlug[product.parent] : null;
 const siblings = product.siblings.map((s) => bySlug[s]).filter(Boolean);
+const buttons = product.buttons.filter((b) => !PRODUCT_SITES_NOT_OPEN.includes(b.href));
 const familyId = product.category.toLowerCase().replace(/[^a-z]+/g, '-');
 ---
 
@@ -35,9 +37,9 @@ const familyId = product.category.toLowerCase().replace(/[^a-z]+/g, '-');
     <div class="container product-body">
       <div class="product-main">
         <p class="product-about">{product.about}</p>
-        {product.buttons.length > 0 && (
+        {buttons.length > 0 && (
           <p class="product-btns">
-            {product.buttons.map((b) => <a class="btn btn-primary btn-lg" href={b.href} rel="noopener">{b.label}</a>)}
+            {buttons.map((b) => <a class="btn btn-primary btn-lg" href={b.href} rel="noopener">{b.label}</a>)}
           </p>
         )}
       </div>
