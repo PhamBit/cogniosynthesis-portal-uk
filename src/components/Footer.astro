@@ -136,10 +136,14 @@ const footerLinks = {
     margin: 0;
     
     li {
-      margin-bottom: var(--spacing-12);
+      margin-bottom: 0;
     }
     
     a {
+      /* Tall enough to tap on a phone */
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       color: var(--color-text-secondary);
       font-size: var(--fontsize-body-sm);
       line-height: var(--line-height-body-md);
