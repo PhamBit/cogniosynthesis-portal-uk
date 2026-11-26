@@ -231,9 +231,17 @@ if (iframe) {
   const motionOff = window.matchMedia('(prefers-reduced-motion: reduce)');
   let onScreen = true;
 
-  const timelines = (): any[] => {
+  type Timeline = {
+    play?: () => void;
+    pause?: () => void;
+    seek?: (seconds: number) => void;
+    __stillAt?: number;
+  };
+  type CompositionWindow = Window & { __timelines?: Record<string, Timeline> };
+
+  const timelines = (): Timeline[] => {
     try {
-      return Object.values((iframe.contentWindow as any)?.__timelines ?? {});
+      return Object.values((iframe.contentWindow as CompositionWindow | null)?.__timelines ?? {});
     } catch {
       return [];
     }
