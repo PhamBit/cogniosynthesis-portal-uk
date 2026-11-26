@@ -21,7 +21,7 @@ You were right — the first version wasn't visually matching DXC.com at all. He
 --color-background-surface: #ffffff;
 --color-background-section: #ebe7e4;
 --color-background-footer: #0e1020;
---font-primary: 'GT Standard Extended', ...;
+--font-primary: 'Archivo Expanded', ...;
 --fontsize-heading-h1: 60px;
 --fontsize-heading-h2: 48px;
 /* All values in PIXELS like DXC, not rems */
@@ -40,10 +40,10 @@ You were right — the first version wasn't visually matching DXC.com at all. He
 ### 3. **Typography**
 
 **Before:** Generic 12px → 64px rem scale  
-**After:** DXC's exact font system
+**After:** DXC's type scale, set in Archivo Expanded (free, SIL Open Font License; replaced GT Standard Extended on 26 November 2026)
 
 ```css
---font-primary: 'GT Standard Extended'  /* DXC brand font */
+--font-primary: 'Archivo Expanded'  /* free wide heading font, hosted in public/fonts */
 --fontsize-heading-h1: 60px;            /* Exact pixel values */
 --fontsize-heading-h2: 48px;
 --hero-font-hero: 48px;                 /* Hero-specific scale */
@@ -56,7 +56,7 @@ You were right — the first version wasn't visually matching DXC.com at all. He
 
 - Light background matching DXC
 - Blue accent underline on hover (#2f6fd5)
-- Proper font family (GT Standard Extended)
+- Proper font family (Archivo Expanded)
 
 ### 5. **Card Components**
 
@@ -118,7 +118,7 @@ You were right — the first version wasn't visually matching DXC.com at all. He
 
 1. **Footer Component** - Currently uses old dark navy style, needs DXC-style light footer rebuild
 2. **Button Styles** - Add `.btn` and `.btn-primary` classes with DXC colors
-3. **Fonts** - GT Standard Extended font files not included (copyright)
+3. **Fonts** - Done: headings use Archivo Expanded, served from `public/fonts` with its licence file. GT Standard Extended (DXC's commercial font) is not used and no file of it is in the repository
 4. **Logo** - Replace placeholder SVG with actual CSP logo
 
 ### Medium Priority
@@ -171,7 +171,7 @@ Choose what to fix next:
 **B. Add Button Styles** - Create proper `.btn` classes matching DXC  
 **C. Mobile Menu** - Implement hamburger navigation for mobile  
 **D. Additional Pages** - Build /solutions, /about pages  
-**E. Font Integration** - License and add GT Standard Extended fonts
+**E. Font Integration** - Done: Archivo Expanded hosted locally (no GT Standard Extended licence needed)
 
 ---
 
