@@ -1,0 +1,166 @@
+<!-- hyperframes-registry-item: hero-grid -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: transparent; overflow: hidden; }
+    
+    #hero-grid-root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f6f3f0 0%, #ebe7e4 100%);
+    }
+    
+    /* Grid container - wraps the SVG pattern */
+    .grid-container {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      overflow: hidden;
+    }
+    
+    /* The SVG grid pattern */
+    .grid-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    
+    .grid-line-v, .grid-line-h {
+      stroke: #0e1020;
+      stroke-width: 1;
+      fill: none;
+    }
+    
+    /* Optional subtle dot at intersections */
+    .grid-dot {
+      fill: #0e1020;
+      opacity: 0.4;
+    }
+    
+    /* Overlay for content readability when used as hero bg */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(246, 243, 240, 0.4) 100%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div 
+    id="hero-grid-root"
+    data-composition-id="hero-grid"
+    data-start="0"
+    data-duration="60"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Grid layer -->
+    <div class="grid-container" id="grid-wrapper">
+      <svg class="grid-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <defs>
+          <!-- Vertical lines every 60px -->
+          <pattern id="grid-v" width="60" height="1080" patternUnits="userSpaceOnUse">
+            <line class="grid-line-v" x1="0" y1="0" x2="0" y2="1080" />
+          </pattern>
+          <!-- Horizontal lines every 60px -->
+          <pattern id="grid-h" width="1920" height="60" patternUnits="userSpaceOnUse">
+            <line class="grid-line-h" x1="0" y1="0" x2="1920" y2="0" />
+          </pattern>
+        </defs>
+        
+        <!-- Grid layers -->
+        <rect width="100%" height="100%" fill="url(#grid-v)" />
+        <rect width="100%" height="100%" fill="url(#grid-h)" />
+        
+        <!-- Denser grid at 200px intervals (more prominent lines) -->
+        <pattern id="grid-v-major" width="200" height="1080" patternUnits="userSpaceOnUse">
+          <line class="grid-line-v" x1="0" y1="0" x2="0" y2="1080" stroke-width="1.5" />
+        </pattern>
+        <pattern id="grid-h-major" width="1920" height="200" patternUnits="userSpaceOnUse">
+          <line class="grid-line-h" x1="0" y1="0" x2="1920" y2="0" stroke-width="1.5" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#grid-v-major)" opacity="0.5" />
+        <rect width="100%" height="100%" fill="url(#grid-h-major)" opacity="0.5" />
+        
+        <!-- Intersection dots (sparse) -->
+        <g id="dots-layer">
+          <!-- Dots at 200px intervals -->
+          <!-- Generated via script below for efficiency -->
+        </g>
+      </svg>
+    </div>
+    
+    <!-- Gradient overlay for readability -->
+    <div class="grid-overlay"></div>
+  </div>
+  
+  <script>
+    (function() {
+      window.__timelines = window.__timelines || {};
+      
+      var root = document.getElementById('hero-grid-root');
+      var gridWrapper = document.getElementById('grid-wrapper');
+      var dotsLayer = document.getElementById('dots-layer');
+      
+      // Generate intersection dots at 200px intervals
+      var dotSpacing = 200;
+      var width = 1920;
+      var height = 1080;
+      
+      for (var x = 0; x <= width; x += dotSpacing) {
+        for (var y = 0; y <= height; y += dotSpacing) {
+          var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          circle.setAttribute('cx', x);
+          circle.setAttribute('cy', y);
+          circle.setAttribute('r', 1.5);
+          circle.setAttribute('class', 'grid-dot');
+          dotsLayer.appendChild(circle);
+        }
+      }
+      
+      // Random seed for variation
+      var urlParams = new URLSearchParams(window.location.search);
+      var seed = parseFloat(urlParams.get('seed')) || Math.random();
+      var driftAmount = 20 + (seed * 100) % 30; // 20-50px drift
+      
+      var tl = gsap.timeline({ paused: true });
+      
+      // Entrance fade-in
+      tl.from(gridWrapper, {
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power2.out'
+      }, 0);
+      
+      // Very slow drift animation (60s cycle)
+      // Optional - comment out these lines for static grid
+      tl.to(gridWrapper, {
+        x: driftAmount,
+        y: driftAmount * 0.6,
+        duration: 30,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+      }, 0);
+      
+      // Alternative: slower, more subtle parallax on just the major grid
+      // tl.to(gridWrapper, {
+      //   x: driftAmount * 0.5,
+      //   duration: 60,
+      //   ease: 'sine.inOut',
+      //   yoyo: true,
+      //   repeat: -1
+      // }, 0);
+      
+      window.__timelines['hero-grid'] = tl;
+    })();
+  </script>
+</body>
+</html>

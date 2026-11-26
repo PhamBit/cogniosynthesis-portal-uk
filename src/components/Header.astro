@@ -1,11 +1,19 @@
 ---
+const currentPath = Astro.url.pathname;
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/explore/', label: 'AI Exploration' },
   { href: '/health-check/', label: 'AI Health Check' },
   { href: '/audits/', label: 'Epistemic Audit' },
-  { href: '/about', label: 'About' }
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
 ];
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href.replace(/\/$/, ''));
+}
 ---
 
 <header class="header">
@@ -23,8 +31,8 @@ const navLinks = [
       <!-- Desktop Navigation -->
       <ul class="nav-links">
         {navLinks.map(link => (
-          <li class="nav-item">
-            <a href={link.href} class="nav-link">{link.label}</a>
+          <li class={`nav-item ${isActive(link.href) ? 'nav-item--active' : ''}`}>
+            <a href={link.href} class={`nav-link ${isActive(link.href) ? 'nav-link--active' : ''}`}>{link.label}</a>
           </li>
         ))}
       </ul>
@@ -50,8 +58,8 @@ const navLinks = [
       <div class="mobile-menu-content">
         <ul class="mobile-nav-links">
           {navLinks.map(link => (
-            <li class="mobile-nav-item">
-              <a href={link.href} class="mobile-nav-link" onclick="document.body.classList.remove('menu-open')">{link.label}</a>
+            <li class={`mobile-nav-item ${isActive(link.href) ? 'mobile-nav-item--active' : ''}`}>
+              <a href={link.href} class={`mobile-nav-link ${isActive(link.href) ? 'mobile-nav-link--active' : ''}`} onclick="document.body.classList.remove('menu-open')">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -132,6 +140,14 @@ const navLinks = [
   }
   
   .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .nav-link--active {
+    color: #2f6fd5;
+  }
+  
+  .nav-link--active::after {
     width: 100%;
   }
   
@@ -242,6 +258,11 @@ const navLinks = [
   
   .mobile-nav-link:hover {
     color: #2f6fd5;
+  }
+  
+  .mobile-nav-link--active {
+    color: #2f6fd5;
+    font-weight: 600;
   }
   
   .mobile-cta {

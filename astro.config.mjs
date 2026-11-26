@@ -11,5 +11,8 @@ export default defineConfig({
     css: {
       devSourcemap: true
     }
-  }
+  },
+  publicDir: 'public',
+  // Serve compositions for HyperFrames runtime
+  compressPublic: false
 });

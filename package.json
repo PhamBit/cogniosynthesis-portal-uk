@@ -9,6 +9,7 @@
     "lint": "eslint src/"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
     "@astrojs/tailwind": "^6.0.2",
     "@hyperframes/core": "^0.9.80",
     "@hyperframes/player": "^0.9.80",
@@ -20,6 +21,6 @@
     "eslint": "^9.0.0",
     "postcss": "^8.5.33",
     "prettier": "^3.0.0",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^3.4.19"
   }
 }

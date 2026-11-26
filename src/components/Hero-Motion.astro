@@ -1,0 +1,190 @@
+---
+/**
+ * Hero-Grid.astro - Subtle wireframe grid background
+ * Loads an animated geometric grid from /compositions/hero-grid.html
+ */
+
+interface Props {
+  headline: string;
+  subheadline?: string;
+  primaryCta?: string;
+  secondaryCta?: string;
+  primaryCtaLink?: string;
+  secondaryCtaLink?: string;
+}
+
+const { 
+  headline, 
+  subheadline = 'Enterprise AI & Technology Solutions for the Modern World',
+  primaryCta = 'Get Started',
+  secondaryCta = 'Learn More',
+  primaryCtaLink = '/contact',
+  secondaryCtaLink = '/solutions'
+} = Astro.props;
+
+// Generate random seed for variation on each page load
+const randomSeed = Math.floor(Math.random() * 10000);
+---
+
+<section class="hero-motion">
+  <!-- HyperFrames grid background composition -->
+  <div class="hyperframes-bg-container">
+    <iframe 
+      src={`/compositions/hero-grid.html?seed=${randomSeed}`}
+      frameborder="0"
+      class="hyperframes-iframe"
+      aria-hidden="true"
+      tabindex="-1"
+    ></iframe>
+  </div>
+  
+  <!-- Overlay for text readability -->
+  <div class="hero-motion-overlay"></div>
+  
+  <!-- Hero content -->
+  <div class="container hero-motion-content">
+    <h1 class="hero-motion-headline">{headline}</h1>
+    
+    {subheadline && (
+      <p class="hero-motion-subheadline">{subheadline}</p>
+    )}
+    
+    <div class="hero-motion-ctas">
+      <a href={primaryCtaLink} class="btn btn-primary btn-lg">
+        {primaryCta}
+      </a>
+      
+      {secondaryCta && (
+        <a href={secondaryCtaLink} class="btn btn-secondary btn-lg">
+          {secondaryCta}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-motion {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-96) 0;
+    overflow: hidden;
+  }
+  
+  /* Background composition container */
+  .hyperframes-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hyperframes-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  /* Gradient overlay for readability (lighter for grid bg) */
+  .hero-motion-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(246, 243, 240, 0.75) 0%,
+      rgba(246, 243, 240, 0.6) 50%,
+      rgba(246, 243, 240, 0.7) 100%
+    );
+    pointer-events: none;
+  }
+  
+  /* Hero content */
+  .hero-motion-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-motion-headline {
+    font-family: var(--font-primary);
+    font-size: clamp(29px, 4vw, 51px);
+    line-height: 1.1;
+    color: #0e1020;
+    margin-bottom: var(--spacing-24);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-shadow: none;
+  }
+  
+  .hero-motion-subheadline {
+    font-family: var(--font-secondary);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
+    color: #4b4d5d;
+    margin-bottom: var(--spacing-40);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: none;
+  }
+  
+  .hero-motion-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-16);
+  }
+  
+  /* Entrance animations */
+  .hero-motion-headline,
+  .hero-motion-subheadline,
+  .hero-motion-ctas {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
+  .hero-motion-headline { animation-delay: 0.2s; }
+  .hero-motion-subheadline { animation-delay: 0.4s; }
+  .hero-motion-ctas { animation-delay: 0.6s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+// Client-side enhancement: detect when iframe is ready and ensure GSAP timeline plays
+if (typeof window !== 'undefined') {
+  const checkIframe = () => {
+    const iframe = document.querySelector('.hyperframes-iframe');
+    if (iframe && iframe.contentWindow?.__timelines) {
+      // Play the timeline
+      Object.values(iframe.contentWindow.__timelines).forEach(tl => {
+        if (tl.play) tl.play();
+      });
+    }
+  };
+  
+  // Check after load
+  const iframe = document.querySelector('.hyperframes-iframe');
+  if (iframe) {
+    iframe.addEventListener('load', checkIframe);
+  }
+  
+  // Also try immediately and on interval
+  setTimeout(checkIframe, 100);
+}
+</script>

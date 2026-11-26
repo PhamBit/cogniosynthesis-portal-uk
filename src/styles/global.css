@@ -261,13 +261,13 @@ img {
 
 .btn-secondary {
   background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  color: #0e1020;
+  border: 2px solid #0e1020;
   padding: calc(var(--spacing-12) - 2px) var(--spacing-24);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(14, 16, 32, 0.05);
   text-decoration: none;
   transform: translateY(-1px);
 }
