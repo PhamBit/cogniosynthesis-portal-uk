@@ -20,9 +20,7 @@
    "stancewatch",
    "cogniopublic",
    "cognioenacted",
-   "ghost-ledger",
-   "aligned-certified",
-   "paichip"
+   "ghost-ledger"
   ],
   "parent": null
  },
@@ -47,63 +45,9 @@
    "knowledge-ecosystem",
    "cogniocymru",
    "cogniomap",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": "cognionews"
- },
- {
-  "slug": "aligned-certified",
-  "category": "Trust & Governance",
-  "name": "Aligned & Certified",
-  "line": "Analyst certification for organisations",
-  "about": "The 7-Dimension Framework helps your team see context that conventional analysis can miss. Analyst certification for organisations.",
-  "icon": "aligned-and-certified.svg",
-  "metaDescription": "The 7-Dimension Framework helps your team see context that conventional analysis can miss. Analyst certification for organisations.",
-  "buttons": [
-   {
-    "href": "https://alignedncertified.co.uk",
-    "label": "Visit Aligned & Certified →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">Free assessment; certification from £295</p><p>Self-paced certification £295, cohort £1,200, AI-literacy team seat £35. The team seat supports staff AI literacy, including for organisations with duties under the EU AI Act. Certification is voluntary.</p><p>How to buy: Free assessment; payment links for certification and seats.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/cNifZbaTO2dU4j13Th2VG0b\" rel=\"noopener\">Pay £295 via Stripe: self-paced certification</a><a class=\"btn\" href=\"https://buy.stripe.com/cNi14hfa4bOu6r975t2VG0c\" rel=\"noopener\">Pay £1,200 via Stripe: cohort certification</a><a class=\"btn\" href=\"https://buy.stripe.com/eVq6oB7HC19QdTB2Pd2VG0d\" rel=\"noopener\">Pay £35 via Stripe: AI-literacy team seat</a></p>",
-  "siblings": [
-   "goldberry",
-   "goldberry-for-students",
-   "stancewatch",
-   "cogniopublic",
-   "cognioenacted",
-   "ghost-ledger",
-   "accessibility-checker",
-   "paichip"
-  ],
-  "parent": null
- },
- {
-  "slug": "bio-debt",
-  "category": "Civic & Cultural Infrastructure",
-  "name": "Bio-Debt",
-  "line": "A public record of extraction",
-  "about": "Bio-Debt is a public ledger of the share of corporate revenue owed to the living world for extraction and for the commercial co-option of species names. We record. We do not collect. A Cogniosynthesis Portal project.",
-  "icon": "bio-debt.svg",
-  "metaDescription": "A public ledger of the share of corporate revenue owed to the living world for extraction and the co-option of species names. We record. We do not collect.",
-  "buttons": [
-   {
-    "href": "https://bio-debt.co.uk",
-    "label": "Visit Bio-Debt →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
-  "siblings": [
-   "cognionews",
-   "cogniofem",
-   "acst-vocabulary",
-   "knowledge-ecosystem",
-   "cogniocymru",
-   "cogniomap",
-   "ministry-of-digital-obscurity"
-  ],
-  "parent": null
  },
  {
   "slug": "cogniocymru",
@@ -126,7 +70,6 @@
    "acst-vocabulary",
    "knowledge-ecosystem",
    "cogniomap",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": null
@@ -152,9 +95,7 @@
    "stancewatch",
    "cogniopublic",
    "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": null
  },
@@ -179,7 +120,6 @@
    "knowledge-ecosystem",
    "cogniocymru",
    "cogniomap",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": "cognionews"
@@ -205,7 +145,6 @@
    "acst-vocabulary",
    "knowledge-ecosystem",
    "cogniocymru",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": null
@@ -231,7 +170,6 @@
    "knowledge-ecosystem",
    "cogniocymru",
    "cogniomap",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": null
@@ -257,9 +195,7 @@
    "stancewatch",
    "cognioenacted",
    "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": null
  },
@@ -274,9 +210,6 @@
   "buttons": [],
   "priceHtml": "<p class=\"ph\">Coming soon</p><p>How to buy: <a class=\"mail\" href=\"mailto:info@cogniosynthesisportal.uk?subject=CognioYou%20waitlist\">Email us to join the CognioYou waitlist</a></p>",
   "siblings": [
-   "oldschool-search",
-   "my-sovereign-home",
-   "feedmesafe",
    "eco-money-expert"
   ],
   "parent": null
@@ -297,33 +230,7 @@
   ],
   "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
   "siblings": [
-   "oldschool-search",
-   "my-sovereign-home",
-   "cognioyou",
-   "feedmesafe"
-  ],
-  "parent": null
- },
- {
-  "slug": "feedmesafe",
-  "category": "Individual Sovereignty",
-  "name": "FeedMeSafe",
-  "line": "Free QR allergy chef card, 9 languages",
-  "about": "Generate a free, instantly-scannable QR allergy chef card. Communicate the 14 UK FSA allergens to restaurant staff in 9 languages including Welsh — no app, no account, no signal needed.",
-  "icon": "feedmesafe.svg",
-  "metaDescription": "Make a free, scannable QR allergy chef card. Show the 14 UK FSA allergens to restaurant staff in 9 languages including Welsh — no app, no account, no signal.",
-  "buttons": [
-   {
-    "href": "https://feedmesafe.co.uk",
-    "label": "Visit FeedMeSafe →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Audit Visit £750 + VAT (half a day, up to 3 documents), Audit Day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
-  "siblings": [
-   "oldschool-search",
-   "my-sovereign-home",
-   "cognioyou",
-   "eco-money-expert"
+   "cognioyou"
   ],
   "parent": null
  },
@@ -392,9 +299,7 @@
    "stancewatch",
    "cogniopublic",
    "cognioenacted",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": null
  },
@@ -419,9 +324,7 @@
    "cogniopublic",
    "cognioenacted",
    "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": null
  },
@@ -446,9 +349,7 @@
    "cogniopublic",
    "cognioenacted",
    "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": "goldberry"
  },
@@ -517,7 +418,6 @@
    "acst-vocabulary",
    "cogniocymru",
    "cogniomap",
-   "bio-debt",
    "ministry-of-digital-obscurity"
   ],
   "parent": null
@@ -543,81 +443,7 @@
    "acst-vocabulary",
    "knowledge-ecosystem",
    "cogniocymru",
-   "cogniomap",
-   "bio-debt"
-  ],
-  "parent": null
- },
- {
-  "slug": "my-sovereign-home",
-  "category": "Individual Sovereignty",
-  "name": "My Sovereign Home",
-  "line": "Your data, your AI, your rules",
-  "about": "A guided journey for regular people. Take back your data, set up your own AI, and build an agent that answers to nobody else. No coding, no expensive hardware.",
-  "icon": "my-sovereign-home.svg",
-  "metaDescription": "A guided journey for regular people. Take back your data, set up your own AI, and build an agent that answers to nobody else. No coding, no expensive hardware.",
-  "buttons": [
-   {
-    "href": "https://mysovereignhome.co.uk",
-    "label": "Visit My Sovereign Home →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">£9.99 a month or £99 lifetime</p><p>How to buy: Self-serve via Stripe.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/dRm3cpd1W19Qg1JfBZ2VG04\" rel=\"noopener\">Subscribe £9.99 per month, renews monthly, cancel any time: MySovereignHome Monthly</a><a class=\"btn\" href=\"https://buy.stripe.com/4gM8wJ4vq9GmbLt75t2VG05\" rel=\"noopener\">Pay £99 via Stripe: MySovereignHome Lifetime</a></p>",
-  "siblings": [
-   "oldschool-search",
-   "feedmesafe",
-   "cognioyou",
-   "eco-money-expert"
-  ],
-  "parent": null
- },
- {
-  "slug": "oldschool-search",
-  "category": "Individual Sovereignty",
-  "name": "OldSchool Search",
-  "line": "Private, ad-free everyday internet",
-  "about": "OldSchool gives you everyday digital sovereignty: private search, source-aware news, manipulation-free shopping, data-exposure scans, and household-protection tools. No tracking. No ads. Honest subscription.",
-  "icon": "oldschool-search.svg",
-  "metaDescription": "OldSchool gives you everyday digital sovereignty: private search, source-aware news, manipulation-free shopping and data-exposure scans. No tracking. No ads.",
-  "buttons": [
-   {
-    "href": "https://oldschoolsearch.co.uk",
-    "label": "Visit OldSchool Search →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">Free search</p><p>Search stays free. Optional subscription from £3 a month.</p><p>How to buy: Self-serve subscription.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/cNiaER5zudWC3eX75t2VG0j\" rel=\"noopener\">Subscribe £3 per month, renews monthly, cancel any time: optional support</a></p>",
-  "siblings": [
-   "my-sovereign-home",
-   "feedmesafe",
-   "cognioyou",
-   "eco-money-expert"
-  ],
-  "parent": null
- },
- {
-  "slug": "paichip",
-  "category": "Trust & Governance",
-  "name": "PAIchip",
-  "line": "Context-aware analysis, in silicon",
-  "about": "PAIchip is a proposed custom processor that wires context-aware analysis into hardware. A research proposal from Cogniosynthesis Portal Ltd.",
-  "icon": "paichip.svg",
-  "metaDescription": "PAIchip is a proposed custom processor that wires context-aware analysis into hardware. A research proposal from Cogniosynthesis Portal Ltd.",
-  "buttons": [
-   {
-    "href": "https://www.paichip.uk/",
-    "label": "Visit PAIchip →"
-   }
-  ],
-  "priceHtml": "<p class=\"ph\">Not for sale (research proposal)</p><p>A research proposal.</p><p>How to buy: Enquiries only.</p>",
-  "siblings": [
-   "goldberry",
-   "goldberry-for-students",
-   "stancewatch",
-   "cogniopublic",
-   "cognioenacted",
-   "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker"
+   "cogniomap"
   ],
   "parent": null
  },
@@ -642,9 +468,7 @@
    "cogniopublic",
    "cognioenacted",
    "ghost-ledger",
-   "aligned-certified",
-   "accessibility-checker",
-   "paichip"
+   "accessibility-checker"
   ],
   "parent": "goldberry"
  }

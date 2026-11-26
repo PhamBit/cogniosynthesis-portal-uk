@@ -25,14 +25,8 @@ export const CANCELLATION_TERM =
 export const PAYMENT_TERM =
   'private firms pay a 20% deposit (plus VAT) at booking, which secures your date and is credited to your invoice; we invoice the balance on the day, payable within 30 days. Public bodies book by purchase order, invoiced on the day at 30 days.';
 
-// Product addresses that, when checked on 26 Nov 2026, sent the visitor straight back to the Portal
-// home page instead of a product site. Their "Visit" button is left off the product page until the
-// address opens a site of its own; take an address out of this list to bring its button back.
-export const PRODUCT_SITES_NOT_OPEN = [
-  'https://alignedncertified.co.uk',
-  'https://bio-debt.co.uk',
-  'https://feedmesafe.co.uk',
-  'https://mysovereignhome.co.uk',
-  'https://oldschoolsearch.co.uk',
-  'https://www.paichip.uk/',
-];
+// Product addresses whose "Visit" button is left off the product page (none at present).
+// The six products retired on 18 Nov 2026 (Aligned & Certified, Bio-Debt, FeedMeSafe, My Sovereign Home,
+// OldSchool Search, PAIchip) were taken out of products.json on 26 Nov 2026; their old page addresses
+// forward to /products/ (astro.config.mjs).
+export const PRODUCT_SITES_NOT_OPEN: string[] = [];
