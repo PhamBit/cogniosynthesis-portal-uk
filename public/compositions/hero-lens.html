@@ -1,0 +1,392 @@
+<!-- hyperframes-registry-item: hero-lens -->
+<!--
+  Hero Lens composition: examination to clarity.
+  Beat 1  Examination     a handheld lens drifts over blurred document fragments; what is under the glass is sharp.
+  Beat 2  Deconstruction  the lens comes apart and its clarity spreads to the whole field.
+  Beat 3  Clarity         the parts reform into a mark, and three words settle: Wisdom, Accuracy, Knowledge.
+
+  Query parameters:
+    embed=1     transparent background and autoplay (used by Hero-Motion.astro)
+    autoplay=1  play when opened on its own
+    seed=N      varies the fragment layout
+  Everything is local: no CDN, no network requests beyond this site.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/vendor/gsap.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'GT Standard Extended';
+      src: url('/fonts/gt-standard-extended.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body { background: #f6f3f0; overflow: hidden; }
+    body.embed { background: transparent; }
+
+    #hero-lens-root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    #stage-svg { width: 100%; height: 100%; display: block; }
+
+    #blur-layer { filter: blur(3.2px); }
+    #blur-layer .finding { display: none; }
+
+    .paper { fill: #ffffff; stroke: #cfcfd6; stroke-width: 1.5; }
+    .bar { fill: #0e1020; }
+    #blur-layer .bar { fill: #4b4d5d; }
+    .finding-box { fill: rgba(47, 111, 213, 0.10); stroke: #2f6fd5; stroke-width: 2; stroke-dasharray: 6 4; }
+    .finding-dot { fill: #2f6fd5; }
+
+    .rim { fill: none; stroke: #0e1020; stroke-width: 12; }
+    .word {
+      font-family: 'GT Standard Extended', system-ui, -apple-system, sans-serif;
+      font-size: 33px;
+      letter-spacing: 0.02em;
+      fill: #0e1020;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+<body>
+  <div
+    id="hero-lens-root"
+    data-composition-id="hero-lens"
+    data-start="0"
+    data-duration="16"
+    data-width="1920"
+    data-height="1080"
+  >
+    <svg id="stage-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 820" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <clipPath id="lens-clip"><circle id="clip-circle" cx="0" cy="0" r="89" /></clipPath>
+        <radialGradient id="vignette" cx="50%" cy="50%" r="50%">
+          <stop offset="0.58" stop-color="#f6f3f0" stop-opacity="0" />
+          <stop offset="1" stop-color="#f6f3f0" stop-opacity="1" />
+        </radialGradient>
+        <radialGradient id="glass-grad" cx="38%" cy="32%" r="75%">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.55" />
+          <stop offset="1" stop-color="#2f6fd5" stop-opacity="0.14" />
+        </radialGradient>
+      </defs>
+
+      <g id="stage">
+        <!-- Unexamined documents: soft -->
+        <g id="blur-layer"></g>
+        <!-- The same documents, sharp, seen only through the glass until clarity spreads -->
+        <g id="sharp-clip" clip-path="url(#lens-clip)">
+          <g id="sharp-layer"></g>
+        </g>
+        <rect x="0" y="0" width="1000" height="820" fill="url(#vignette)" />
+
+        <!-- Lens parts (placed by script) -->
+        <g id="glass">
+          <circle r="89" fill="url(#glass-grad)" />
+          <path d="M -62 -34 A 71 71 0 0 1 -20 -68" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="5" stroke-linecap="round" />
+        </g>
+        <g id="facets"></g>
+        <g id="handle"></g>
+        <g id="rim"></g>
+
+        <!-- Clarity -->
+        <text class="word" id="word-0" x="215" y="530">Wisdom</text>
+        <text class="word" id="word-1" x="500" y="530">Accuracy</text>
+        <text class="word" id="word-2" x="785" y="530">Knowledge</text>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var NS = 'http://www.w3.org/2000/svg';
+      var params = new URLSearchParams(window.location.search);
+      var embed = params.get('embed') === '1';
+      if (embed) document.body.classList.add('embed');
+      var small = window.innerWidth < 600;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Seeded random numbers so a given seed always gives the same layout
+      var seed = (parseInt(params.get('seed'), 10) || 7) >>> 0;
+      function rnd() {
+        seed = (seed + 0x6D2B79F5) >>> 0;
+        var t = seed;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      }
+      function el(name, attrs, parent) {
+        var e = document.createElementNS(NS, name);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(e);
+        return e;
+      }
+      function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+      function smooth(v) { v = clamp(v); return v * v * (3 - 2 * v); }
+      function f(n) { return Math.round(n * 100) / 100; }
+
+      // ---------------------------------------------------------------
+      // Document fragments
+      // ---------------------------------------------------------------
+      var COLS = [120, 310, 500, 690, 880];
+      var ROWS = [170, 400, 610];
+      var WAYPOINTS = [[1, 0], [3, 1], [1, 2]];          // the three fragments the lens examines
+      var MARK = { x: 500, y: 325 };
+
+      var slots = [];
+      WAYPOINTS.forEach(function (w) { slots.push(w); });
+      for (var r = 0; r < 3; r++) for (var c = 0; c < 5; c++) {
+        var isKey = WAYPOINTS.some(function (w) { return w[0] === c && w[1] === r; });
+        if (!isKey && !(c === 2 && r === 1)) slots.push([c, r]);   // centre slot left clear for the mark
+      }
+
+      var blurLayer = document.getElementById('blur-layer');
+      var sharpLayer = document.getElementById('sharp-layer');
+      var frags = [];
+
+      function drawFragment(parent, spec) {
+        var g = el('g', {}, parent);
+        el('rect', { 'class': 'paper', x: -80, y: -62, width: 160, height: 124, rx: 6 }, g);
+        var finding = null;
+        spec.rows.forEach(function (row, i) {
+          var y = -40 + i * 20;
+          if (row.gap) {
+            var fg = el('g', { 'class': 'finding' }, g);
+            el('rect', { 'class': 'finding-box', x: -64, y: y - 7, width: 96, height: 14, rx: 3 }, fg);
+            el('circle', { 'class': 'finding-dot', cx: 50, cy: y, r: 6 }, fg);
+            finding = fg;
+          } else {
+            el('rect', { 'class': 'bar', x: -64, y: y - 3.5, width: row.w, height: 7, rx: 3.5 }, g);
+          }
+        });
+        return { g: g, finding: finding };
+      }
+
+      slots.forEach(function (slot, i) {
+        var key = i < 3;
+        var gx = COLS[slot[0]], gy = ROWS[slot[1]];
+        var spec = {
+          x: key ? gx : gx + (rnd() - 0.5) * 70,
+          y: key ? gy : gy + (rnd() - 0.5) * 60,
+          r: (rnd() - 0.5) * (key ? 14 : 30),
+          gx: gx, gy: gy,
+          rows: []
+        };
+        var gapRow = (key || i % 3 === 0) ? 1 + Math.floor(rnd() * 3) : -1;
+        for (var j = 0; j < 5; j++) spec.rows.push({ gap: j === gapRow, w: 56 + rnd() * 70 });
+        var a = drawFragment(blurLayer, spec);
+        var b = drawFragment(sharpLayer, spec);
+        if (small && i >= 9) { a.g.style.display = 'none'; b.g.style.display = 'none'; }
+        frags.push({ spec: spec, blur: a.g, sharp: b.g, finding: b.finding, key: key });
+      });
+
+      // ---------------------------------------------------------------
+      // Lens parts. Each part is drawn around its own centre and placed by render().
+      //   hx, hy, ha   home offset and angle inside the assembled lens
+      //   sx, sy, sr   how far it flies and turns when the lens comes apart
+      //   mx, my, ma   where it lands in the clarity mark (offset from the mark centre when "ring" is set)
+      // ---------------------------------------------------------------
+      var parts = [];
+      var RIM_R = 95, MARK_SCALE = 1.3;
+      var rimG = document.getElementById('rim');
+      var facetG = document.getElementById('facets');
+      var handleG = document.getElementById('handle');
+      var glass = document.getElementById('glass');
+      var D = Math.PI / 180;
+
+      for (var q = 0; q < 4; q++) {
+        var a0 = (q * 90 - 0.6) * D, a1 = (q * 90 + 90.6) * D, am = (q * 90 + 45) * D;
+        var cx = RIM_R * Math.cos(am), cy = RIM_R * Math.sin(am);
+        var path = el('path', {
+          'class': 'rim',
+          d: 'M ' + f(RIM_R * Math.cos(a0) - cx) + ' ' + f(RIM_R * Math.sin(a0) - cy) +
+             ' A ' + RIM_R + ' ' + RIM_R + ' 0 0 1 ' + f(RIM_R * Math.cos(a1) - cx) + ' ' + f(RIM_R * Math.sin(a1) - cy)
+        }, rimG);
+        parts.push({
+          el: path, hx: cx, hy: cy, ha: 0,
+          sx: Math.cos(am) * (70 + rnd() * 50), sy: Math.sin(am) * (70 + rnd() * 50), sr: (q % 2 ? -1 : 1) * (70 + rnd() * 60),
+          ring: true, mx: cx * MARK_SCALE, my: cy * MARK_SCALE, ma: 0, msx: MARK_SCALE, msy: MARK_SCALE
+        });
+      }
+
+      var FACET_R = 80, FACET_ALPHA = [0.92, 0.58, 0.78, 0.44, 0.86, 0.64];
+      for (var h = 0; h < 6; h++) {
+        var b0 = (h * 60 - 90) * D, b1 = (h * 60 - 30) * D;
+        var v = [[0, 0], [FACET_R * Math.cos(b0), FACET_R * Math.sin(b0)], [FACET_R * Math.cos(b1), FACET_R * Math.sin(b1)]];
+        var gx2 = (v[0][0] + v[1][0] + v[2][0]) / 3, gy2 = (v[0][1] + v[1][1] + v[2][1]) / 3;
+        var poly = el('polygon', {
+          points: v.map(function (p) { return f(p[0] - gx2) + ',' + f(p[1] - gy2); }).join(' '),
+          fill: '#2f6fd5', 'fill-opacity': FACET_ALPHA[h]
+        }, facetG);
+        var ang = Math.atan2(gy2, gx2);
+        var far = 150 + rnd() * 90;
+        parts.push({
+          el: poly, facet: true, hx: gx2, hy: gy2, ha: 0,
+          sx: Math.cos(ang) * far, sy: Math.sin(ang) * far, sr: (rnd() - 0.5) * 300,
+          ring: true, mx: gx2 * MARK_SCALE * 1.09, my: gy2 * MARK_SCALE * 1.09, ma: 0, msx: MARK_SCALE, msy: MARK_SCALE
+        });
+      }
+
+      var WORD_X = [215, 500, 785];
+      var handleParts = [];
+      [130, 182, 234].forEach(function (d, i) {
+        var rect = el('rect', { x: -23, y: -10, width: 46, height: 20, rx: 7, fill: '#0e1020' }, handleG);
+        var p = {
+          el: rect, handle: true, hx: d * Math.cos(45 * D), hy: d * Math.sin(45 * D), ha: 45,
+          sx: 30 + i * 45 + rnd() * 20, sy: 20 + i * 40 + rnd() * 30, sr: (i % 2 ? -1 : 1) * (40 + rnd() * 50),
+          ring: false, mx: WORD_X[i], my: 484, ma: 0, msx: 1, msy: 0.3
+        };
+        parts.push(p); handleParts.push(p);
+      });
+
+      var clipCircle = document.getElementById('clip-circle');
+      var stage = document.getElementById('stage');
+      var sharpClip = document.getElementById('sharp-clip');
+      var words = [0, 1, 2].map(function (i) { return document.getElementById('word-' + i); });
+
+      // ---------------------------------------------------------------
+      // State and render. Everything on screen is a pure function of S,
+      // so the timeline can be played, paused or seeked to any frame.
+      // ---------------------------------------------------------------
+      var W = WAYPOINTS.map(function (w) { return { x: COLS[w[0]], y: ROWS[w[1]] }; });
+      var S = {
+        t: 0, stage: 0, lens: 0,
+        lx: 150, ly: 70, rot: -10,
+        k: 0,            // 0 assembled lens, 1 fully apart
+        m: 0,            // 0 apart, 1 reformed as the mark
+        cr: 89,          // radius of the sharp area
+        z: 1.14,         // magnification under the glass
+        blur: 1,         // soft layer opacity
+        sharp: 1,        // sharp layer opacity
+        o: 0,            // 0 scattered documents, 1 ordered
+        pulse: 0,
+        f0: 0, f1: 0, f2: 0,
+        w0: 0, w1: 0, w2: 0
+      };
+
+      function mix(a, b, t) { return a + (b - a) * t; }
+      function colour(t) {
+        return 'rgb(' + Math.round(mix(14, 47, t)) + ',' + Math.round(mix(16, 111, t)) + ',' + Math.round(mix(32, 213, t)) + ')';
+      }
+
+      function render() {
+        var sway = 1 - clamp(S.k * 1.5);
+        var rot = S.rot + 4 * Math.sin(S.t * 2.2) * sway;
+        var lx = S.lx + 3 * Math.sin(S.t * 1.7 + 2) * sway;
+        var ly = S.ly + 5 * Math.sin(S.t * 1.3 + 1) * sway;
+        var cs = Math.cos(rot * D), sn = Math.sin(rot * D);
+
+        stage.setAttribute('opacity', f(S.stage));
+
+        // Documents
+        var n = frags.length;
+        for (var i = 0; i < n; i++) {
+          var fr = frags[i], sp = fr.spec;
+          var oi = smooth(S.o * 1.6 - 0.6 * (i / n));
+          var tr = 'translate(' + f(mix(sp.x, sp.gx, oi)) + ' ' + f(mix(sp.y, sp.gy, oi)) + ') rotate(' + f(mix(sp.r, 0, oi)) + ') scale(' + f(mix(1, 0.86, oi)) + ')';
+          fr.blur.setAttribute('transform', tr);
+          fr.sharp.setAttribute('transform', tr);
+          if (fr.key && fr.finding) fr.finding.setAttribute('opacity', f(S['f' + i]));
+        }
+        blurLayer.setAttribute('opacity', f(S.blur * 0.8));
+        sharpClip.setAttribute('opacity', f(S.sharp));
+        clipCircle.setAttribute('cx', f(lx));
+        clipCircle.setAttribute('cy', f(ly));
+        clipCircle.setAttribute('r', f(S.cr));
+        sharpLayer.setAttribute('transform', 'translate(' + f(lx) + ' ' + f(ly) + ') scale(' + f(S.z) + ') translate(' + f(-lx) + ' ' + f(-ly) + ')');
+
+        // Glass
+        glass.setAttribute('transform', 'translate(' + f(lx) + ' ' + f(ly) + ') rotate(' + f(rot) + ')');
+        glass.setAttribute('opacity', f(S.lens * (1 - clamp(S.k * 2.5))));
+
+        // Lens parts
+        var facetOpacity = clamp(S.k * 3);
+        var ringScale = 1 + S.pulse;
+        for (var j = 0; j < parts.length; j++) {
+          var p = parts[j];
+          var ax = lx + cs * p.hx - sn * p.hy, ay = ly + sn * p.hx + cs * p.hy, aa = rot + p.ha;
+          var sx = ax + p.sx * S.k, sy = ay + p.sy * S.k, sa = aa + p.sr * S.k;
+          var mx = p.ring ? MARK.x + p.mx * ringScale : p.mx;
+          var my = p.ring ? MARK.y + p.my * ringScale : p.my;
+          var x = mix(sx, mx, S.m), y = mix(sy, my, S.m), a = mix(sa, p.ma, S.m);
+          var scx = mix(1, p.msx * (p.ring ? ringScale : 1), S.m), scy = mix(1, p.msy * (p.ring ? ringScale : 1), S.m);
+          p.el.setAttribute('transform', 'translate(' + f(x) + ' ' + f(y) + ') rotate(' + f(a) + ') scale(' + f(scx) + ' ' + f(scy) + ')');
+          if (p.facet) p.el.setAttribute('opacity', f(facetOpacity * S.lens));
+          else p.el.setAttribute('opacity', f(S.lens));
+          if (p.handle) p.el.setAttribute('fill', colour(S.m));
+        }
+
+        // Words
+        for (var w = 0; w < 3; w++) {
+          var wv = S['w' + w];
+          words[w].setAttribute('opacity', f(wv));
+          words[w].setAttribute('transform', 'translate(0 ' + f((1 - wv) * 14) + ')');
+        }
+      }
+
+      // ---------------------------------------------------------------
+      // Timeline: 16 second loop
+      // ---------------------------------------------------------------
+      // lazy off: every value is written at once, so the redraw always sees the current frame
+      var tl = gsap.timeline({ paused: true, repeat: -1, defaults: { lazy: false } });
+
+      // Beat 1: examination
+      tl.to(S, { stage: 1, duration: 0.8, ease: 'power1.out' }, 0);
+      tl.to(S, { lens: 1, duration: 0.6, ease: 'power1.out' }, 0.2);
+      tl.to(S, { lx: W[0].x, ly: W[0].y, rot: -6, duration: 1.4, ease: 'power2.inOut' }, 0.2);
+      tl.to(S, { f0: 1, duration: 0.4, ease: 'power2.out' }, 1.5);
+      tl.to(S, { lx: W[1].x, ly: W[1].y, rot: 7, duration: 1.4, ease: 'power2.inOut' }, 2.1);
+      tl.to(S, { f1: 1, duration: 0.4, ease: 'power2.out' }, 3.4);
+      tl.to(S, { lx: W[2].x, ly: W[2].y, rot: -4, duration: 1.4, ease: 'power2.inOut' }, 4.0);
+      tl.to(S, { f2: 1, duration: 0.4, ease: 'power2.out' }, 5.3);
+
+      // Beat 2: deconstruction, clarity spreads
+      tl.to(S, { lx: MARK.x, ly: MARK.y, rot: 0, duration: 1.8, ease: 'power2.inOut' }, 5.9);
+      tl.to(S, { k: 1, duration: 1.5, ease: 'power2.out' }, 6.1);
+      tl.to(S, { z: 1, duration: 0.9, ease: 'power1.inOut' }, 6.1);
+      tl.to(S, { cr: 1100, duration: 1.7, ease: 'power2.in' }, 6.3);
+      tl.to(S, { blur: 0, duration: 1.3, ease: 'power1.inOut' }, 6.6);
+      tl.to(S, { o: 1, duration: 1.8, ease: 'power1.inOut' }, 7.4);
+      tl.to(S, { sharp: 0.24, duration: 1.4, ease: 'power1.inOut' }, 7.8);
+
+      // Beat 3: clarity
+      tl.to(S, { m: 1, duration: 1.6, ease: 'power3.inOut' }, 7.8);
+      tl.to(S, { pulse: 0.06, duration: 0.22, ease: 'power2.out' }, 9.4);
+      tl.to(S, { pulse: 0, duration: 0.45, ease: 'power2.inOut' }, 9.62);
+      tl.to(S, { w0: 1, duration: 0.6, ease: 'power2.out' }, 9.5);
+      tl.to(S, { w1: 1, duration: 0.6, ease: 'power2.out' }, 9.8);
+      tl.to(S, { w2: 1, duration: 0.6, ease: 'power2.out' }, 10.1);
+
+      // Hold, then ease out before the loop starts again
+      tl.to(S, { stage: 0, duration: 1.0, ease: 'power1.inOut' }, 14.3);
+
+      tl.to(S, { t: 16, duration: 16, ease: 'none' }, 0);
+
+      // Redraw after every timeline update, whether it comes from playback or from a jump
+      // to a frame (a jump does not fire the timeline's own update callback).
+      var timelineRender = tl.render;
+      tl.render = function () {
+        var result = timelineRender.apply(tl, arguments);
+        render();
+        return result;
+      };
+
+      tl.__stillAt = 12.5;                    // the frame shown to visitors who have motion switched off
+      window.__timelines['hero-lens'] = tl;
+
+      if (reduce) {
+        tl.seek(tl.__stillAt).pause();
+        tl.play = function () { return tl; };
+      } else {
+        tl.seek(0);
+        if (embed || params.get('autoplay') === '1') tl.play();
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>

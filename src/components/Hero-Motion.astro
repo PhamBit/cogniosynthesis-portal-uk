@@ -1,7 +1,9 @@
 ---
 /**
- * Hero-Grid.astro - Subtle wireframe grid background
- * Loads an animated geometric grid from /compositions/hero-grid.html
+ * Hero-Motion.astro - hero with a HyperFrames composition behind or beside the text
+ * background="grid"  subtle wireframe grid from /compositions/hero-grid.html (centred text, the original)
+ * background="lens"  examination-to-clarity lens from /compositions/hero-lens.html
+ *                    (text left and animation right on desktop, animation above the text on small screens)
  */
 
 interface Props {
@@ -11,6 +13,7 @@ interface Props {
   secondaryCta?: string;
   primaryCtaLink?: string;
   secondaryCtaLink?: string;
+  background?: 'grid' | 'lens';
 }
 
 const { 
@@ -19,18 +22,22 @@ const {
   primaryCta = 'Get Started',
   secondaryCta = 'Learn More',
   primaryCtaLink = '/contact',
-  secondaryCtaLink = '/solutions'
+  secondaryCtaLink = '/solutions',
+  background = 'grid'
 } = Astro.props;
 
 // Generate random seed for variation on each page load
 const randomSeed = Math.floor(Math.random() * 10000);
+const compositionSrc = background === 'lens'
+  ? `/compositions/hero-lens.html?embed=1&seed=${randomSeed}`
+  : `/compositions/hero-grid.html?seed=${randomSeed}`;
 ---
 
-<section class="hero-motion">
-  <!-- HyperFrames grid background composition -->
+<section class:list={['hero-motion', background === 'lens' && 'hero-motion--lens']}>
+  <!-- HyperFrames background composition -->
   <div class="hyperframes-bg-container">
     <iframe 
-      src={`/compositions/hero-grid.html?seed=${randomSeed}`}
+      src={compositionSrc}
       frameborder="0"
       class="hyperframes-iframe"
       aria-hidden="true"
@@ -142,6 +149,56 @@ const randomSeed = Math.floor(Math.random() * 10000);
     gap: var(--spacing-16);
   }
   
+  /* Lens variant: the animation has its own space, so the text needs no veil */
+  .hero-motion--lens {
+    background: #f6f3f0;
+  }
+
+  .hero-motion--lens .hero-motion-overlay {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-motion--lens .hyperframes-bg-container {
+      left: 46%;
+      width: 54%;
+    }
+
+    .hero-motion--lens .hero-motion-content {
+      max-width: var(--container-max);
+      text-align: left;
+    }
+
+    .hero-motion--lens .hero-motion-headline,
+    .hero-motion--lens .hero-motion-subheadline,
+    .hero-motion--lens .hero-motion-ctas {
+      max-width: 46%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .hero-motion--lens .hero-motion-ctas {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero-motion--lens {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--spacing-32);
+      padding-bottom: var(--spacing-48);
+    }
+
+    .hero-motion--lens .hyperframes-bg-container {
+      position: relative;
+      inset: auto;
+      height: min(82vw, 46vh);
+      min-height: 250px;
+      margin-bottom: var(--spacing-24);
+    }
+  }
+
   /* Entrance animations */
   .hero-motion-headline,
   .hero-motion-subheadline,
@@ -166,25 +223,44 @@ const randomSeed = Math.floor(Math.random() * 10000);
 </style>
 
 <script>
-// Client-side enhancement: detect when iframe is ready and ensure GSAP timeline plays
-if (typeof window !== 'undefined') {
-  const checkIframe = () => {
-    const iframe = document.querySelector('.hyperframes-iframe');
-    if (iframe && iframe.contentWindow?.__timelines) {
-      // Play the timeline
-      Object.values(iframe.contentWindow.__timelines).forEach(tl => {
-        if (tl.play) tl.play();
-      });
+// Plays the composition while the hero is on screen, pauses it when it is not,
+// and shows a still frame to visitors who have motion switched off.
+const iframe = document.querySelector<HTMLIFrameElement>('.hyperframes-iframe');
+
+if (iframe) {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let onScreen = true;
+
+  const timelines = (): any[] => {
+    try {
+      return Object.values((iframe.contentWindow as any)?.__timelines ?? {});
+    } catch {
+      return [];
     }
   };
-  
-  // Check after load
-  const iframe = document.querySelector('.hyperframes-iframe');
-  if (iframe) {
-    iframe.addEventListener('load', checkIframe);
+
+  const sync = () => {
+    timelines().forEach((tl) => {
+      if (reduce) {
+        tl.pause?.();
+        tl.seek?.(tl.__stillAt ?? 2);
+      } else if (onScreen && !document.hidden) {
+        tl.play?.();
+      } else {
+        tl.pause?.();
+      }
+    });
+  };
+
+  iframe.addEventListener('load', sync);
+  setTimeout(sync, 300);
+  document.addEventListener('visibilitychange', sync);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      onScreen = entries[0].isIntersecting;
+      sync();
+    }).observe(iframe);
   }
-  
-  // Also try immediately and on interval
-  setTimeout(checkIframe, 100);
 }
 </script>
