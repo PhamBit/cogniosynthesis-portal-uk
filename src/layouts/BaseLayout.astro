@@ -34,9 +34,9 @@ const currentPath = Astro.url.pathname;
     <meta property="og:url" content={Astro.url} />
     <meta property="og:site_name" content="CognioSynthesis Portal" />
     
-    <!-- Preconnect for fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts are served from this site: no outside request -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/inter.css" />
   </head>
   <body>
     <!-- Skip to main content (accessibility) -->
@@ -69,10 +69,7 @@ const currentPath = Astro.url.pathname;
 </html>
 
 <style is:global>
-  /* Import Inter font from Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-  
-  /* Custom font face for GT Standard Extended (will need local files) */
+  /* Custom font face for GT Standard Extended (local file in public/fonts) */
   @font-face {
     font-family: 'GT Standard Extended';
     src: url('/fonts/gt-standard-extended.woff2') format('woff2');
