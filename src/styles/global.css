@@ -20,7 +20,7 @@
   --color-border-focus: #2f6fd5;
   
   /* Typography - DXC Font Stack */
-  --font-primary: 'GT Standard Extended', system-ui, -apple-system, sans-serif;
+  --font-primary: 'Archivo Expanded', system-ui, -apple-system, sans-serif;
   --font-secondary: 'Inter', system-ui, -apple-system, sans-serif;
   
   /* DXC Font Sizes (from CSS) - IN PIXELS like DXC */

@@ -36,7 +36,9 @@ const currentPath = Astro.url.pathname;
     
     <!-- Fonts are served from this site: no outside request -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/archivo-expanded-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/fonts/inter.css" />
+    <link rel="stylesheet" href="/fonts/archivo-expanded.css" />
   </head>
   <body>
     <!-- Skip to main content (accessibility) -->
@@ -67,17 +69,6 @@ const currentPath = Astro.url.pathname;
     </main>
   </body>
 </html>
-
-<style is:global>
-  /* Custom font face for GT Standard Extended (local file in public/fonts) */
-  @font-face {
-    font-family: 'GT Standard Extended';
-    src: url('/fonts/gt-standard-extended.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-</style>
 
 <style>
   /* Page title bar (breadcrumbs area) */
