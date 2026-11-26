@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer.astro';
+import products from '../../data/products.json';
+import { CATEGORY_ORDER } from '../../data/site';
+
+const groups = CATEGORY_ORDER.map((category) => ({
+  category,
+  id: category.toLowerCase().replace(/[^a-z]+/g, '-'),
+  items: products.filter((p) => p.category === category),
+})).filter((g) => g.items.length);
+---
+
+<Layout title="Products" description={`All ${products.length} products from Cogniosynthesis Portal Ltd, in four families.`}>
+  <div class="page-hero">
+    <div class="container">
+      <h1>Products</h1>
+      <p class="hero-subtitle">{products.length} products in {groups.length} families. Prices are published on each page.</p>
+      <nav class="family-nav" aria-label="Product families">
+        {groups.map((g) => <a href={`#${g.id}`}>{g.category} <span>{g.items.length}</span></a>)}
+      </nav>
+    </div>
+  </div>
+
+  <section class="section section--alt">
+    <div class="container">
+      {groups.map((g) => (
+        <section class="family" id={g.id} aria-labelledby={`${g.id}-h`}>
+          <h2 id={`${g.id}-h`}>{g.category}</h2>
+          <div class="product-grid">
+            {g.items.map((p) => (
+              <a class="product-card" href={`/products/${p.slug}/`}>
+                <img src={`/assets/icons/${p.icon}`} alt="" width="48" height="48" loading="lazy" />
+                <span class="product-text">
+                  <span class="product-name">{p.name}</span>
+                  <span class="product-line">{p.line}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <p class="products-foot">
+        Looking for the three services? <a href="/#ways">See the three ways we help with AI</a>.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero h1 { font-size: clamp(30px, 9vw, 48px); line-height: 1.15; }
+  .family-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .family-nav a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border: 1px solid #dcdce0; border-radius: 999px; background: #ffffff;
+    color: #0e1020; font-size: 14px; font-weight: 500; text-decoration: none;
+  }
+  .family-nav a:hover { border-color: #2f6fd5; }
+  .family-nav span { color: #4b4d5d; font-size: 12px; }
+  .family { scroll-margin-top: 88px; }
+  .family + .family { margin-top: 64px; }
+  .family h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.2; font-weight: 600; color: #0e1020; margin: 0 0 24px; }
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
+  .product-card {
+    display: flex; align-items: center; gap: 16px;
+    background: #ffffff; border: 1px solid #dcdce0; border-radius: 12px; padding: 20px;
+    text-decoration: none; transition: border-color 150ms ease-in-out, transform 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  }
+  .product-card:hover { border-color: #2f6fd5; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14, 16, 32, 0.08); text-decoration: none; }
+  .product-card img { flex: none; width: 48px; height: 48px; border-radius: 10px; }
+  .product-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .product-name { font-family: var(--font-primary); font-weight: 600; font-size: 17px; color: #0e1020; }
+  .product-line { font-size: 14px; line-height: 1.45; color: #4b4d5d; }
+  .products-foot { margin-top: 64px; color: #4b4d5d; }
+  .products-foot a { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; }
+</style>

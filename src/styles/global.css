@@ -523,3 +523,16 @@ img {
 .full-width {
   width: 100%;
 }
+
+/* ==============================================
+   SMALL SCREENS: headings step down and wide tables scroll inside themselves,
+   so no page pushes wider than the phone.
+   ============================================== */
+
+@media (max-width: 640px) {
+  h1, .page-hero h1 { font-size: 32px !important; line-height: 1.15 !important; }
+  h2 { font-size: 26px; line-height: 1.2; }
+  h3 { font-size: 21px; }
+  main table { display: block; max-width: 100%; overflow-x: auto; }
+  main p, main li, main dd, main td { overflow-wrap: anywhere; }
+}

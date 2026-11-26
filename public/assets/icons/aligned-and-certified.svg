@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="baligned-and-certified" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e95725"/><stop offset="1" stop-color="#441809"/></linearGradient>
+ <radialGradient id="galigned-and-certified" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#f79573" stop-opacity=".85"/><stop offset="1" stop-color="#f79573" stop-opacity="0"/></radialGradient>
+ <linearGradient id="haligned-and-certified" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="raligned-and-certified" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="daligned-and-certified" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#daligned-and-certified)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#baligned-and-certified)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#galigned-and-certified)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><path d="M96 160 L76 220 L104 206 L118 232 L128 176 M160 160 L180 220 L152 206 L138 232 L128 176" fill="#000"/>
+ <circle cx="128" cy="108" r="66" fill="#000"/><circle cx="128" cy="108" r="50" stroke="#000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M104 108 L122 126 L154 92" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+ <path d="M96 160 L76 220 L104 206 L118 232 L128 176 M160 160 L180 220 L152 206 L138 232 L128 176" fill="#F2C14E"/>
+ <circle cx="128" cy="108" r="66" fill="#F2C14E"/><circle cx="128" cy="108" r="50" stroke="#7C2D12" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M104 108 L122 126 L154 92" stroke="#7C2D12" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#haligned-and-certified)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#raligned-and-certified)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

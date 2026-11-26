@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bministry-of-digital-obscurity" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c53a3a"/><stop offset="1" stop-color="#311010"/></linearGradient>
+ <radialGradient id="gministry-of-digital-obscurity" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#df8282" stop-opacity=".85"/><stop offset="1" stop-color="#df8282" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hministry-of-digital-obscurity" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rministry-of-digital-obscurity" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dministry-of-digital-obscurity" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dministry-of-digital-obscurity)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bministry-of-digital-obscurity)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gministry-of-digital-obscurity)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><circle cx="128" cy="136" r="68" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="128" cy="136" r="56" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="4 7"/>
+ <path d="M96 70 L104 42 L118 62 L128 36 L138 62 L152 42 L160 70 Z" fill="#000"/>
+ <path d="M88 136 C104 112 152 112 168 136 C152 160 104 160 88 136 Z" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="128" cy="136" r="10" fill="#000"/></g>
+ <circle cx="128" cy="136" r="68" stroke="#F2C14E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="128" cy="136" r="56" stroke="#F2C14E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="4 7"/>
+ <path d="M96 70 L104 42 L118 62 L128 36 L138 62 L152 42 L160 70 Z" fill="#F2C14E"/>
+ <path d="M88 136 C104 112 152 112 168 136 C152 160 104 160 88 136 Z" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="128" cy="136" r="10" fill="#fff"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hministry-of-digital-obscurity)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rministry-of-digital-obscurity)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

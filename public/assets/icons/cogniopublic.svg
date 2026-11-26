@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bcogniopublic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#416ade"/><stop offset="1" stop-color="#101f4b"/></linearGradient>
+ <radialGradient id="gcogniopublic" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#85a1ef" stop-opacity=".85"/><stop offset="1" stop-color="#85a1ef" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hcogniopublic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rcogniopublic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dcogniopublic" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dcogniopublic)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bcogniopublic)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gcogniopublic)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><path d="M44 88 L128 44 L212 88 Z" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M44 196 H212" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M72 104 V176 M108 104 V176 M148 104 V176 M184 104 V176" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="196" cy="186" r="30" fill="#000"/><path d="M182 186 L192 196 L210 176" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+ <path d="M44 88 L128 44 L212 88 Z" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M44 196 H212" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M72 104 V176 M108 104 V176 M148 104 V176 M184 104 V176" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="196" cy="186" r="30" fill="#F2C14E"/><path d="M182 186 L192 196 L210 176" stroke="#1E3A8A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hcogniopublic)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rcogniopublic)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

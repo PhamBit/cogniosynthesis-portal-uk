@@ -1,14 +1,15 @@
 ---
 const currentPath = Astro.url.pathname;
 
+// The logo is the Home link and the button is the Contact link, so neither is repeated in the desktop menu.
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/explore/', label: 'AI Exploration' },
   { href: '/health-check/', label: 'AI Health Check' },
   { href: '/audits/', label: 'Epistemic Audit' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' }
+  { href: '/products/', label: 'Products' },
+  { href: '/about', label: 'About' }
 ];
+const mobileLinks = [{ href: '/', label: 'Home' }, ...navLinks];
 
 function isActive(href: string) {
   if (href === '/') return currentPath === '/';
@@ -38,14 +39,14 @@ function isActive(href: string) {
       </ul>
       
       <!-- Desktop CTA Button -->
-      <a href="/contact" class="btn btn-primary desktop-cta">Get Started</a>
+      <a href="/contact" class="btn btn-primary desktop-cta">Book a conversation</a>
       
       <!-- Mobile Menu Toggle -->
       <button 
         class="mobile-menu-toggle" 
         aria-expanded="false" 
         aria-label="Toggle menu"
-        onclick="document.body.classList.toggle('menu-open')"
+        onclick="this.setAttribute('aria-expanded', String(document.body.classList.toggle('menu-open')))"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -57,13 +58,13 @@ function isActive(href: string) {
     <div class="mobile-menu-panel">
       <div class="mobile-menu-content">
         <ul class="mobile-nav-links">
-          {navLinks.map(link => (
+          {mobileLinks.map(link => (
             <li class={`mobile-nav-item ${isActive(link.href) ? 'mobile-nav-item--active' : ''}`}>
               <a href={link.href} class={`mobile-nav-link ${isActive(link.href) ? 'mobile-nav-link--active' : ''}`} onclick="document.body.classList.remove('menu-open')">{link.label}</a>
             </li>
           ))}
         </ul>
-        <a href="/contact" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Get Started</a>
+        <a href="/contact" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Book a conversation</a>
       </div>
     </div>
   </nav>
@@ -270,8 +271,21 @@ function isActive(href: string) {
     text-align: center;
   }
   
-  /* Desktop breakpoint */
-  @media (min-width: 768px) {
+  .desktop-cta {
+    display: none;
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    gap: clamp(16px, 2vw, 32px);
+  }
+
+  /* Desktop breakpoint: the full menu needs about 1160px, below that the menu button is used */
+  @media (min-width: 1160px) {
     .nav-links {
       display: flex;
     }

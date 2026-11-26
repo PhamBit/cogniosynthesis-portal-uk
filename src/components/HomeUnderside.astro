@@ -1,0 +1,297 @@
+---
+/**
+ * HomeUnderside.astro - everything on the home page below "Three ways we help with AI".
+ * Wording and prices are the live site's (cogniosynthesisportal.uk, read 26 Nov 2026).
+ * Change prices here and on the three service pages together.
+ */
+import { EMAIL, ICO_NUMBER, ICO_HREF } from '../data/site';
+import products from '../data/products.json';
+
+const prices = [
+  { what: 'First conversation', detail: '45 minutes, by phone or in person', price: 'Free', where: 'Before any of the three', href: '/contact' },
+  { what: 'AI Exploration', detail: 'half a day', price: '£750 + VAT', where: 'On-site and offline', href: '/explore/' },
+  { what: 'AI Health Check', detail: 'a day', price: '£2,500 + VAT', where: 'On-site and offline', href: '/health-check/' },
+  { what: 'Epistemic Audit visit', detail: 'half a day, up to 3 documents', price: '£750 + VAT', where: 'On-site and offline', href: '/audits/' },
+  { what: 'Epistemic Audit day', detail: 'up to 10 documents', price: '£2,500 + VAT', where: 'On-site and offline', href: '/audits/' },
+  { what: 'Epistemic Audit monthly visit', detail: '', price: 'from £1,000 a month + VAT', where: 'A visit each month', href: '/audits/' },
+];
+---
+
+<!-- Why it matters, and the free first conversation -->
+<section class="us us-why">
+  <div class="container">
+    <p class="us-lead">
+      Trust in what we read is thinning, in the media, in institutions, in the one-person firm’s own story about itself.
+      An epistemic audit is how you tell sound knowledge from flawed, in the documents you already publish.
+    </p>
+    <p class="us-start">
+      Every one starts with a free 45-minute conversation, by phone or in person.
+      <a href="/contact">Book a conversation →</a>
+    </p>
+  </div>
+</section>
+
+<!-- One finding, shown -->
+<section class="us us-finding" aria-labelledby="us-finding-h">
+  <div class="container">
+    <p class="us-eyebrow">Epistemic Audit</p>
+    <h2 id="us-finding-h" class="us-h2">One finding, shown</h2>
+    <p class="us-sub">From a two-page public notice by a law firm on its use of an AI tool.</p>
+
+    <div class="finding-grid">
+      <article class="finding-card">
+        <span class="finding-num" aria-hidden="true">1</span>
+        <h3>What was left out</h3>
+        <p>How long the documents a client uploads to the tool are kept, and when they are deleted. The notice says personal data may be in them, then stops.</p>
+      </article>
+      <article class="finding-card">
+        <span class="finding-num" aria-hidden="true">2</span>
+        <h3>Why it matters</h3>
+        <p>Retention is the first question a careful client asks; the second is who else has a copy. The notice does not answer the first, and its privacy-notice link does not say where to look.</p>
+      </article>
+      <article class="finding-card">
+        <span class="finding-num" aria-hidden="true">3</span>
+        <h3>Source</h3>
+        <p>The notice's own paragraph on uploaded documents as published; its privacy-notice link names no section. One of 14 findings; the fix is one sentence.</p>
+      </article>
+    </div>
+
+    <p class="us-caption">
+      Sample audit of a public document, October 2026, redacted.
+      <a href="/audits/">How an audit works</a>
+    </p>
+  </div>
+</section>
+
+<!-- Also from us -->
+<section class="us us-also" aria-labelledby="us-also-h">
+  <div class="container">
+    <h2 id="us-also-h" class="us-h2">Also from us</h2>
+    <div class="also-grid">
+      <article class="also-card">
+        <p class="us-eyebrow">For festivals</p>
+        <h3>FestivalFocus</h3>
+        <p>A UK festival directory. For organisers, <a href="/products/festivalfocus-ops/">FestivalFocus Ops</a>.</p>
+        <a class="also-link" href="/products/festivalfocus/">Find a festival on FestivalFocus →</a>
+      </article>
+      <article class="also-card">
+        <p class="us-eyebrow">For readers</p>
+        <h3>See what the story left out.</h3>
+        <p>CognioNews: every repair to a story shown in gold, with its source.</p>
+        <a class="also-link" href="https://cognionews.com/" rel="noopener">Read CognioNews →</a>
+      </article>
+    </div>
+    <p class="us-more"><a href="/products/">See all {products.length} products →</a></p>
+  </div>
+</section>
+
+<!-- Your documents stay in the room -->
+<section class="us us-room" aria-labelledby="us-room-h">
+  <div class="container us-room-grid">
+    <div>
+      <h2 id="us-room-h" class="us-h2">Your documents stay in the room.</h2>
+      <p>
+        Whichever you choose, we come to you. Where a machine is used, it is ours: it runs in your building, fully offline,
+        sealed from the internet and from your network. Your documents go in on your own USB stick; what we leave with you
+        comes out on paper or a fresh stick; on an AI Health Check or an Epistemic Audit, the machine is wiped clean in front
+        of you before we leave, and on an Epistemic Audit you keep a signed visit record of what was checked.
+      </p>
+      <p>
+        Your documents are used only for your plan or finding, and, on an Epistemic Audit, your signed visit record.
+        Registered with the Information Commission (<a href={ICO_HREF} rel="noopener">{ICO_NUMBER}</a>).
+        <a href="/privacy">Privacy notice</a>
+      </p>
+    </div>
+    <aside class="us-room-aside">
+      <p class="us-room-note">Conversations can be booked now; visits from February 2027.</p>
+      <a href="/contact" class="btn btn-primary btn-lg">Book a conversation</a>
+      <a href="/sovereign-data/" class="us-room-link">Read the sovereign data policy →</a>
+    </aside>
+  </div>
+</section>
+
+<!-- What it costs -->
+<section class="us us-costs" id="costs" aria-labelledby="us-costs-h">
+  <div class="container">
+    <h2 id="us-costs-h" class="us-h2">What it costs</h2>
+    <p class="us-sub">Published prices for the three services. Every one starts with a free conversation.</p>
+
+    <div class="price-table" role="table" aria-label="Prices">
+      <div class="price-row price-row--head" role="row">
+        <span role="columnheader">What you get</span>
+        <span role="columnheader">Price</span>
+        <span role="columnheader">For</span>
+      </div>
+      {prices.map((p) => (
+        <div class="price-row" role="row">
+          <span role="cell" class="price-what">
+            <a href={p.href}>{p.what}</a>{p.detail && <span class="price-detail"> — {p.detail}</span>}
+          </span>
+          <span role="cell" class="price-amount">{p.price}</span>
+          <span role="cell" class="price-where">{p.where}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="us-note">Larger scopes by quote: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+    <p class="us-note">Visits are on-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</p>
+  </div>
+</section>
+
+<!-- Who we are -->
+<section class="us us-who" aria-labelledby="us-who-h">
+  <div class="container">
+    <h2 id="us-who-h" class="us-h2">Who we are</h2>
+    <p>
+      Cogniosynthesis Portal Ltd is a software company based in Wales, specialising in AI and context-aware analysis.
+      We help organisations and sole traders explore what AI could do for them, check the AI they already use, and see
+      what their documents leave out. Every piece of work starts with a conversation and takes place in your building,
+      offline, as outlined in our <a href="/sovereign-data/">sovereign data policy</a>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .us { padding: clamp(56px, 8vw, 96px) 0; }
+  .us p { color: #4b4d5d; line-height: 1.7; }
+  .us a { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; }
+  .us a.btn { text-decoration: none; color: #fff; }
+  .us-why p, .us-who p, .us-who .us-h2 { max-width: 860px; }
+
+  .us-h2 {
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #0e1020;
+    margin: 0 0 var(--spacing-16);
+  }
+  .us-sub { font-size: clamp(17px, 1.6vw, 20px); margin: 0 0 var(--spacing-40); max-width: 720px; }
+  .us-eyebrow {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1f57b3 !important;
+    margin: 0 0 var(--spacing-8);
+  }
+  .us-caption { font-size: 14px; margin-top: var(--spacing-24); }
+  .us-note { font-size: 15px; margin-top: var(--spacing-16); }
+
+  /* Why it matters */
+  .us-why { background: #ffffff; border-bottom: 1px solid var(--color-border-subtle); }
+  .us-lead {
+    font-family: var(--font-primary);
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.45 !important;
+    color: #0e1020 !important;
+    margin: 0 0 var(--spacing-24);
+    padding-left: var(--spacing-24);
+    border-left: 3px solid #2f6fd5;
+  }
+  .us-start { font-size: 18px; margin: 0; padding-left: calc(var(--spacing-24) + 3px); }
+  .us-start a { font-weight: 600; white-space: nowrap; }
+
+  /* One finding, shown */
+  .us-finding { background: var(--color-background-canvas); }
+  .finding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-24);
+  }
+  .finding-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: var(--spacing-32);
+  }
+  .finding-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0e1020;
+    color: #ffffff;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-16);
+  }
+  .finding-card h3 { font-size: 20px; font-weight: 600; color: #0e1020; margin: 0 0 var(--spacing-12); }
+  .finding-card p { margin: 0; font-size: 16px; }
+
+  /* Your documents stay in the room */
+  .us-room { background: #0e1020; }
+  .us-room .us-h2 { color: #ffffff; }
+  .us-room p { color: rgba(255, 255, 255, 0.82); margin: 0 0 var(--spacing-16); font-size: 17px; }
+  .us-room a { color: #9cc0ff; }
+  .us-room-grid { display: grid; gap: var(--spacing-40); align-items: center; }
+  .us-room-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-20);
+    padding: var(--spacing-32);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .us-room-note { color: #ffffff !important; font-weight: 600; margin: 0 !important; }
+  .us-room-link { font-size: 15px; }
+  @media (min-width: 960px) {
+    .us-room-grid { grid-template-columns: 1.6fr 1fr; gap: var(--spacing-64); }
+  }
+
+  /* What it costs */
+  .us-costs { background: #ffffff; }
+  .price-table { border-top: 2px solid #0e1020; }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: var(--spacing-16) 0;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+  .price-row--head { display: none; }
+  .price-what { color: #0e1020; font-weight: 600; }
+  .price-what a { color: #0e1020; }
+  .price-detail { font-weight: 400; color: #4b4d5d; }
+  .price-amount { font-family: var(--font-primary); font-weight: 600; color: #1f57b3; font-size: 18px; }
+  .price-where { color: #4b4d5d; font-size: 15px; }
+  @media (min-width: 768px) {
+    .price-row { grid-template-columns: 2.2fr 1.2fr 1fr; gap: var(--spacing-24); align-items: baseline; }
+    .price-row--head {
+      display: grid;
+      font-family: var(--font-primary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #4b4d5d;
+    }
+  }
+
+  /* Also from us */
+  .us-also { background: var(--color-background-section); }
+  .us-also .us-h2 { margin-bottom: var(--spacing-32); }
+  .also-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-24); }
+  .also-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: var(--spacing-32);
+    display: flex;
+    flex-direction: column;
+  }
+  .also-card h3 { font-size: 24px; font-weight: 600; color: #0e1020; margin: 0 0 var(--spacing-12); }
+  .also-card p { margin: 0 0 var(--spacing-20); }
+  .also-link { margin-top: auto; font-weight: 600; }
+  .us-more { margin: var(--spacing-32) 0 0; font-weight: 600; }
+
+  /* Who we are */
+  .us-who { background: var(--color-background-canvas); }
+  .us-who p { font-size: 18px; margin: 0; }
+</style>

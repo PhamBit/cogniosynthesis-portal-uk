@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bkitholder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#647fa6"/><stop offset="1" stop-color="#1c232e"/></linearGradient>
+ <radialGradient id="gkitholder" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#9db0ca" stop-opacity=".85"/><stop offset="1" stop-color="#9db0ca" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hkitholder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rkitholder" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dkitholder" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dkitholder)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bkitholder)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gkitholder)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><rect x="40" y="88" width="176" height="116" rx="14" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M100 88 V68 H156 V88" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M40 132 H216" stroke="#000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="112" y="122" width="32" height="22" rx="4" fill="#000"/>
+ <path d="M180 160 V184 M180 160 L196 140" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="168" y="168" width="24" height="24" rx="4" fill="#000"/></g>
+ <rect x="40" y="88" width="176" height="116" rx="14" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M100 88 V68 H156 V88" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M40 132 H216" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="112" y="122" width="32" height="22" rx="4" fill="#F2C14E"/>
+ <path d="M180 160 V184 M180 160 L196 140" stroke="#F2C14E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="168" y="168" width="24" height="24" rx="4" fill="#F2C14E"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hkitholder)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rkitholder)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>
