@@ -228,7 +228,7 @@ const compositionSrc = background === 'lens'
 const iframe = document.querySelector<HTMLIFrameElement>('.hyperframes-iframe');
 
 if (iframe) {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionOff = window.matchMedia('(prefers-reduced-motion: reduce)');
   let onScreen = true;
 
   const timelines = (): any[] => {
@@ -241,7 +241,7 @@ if (iframe) {
 
   const sync = () => {
     timelines().forEach((tl) => {
-      if (reduce) {
+      if (motionOff.matches) {
         tl.pause?.();
         tl.seek?.(tl.__stillAt ?? 2);
       } else if (onScreen && !document.hidden) {
@@ -255,6 +255,7 @@ if (iframe) {
   iframe.addEventListener('load', sync);
   setTimeout(sync, 300);
   document.addEventListener('visibilitychange', sync);
+  motionOff.addEventListener?.('change', sync);
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver((entries) => {

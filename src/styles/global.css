@@ -176,12 +176,14 @@ img {
    ============================================== */
 
 .section {
-  padding: var(--spacing-80) 0;
+  padding-top: var(--spacing-80);
+  padding-bottom: var(--spacing-80);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding-top: var(--spacing-96);
+    padding-bottom: var(--spacing-96);
   }
 }
 
@@ -534,5 +536,25 @@ img {
   h2 { font-size: 26px; line-height: 1.2; }
   h3 { font-size: 21px; }
   main table { display: block; max-width: 100%; overflow-x: auto; }
-  main p, main li, main dd, main td { overflow-wrap: anywhere; }
+  main p, main li, main dd { overflow-wrap: anywhere; }
+  main td, main th { overflow-wrap: break-word; }
+}
+
+/* ==============================================
+   MOTION SWITCHED OFF: visitors who ask their device for less motion get
+   no entrance animations, no gliding scroll and no moving transitions.
+   The hero composition shows its still frame (see Hero-Motion.astro).
+   ============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
 }
