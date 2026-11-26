@@ -1,16 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+import { EMAIL, PHONE_HREF, CANCELLATION_TERM, PAYMENT_TERM } from '../data/site';
 ---
 
 <BaseLayout 
   title="AI Exploration"
-  description="Not sure what AI could do for you? We come to your building and show you, offline."
+  description="AI Exploration: not sure what AI could do for you? Half a day in your building, offline, and a short written plan. Starts with a free 45-minute conversation."
 >
   <div class="page-hero">
     <div class="container">
       <h1>AI Exploration</h1>
       <p class="hero-subtitle">Not sure what AI could do for you? We come to your building and show you, offline.</p>
+      <p class="hero-actions">
+        <a href="#book" class="btn btn-primary">Book a conversation</a>
+        <a href="#how" class="btn btn-secondary">How it works</a>
+      </p>
     </div>
   </div>
 
@@ -21,7 +26,7 @@ import Footer from '../components/Footer.astro';
       
       <h2 style="margin-top: 48px;">It starts with a free 45-minute conversation.</h2>
 
-      <h2 style="margin-top: 48px;">How it works</h2>
+      <h2 id="how" style="margin-top: 48px;">How it works</h2>
       <ol class="steps-list">
         <li><strong>A conversation first.</strong> Free, 45 minutes, by phone or in person. You tell us how your work runs and what you want to know about AI. Then you decide whether to book a visit.</li>
         <li><strong>We come to you.</strong> Half a day in your building. We sit down with you and the people who do the work, and look at how it actually runs.</li>
@@ -36,7 +41,7 @@ import Footer from '../components/Footer.astro';
       <ul class="capabilities-list">
         <li>Fitting AI to how your work actually runs: your tasks, your tools, your people.</li>
         <li>Small organisations and sole traders: practical steps you can take straight away.</li>
-        <li>Knewing what to keep human: the tasks, data and decisions where people matter most.</li>
+        <li>Knowing what to keep human: the tasks, data and decisions where people matter most.</li>
         <li>A short written plan in plain English that you keep.</li>
         <li>Your information stays yours. What you show us is used only for your plan.</li>
       </ul>
@@ -75,16 +80,22 @@ import Footer from '../components/Footer.astro';
         <li><strong>Notice:</strong> 10 working days for a first visit, so anyone who looks after your IT can sign off; we send a one-page device statement.</li>
         <li><strong>You provide:</strong> a private room with a table, one UK power socket, and someone from your team to be present at the start and the finish.</li>
         <li><strong>AI Exploration:</strong> at most 4 hours on site; a short written plan of one or two pages.</li>
-        <li><strong>Cancellation:</strong> free to move or cancel up to 5 working days before. Later than that, or if there is no room or no one from your team on the day, the fee carries to one new date within 60 days. If we cancel, you choose a full refund or a new date.</li>
-        <li><strong>Payment:</strong> private firms pay on booking; public bodies by purchase order, invoiced on the day at 30 days.</li>
+        <li><strong>Cancellation:</strong> {CANCELLATION_TERM}</li>
+        <li><strong>Payment:</strong> {PAYMENT_TERM}</li>
         <li><strong>Travel:</strong> on-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</li>
       </ul>
 
-      <div class="cta-banner" style="margin-top: 48px;">
+      <div class="cta-banner" id="book" style="margin-top: 48px;">
         <h3 style="margin: 0 0 16px 0;">Book a conversation</h3>
         <p style="margin: 0 0 20px 0;">It starts with a free 45-minute conversation. Tell us where you are, what your work involves, and a few dates that suit you.</p>
-        <a href="mailto:info@cogniosynthesisportal.uk?subject=AI%20Exploration%20conversation" class="btn btn-primary">Email to book</a>
+        <div class="cta-actions">
+          <a href={`mailto:${EMAIL}?subject=AI%20Exploration&body=Organisation%3A%0ATown%3A%0AWhat%20your%20work%20involves%3A%0APreferred%20dates%3A`} class="btn btn-primary">Email to book a conversation</a>
+          <a href={PHONE_HREF} class="btn btn-secondary">Call 01570 574220</a>
+        </div>
+        <p style="margin: 20px 0 0 0;">We'll reply to arrange a time.</p>
       </div>
+
+      <p class="also-from-us"><strong>The three ways we help.</strong> Also from us: <a href="/health-check/">AI Health Check</a> and <a href="/audits/">Epistemic Audit</a>.</p>
     </div>
   </section>
 
@@ -164,5 +175,24 @@ import Footer from '../components/Footer.astro';
     font-size: 16px;
     color: #4b4d5d;
     line-height: 28px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 0 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .also-from-us {
+    margin-top: 32px;
+    font-size: 16px;
+    color: #4b4d5d;
   }
 </style>

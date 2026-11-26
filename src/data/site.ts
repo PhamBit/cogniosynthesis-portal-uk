@@ -18,3 +18,9 @@ export const CATEGORY_ORDER = [
   'Individual Sovereignty',
   'Event Intelligence & Logistics',
 ];
+
+// Booking terms shared by the three service pages, as published on the live site (read 26 Nov 2026).
+export const CANCELLATION_TERM =
+  'cancel 14 days or more before and your deposit is refunded in full. You can move your date free up to 5 working days before. If you cancel inside 14 days, your deposit carries to one new date within 60 days. Later than 5 working days before, or if there is no room or no one from your team on the day, the full fee carries to one new date within 60 days. If we cancel, you choose a full refund or a new date.';
+export const PAYMENT_TERM =
+  'private firms pay a 20% deposit (plus VAT) at booking, which secures your date and is credited to your invoice; we invoice the balance on the day, payable within 30 days. Public bodies book by purchase order, invoiced on the day at 30 days.';
