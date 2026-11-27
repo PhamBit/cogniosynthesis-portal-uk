@@ -1,0 +1,69 @@
+# Cogniosynthesis Portal
+
+> AI Exploration · AI Health Check · Epistemic Audit. In your building, offline. Every one starts with a conversation.
+
+Cogniosynthesis Portal Ltd offers three services, all done on-site and offline, and all starting with a free 45-minute conversation. It is also the front door to the Cogniosynthesis estate — a family of applications applying context-aware analysis and the lens framework to news correction, epistemic auditing, data sovereignty, civic research, and events.
+
+## Three ways we help with AI
+
+- [AI Exploration](https://cogniosynthesisportal.uk/explore/): For anyone not sure what AI could do for them. Half a day in your building, offline; you leave with a short written plan of what AI could take on, and what to keep human.
+- [AI Health Check](https://cogniosynthesisportal.uk/health-check/): For anyone already using AI. A day in your building, offline. We review your AI set-up from what you show us in the room (settings, policies, supplier terms, exports) and note what they say about who has access, where data goes and how long it is kept.
+- [Epistemic Audit](https://cogniosynthesisportal.uk/audits/): We show what was left out of a policy, notice or contract, with the source for every finding. On-site and offline; your documents stay with you.
+
+Cogniosynthesis Portal is the hub of the estate, mapped by intent. Each application below is a distinct surface; together they apply the same "preservative" approach — reading what dominant systems erase — across different domains. The portal also links out to sibling projects on their own domains.
+
+## How your information is kept
+
+- [Sovereign data policy](https://cogniosynthesisportal.uk/sovereign-data/): How your information stays yours: offline work in your building, used only for your plan or finding.
+
+## Applications
+
+- [StanceWatch](https://cogniosynthesisportal.uk/stancewatch/): Weekly GoldBerry-style epistemic audits of 51 AI labs. A sortable PALS leaderboard across Completeness, Multiplicity, and Responsibility, plus the eight lenses.
+- [The Ministry of Digital Obscurity](https://cogniosynthesisportal.uk/ministry/): Speculative historiography that uses the register of 1900 to reflect on present technology — Articulate Engines, predictive Seeing-Stones, ad-tech auctions, and the containment of one's Personal Vapors. Coronation, Michaelmas, Trinity, and Hilary editions.
+- [CognioMap](https://cogniosynthesisportal.uk/cogniomap/): An interactive cartographic simulator. The map morphs to what you are trying to understand — area, shape, distance, direction, or cultural framing — exposing how every projection is an argument, not a window.
+- [CognioEnacted](https://cogniosynthesisportal.uk/enacted/): Mapping epistemic completeness to UK legislation through the lens framework — how well UK law addresses knowledge equity across 25 legislative instruments.
+- [Knowledge Ecosystem](https://cogniosynthesisportal.uk/knowledge-ecosystem/): The UNESCO-MOST BRIDGES coalition knowledge ecosystem — 45 humanities-led sustainability projects, viewed through many lenses.
+- [FeedMeSafe](https://cogniosynthesisportal.uk/feedmesafe/): Personal allergen QR codes — show restaurant staff your dietary restrictions instantly.
+- [CognioBridge](https://cogniosynthesisportal.uk/bridge/): Access portal for Cogniosynthesis Portal Ltd.
+- [Ghost Ledger](https://cogniosynthesisportal.uk/ghost-ledger/): Transaction memory and inherited omissions.
+- [Epistemic Audit](https://cogniosynthesisportal.uk/audits/): On-site, offline document audits. We come to you; your documents stay with you.
+
+## Products
+
+One page per product, with what it is.
+
+- [Accessibility Checker](https://cogniosynthesisportal.uk/products/accessibility-checker/): Run automated WCAG checks and spot visual accessibility risks in images, charts and public-service content. Free first-pass accessibility scanner, no signup.
+- [ACST Vocabulary](https://cogniosynthesisportal.uk/products/acst-vocabulary/): A machine-readable vocabulary for analysing news through eight knowledge lenses: RDFS/JSON-LD definitions of cognio:Review, cognio:LensReading and the lenses.
+- [CognioCymru](https://cogniosynthesisportal.uk/products/cogniocymru/): An open reference implementation of Terminology-Augmented Generation for Welsh, built on BydTermCymru and ~2.6M EN↔CY pairs. Independent of Welsh Government.
+- [CognioEnacted](https://cogniosynthesisportal.uk/products/cognioenacted/): Mapping epistemic completeness to UK legislation through the Seven Lenses. How well does UK law address knowledge equity across 25 legislative instruments?
+- [CognioFem](https://cogniosynthesisportal.uk/products/cogniofem/): CognioFem scans CognioNews for structural signals, from gender-based violence to reproductive rights and political representation, on a thematic board.
+- [CognioMap](https://cogniosynthesisportal.uk/products/cogniomap/): An interactive map simulator that morphs to what you want to understand — area, shape, distance, direction or cultural framing. Every projection is an argument.
+- [CognioNews](https://cogniosynthesisportal.uk/products/cognionews/): Can what got left out be put back in? Over 24,000 stories audited, every repair shown in gold, restoring the lenses, voices and context the edit tore out.
+- [CognioPublic](https://cogniosynthesisportal.uk/products/cogniopublic/): CognioPublic is a UK public-sector epistemic scorecard from the Cogniosynthesis Portal, in Trust & Governance. Price to be confirmed; quotes on request.
+- [CognioYou](https://cogniosynthesisportal.uk/products/cognioyou/): CognioYou is a new product from the Cogniosynthesis Portal, coming soon. Details to follow; join the waitlist by email.
+- [Eco Money Expert](https://cogniosynthesisportal.uk/products/eco-money-expert/): A shortlist of durable, eco-friendly products, each with why it was picked, a link to the maker, a lifetime-cost calculator and an affiliate disclosure.
+- [FestivalFocus](https://cogniosynthesisportal.uk/products/festivalfocus/): A festival discovery platform: browse over 150 UK festivals, from 500-capacity gems to 250k+ mega-events, with expert guides, ticket links and reviews.
+- [FestivalFocus Ops](https://cogniosynthesisportal.uk/products/festivalfocus-ops/): Festival operations support: software when you need control, people when you need hands. Box office, accreditation, ingress, egress, night ops and live ops.
+- [Ghost Ledger](https://cogniosynthesisportal.uk/products/ghost-ledger/): Ghost Ledger is institutional memory due diligence built on context-aware analysis.
+- [GoldBerry](https://cogniosynthesisportal.uk/products/goldberry/): GoldBerry is a source-available framework for epistemic auditing: eight lenses any AI agent can load, with explicit limits. PolyForm Noncommercial licensed.
+- [GoldBerry for Students](https://cogniosynthesisportal.uk/products/goldberry-for-students/): GoldBerry for Students: transparent AI-assisted research, part of GoldBerry. Free to use and self-serve, from the Cogniosynthesis Portal.
+- [Kenny Lewis Events](https://cogniosynthesisportal.uk/products/kenny-lewis-events/): Kenny Lewis Events, a UK event logistics practice. Kenny’s experience includes working at Glastonbury, Boomtown, Unearthed and Farleigh Castle festivals.
+- [KitHolder](https://cogniosynthesisportal.uk/products/kitholder/): The asset office in a flight case. A custody ledger for radios, scanners, keys and kit at live events — offline by design, setup in an hour, evidence you own.
+- [Knowledge Ecosystem](https://cogniosynthesisportal.uk/products/knowledge-ecosystem/): Coalition Knowledge Ecosystem — 45 humanities-led sustainability projects, viewed in many ways.
+- [Ministry of Digital Obscurity](https://cogniosynthesisportal.uk/products/ministry-of-digital-obscurity/): Satire: speculative historiography in the register of 1900, issuing civic instruction on Articulate Engines, predictive Seeing-Stones and Reflecting-Glass.
+- [StanceWatch](https://cogniosynthesisportal.uk/products/stancewatch/): Regular GoldBerry-style epistemic audits of 51 AI labs. Sortable PALS leaderboard across Completeness, Multiplicity, Responsibility — plus the eight lenses.
+
+## Elsewhere in the estate
+
+- [CognioNews](https://cognionews.com/): News re-read through 8 editorial lenses, with the original reporting alongside. Its own llms.txt: https://cognionews.com/llms.txt
+- [CognioCymru](https://cymru.cogniosynthesisportal.com/cy): Welsh-language news read through a cultural lens (Newyddion Cymru trwy lygad diwylliannol).
+- [CognioPublic](https://public.cogniosynthesisportal.uk): The estate's public data disclaimer surface.
+
+## Legal
+
+- [Privacy](https://cogniosynthesisportal.uk/privacy/) · [Terms](https://cogniosynthesisportal.uk/terms/): Website privacy notice and terms.
+- [Company privacy policy](https://cogniosynthesisportal.uk/legal/privacy/) · [Company terms](https://cogniosynthesisportal.uk/legal/terms/)
+
+## Optional
+
+- [Sitemap](https://cogniosynthesisportal.uk/sitemap.xml): Indexed estate pages.
