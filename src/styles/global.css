@@ -1,4 +1,4 @@
-/* CognioSynthesis Portal UK v2 - DXC-Accurate Design System */
+/* Cogniosynthesis Portal UK v2 - DXC-Accurate Design System */
 /* Based on actual DXC.com CSS extraction from mirror */
 
 /* ==============================================
@@ -20,7 +20,7 @@
   --color-border-focus: #2f6fd5;
   
   /* Typography - DXC Font Stack */
-  --font-primary: 'GT Standard Extended', system-ui, -apple-system, sans-serif;
+  --font-primary: 'Archivo Expanded', system-ui, -apple-system, sans-serif;
   --font-secondary: 'Inter', system-ui, -apple-system, sans-serif;
   
   /* DXC Font Sizes (from CSS) - IN PIXELS like DXC */
@@ -176,12 +176,14 @@ img {
    ============================================== */
 
 .section {
-  padding: var(--spacing-80) 0;
+  padding-top: var(--spacing-80);
+  padding-bottom: var(--spacing-80);
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: var(--spacing-96) 0;
+    padding-top: var(--spacing-96);
+    padding-bottom: var(--spacing-96);
   }
 }
 
@@ -261,13 +263,13 @@ img {
 
 .btn-secondary {
   background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  color: #0e1020;
+  border: 2px solid #0e1020;
   padding: calc(var(--spacing-12) - 2px) var(--spacing-24);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(14, 16, 32, 0.05);
   text-decoration: none;
   transform: translateY(-1px);
 }
@@ -522,4 +524,37 @@ img {
 
 .full-width {
   width: 100%;
+}
+
+/* ==============================================
+   SMALL SCREENS: headings step down and wide tables scroll inside themselves,
+   so no page pushes wider than the phone.
+   ============================================== */
+
+@media (max-width: 640px) {
+  h1, .page-hero h1 { font-size: 32px !important; line-height: 1.15 !important; }
+  h2 { font-size: 26px; line-height: 1.2; }
+  h3 { font-size: 21px; }
+  main table { display: block; max-width: 100%; overflow-x: auto; }
+  main p, main li, main dd { overflow-wrap: anywhere; }
+  main td, main th { overflow-wrap: break-word; }
+}
+
+/* ==============================================
+   MOTION SWITCHED OFF: visitors who ask their device for less motion get
+   no entrance animations, no gliding scroll and no moving transitions.
+   The hero composition shows its still frame (see Hero-Motion.astro).
+   ============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
 }

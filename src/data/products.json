@@ -1,0 +1,475 @@
+[
+ {
+  "slug": "accessibility-checker",
+  "category": "Trust & Governance",
+  "name": "Accessibility Checker",
+  "line": "Free WCAG + visual accessibility scan",
+  "about": "Run automated WCAG checks and spot visual accessibility risks in images, charts and public-service content. Free first-pass accessibility scanner, no signup.",
+  "icon": "accessibility-checker.svg",
+  "metaDescription": "Run automated WCAG checks and spot visual accessibility risks in images, charts and public-service content. Free first-pass accessibility scanner, no signup.",
+  "buttons": [
+   {
+    "href": "https://accessibility-checker.co.uk",
+    "label": "Visit Accessibility Checker →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free first-pass scan</p><p>Monitoring £29 a month. Reviewed report £950, offered only when a qualified person signs it off.</p><p>How to buy: Free scan, self-serve. Monitoring: use the Subscribe button below.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/3cI3cp4vq6ua2aT61p2VG0l\" rel=\"noopener\">Subscribe £29 per month, renews monthly, cancel any time: monitoring</a></p>",
+  "siblings": [
+   "goldberry",
+   "goldberry-for-students",
+   "stancewatch",
+   "cogniopublic",
+   "cognioenacted",
+   "ghost-ledger"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "acst-vocabulary",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "ACST Vocabulary",
+  "line": "The eight lenses, machine-readable",
+  "about": "A machine-readable vocabulary for analysing news through 8 knowledge lenses. RDFS/JSON-LD definitions of cognio:Review, cognio:LensReading, and the eight ACST lenses, including Indigenous, Historical, Cross-Cultural, Scientific, Artistic-Spiritual and Future Modelling.",
+  "icon": "acst-vocabulary.svg",
+  "metaDescription": "A machine-readable vocabulary for analysing news through eight knowledge lenses: RDFS/JSON-LD definitions of cognio:Review, cognio:LensReading and the lenses.",
+  "buttons": [
+   {
+    "href": "https://cognionews.com/vocab/acst/",
+    "label": "Visit ACST Vocabulary →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>Open data; commercial licensing by enquiry</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "cognionews",
+   "cogniofem",
+   "knowledge-ecosystem",
+   "cogniocymru",
+   "cogniomap",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": "cognionews"
+ },
+ {
+  "slug": "cogniocymru",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "CognioCymru",
+  "line": "Open Welsh-language AI",
+  "about": "An open reference implementation of Terminology-Augmented Generation (TAG) for the Welsh language, built on BydTermCymru and ~2.6M open EN↔CY sentence pairs. Independent of Welsh Government; consumes OGL data.",
+  "icon": "cogniocymru.svg",
+  "metaDescription": "An open reference implementation of Terminology-Augmented Generation for Welsh, built on BydTermCymru and ~2.6M EN↔CY pairs. Independent of Welsh Government.",
+  "buttons": [
+   {
+    "href": "https://cymru.cogniosynthesisportal.com/cy",
+    "label": "Visit CognioCymru →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>Open Welsh-language AI, free to use.</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "cognionews",
+   "cogniofem",
+   "acst-vocabulary",
+   "knowledge-ecosystem",
+   "cogniomap",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "cognioenacted",
+  "category": "Trust & Governance",
+  "name": "CognioEnacted",
+  "line": "UK law through seven lenses",
+  "about": "Mapping epistemic completeness to UK legislation through the Seven Lenses. How well does UK law address knowledge equity across 25 legislative instruments?",
+  "icon": "cognioenacted.svg",
+  "metaDescription": "Mapping epistemic completeness to UK legislation through the Seven Lenses. How well does UK law address knowledge equity across 25 legislative instruments?",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/enacted/",
+    "label": "Visit CognioEnacted →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
+  "siblings": [
+   "goldberry",
+   "goldberry-for-students",
+   "stancewatch",
+   "cogniopublic",
+   "ghost-ledger",
+   "accessibility-checker"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "cogniofem",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "CognioFem",
+  "line": "Women in the news, thematic board",
+  "about": "CognioFem scans CognioNews for structural signals — gender-based violence, intersectional dynamics, reproductive rights, political representation, economic and care participation, legal and structural rights — and opens each matched story into a thematic…",
+  "icon": "cogniofem.svg",
+  "metaDescription": "CognioFem scans CognioNews for structural signals, from gender-based violence to reproductive rights and political representation, on a thematic board.",
+  "buttons": [
+   {
+    "href": "https://cognionews.com/cogniofem/",
+    "label": "Visit CognioFem →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
+  "siblings": [
+   "cognionews",
+   "acst-vocabulary",
+   "knowledge-ecosystem",
+   "cogniocymru",
+   "cogniomap",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": "cognionews"
+ },
+ {
+  "slug": "cogniomap",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "CognioMap",
+  "line": "Projection morphing simulator",
+  "about": "An interactive cartographic simulator. The map morphs to what you are trying to understand — area, shape, distance, direction, or cultural framing — exposing how every projection is an argument, not a window.",
+  "icon": "cogniomap.svg",
+  "metaDescription": "An interactive map simulator that morphs to what you want to understand — area, shape, distance, direction or cultural framing. Every projection is an argument.",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/cogniomap/",
+    "label": "Visit CognioMap →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "cognionews",
+   "cogniofem",
+   "acst-vocabulary",
+   "knowledge-ecosystem",
+   "cogniocymru",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "cognionews",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "CognioNews",
+  "line": "Every news repair shown in gold",
+  "about": "Can what got left out be put back in? Over 24,000 stories audited. Every repair shown in gold. CognioNews restores the lenses, voices and context the edit tore out.",
+  "icon": "cognionews.svg",
+  "metaDescription": "Can what got left out be put back in? Over 24,000 stories audited, every repair shown in gold, restoring the lenses, voices and context the edit tore out.",
+  "buttons": [
+   {
+    "href": "https://cognionews.com",
+    "label": "Visit CognioNews →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free to read; Premium £9.99 a month</p><p>How to buy: Free to read; Premium via Stripe.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p><h3>CognioNews Premium, £9.99 a month: included now</h3><ul><li>Handpicked news feed: choose your topics and sources</li><li>Personalised dashboard ranked by the analysis dimensions you choose</li><li>Export analysis reports (Markdown, JSON, print to PDF)</li></ul><h3>Coming soon, not included yet</h3><ul><li>Submit stories for analysis</li><li>Email digest on your schedule</li><li>Priority processing</li></ul><p>Recurring until cancelled; cancel any time. Already subscribed? <a class=\"mail\" href=\"https://cognionews.com/premium/\">Sign in to CognioNews Premium</a> with the email on your Stripe receipt.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/aFa4gt6Dy9Gm8zhexV2VG03\" rel=\"noopener\">Subscribe £9.99 per month, renews monthly, cancel any time: CognioNews Premium</a></p>",
+  "siblings": [
+   "cogniofem",
+   "acst-vocabulary",
+   "knowledge-ecosystem",
+   "cogniocymru",
+   "cogniomap",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "cogniopublic",
+  "category": "Trust & Governance",
+  "name": "CognioPublic",
+  "line": "UK public-sector epistemic scorecard",
+  "about": "UK public-sector epistemic scorecard",
+  "icon": "cogniopublic.svg",
+  "metaDescription": "CognioPublic is a UK public-sector epistemic scorecard from the Cogniosynthesis Portal, in Trust & Governance. Price to be confirmed; quotes on request.",
+  "buttons": [
+   {
+    "href": "https://public.cogniosynthesisportal.uk",
+    "label": "Visit CognioPublic →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Price to be confirmed</p><p>How to buy: Quote.</p>",
+  "siblings": [
+   "goldberry",
+   "goldberry-for-students",
+   "stancewatch",
+   "cognioenacted",
+   "ghost-ledger",
+   "accessibility-checker"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "cognioyou",
+  "category": "Individual Sovereignty",
+  "name": "CognioYou",
+  "line": "Coming soon",
+  "about": "A new product from the Cogniosynthesis Portal. Details to follow.",
+  "icon": "cognioyou.svg",
+  "metaDescription": "CognioYou is a new product from the Cogniosynthesis Portal, coming soon. Details to follow; join the waitlist by email.",
+  "buttons": [],
+  "priceHtml": "<p class=\"ph\">Coming soon</p><p>How to buy: <a class=\"mail\" href=\"mailto:info@cogniosynthesisportal.uk?subject=CognioYou%20waitlist\">Email us to join the CognioYou waitlist</a></p>",
+  "siblings": [
+   "eco-money-expert"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "eco-money-expert",
+  "category": "Individual Sovereignty",
+  "name": "Eco Money Expert",
+  "line": "A shortlist of durable eco products",
+  "about": "A small shortlist of durable, eco-friendly products, each with the reason it was picked, a link to the maker, a lifetime-cost calculator and an affiliate disclosure.",
+  "icon": "eco-money-expert.svg",
+  "metaDescription": "A shortlist of durable, eco-friendly products, each with why it was picked, a link to the maker, a lifetime-cost calculator and an affiliate disclosure.",
+  "buttons": [
+   {
+    "href": "https://eco.cogniosynthesisportal.uk/",
+    "label": "Visit Eco Money Expert →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "cognioyou"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "festivalfocus",
+  "category": "Event Intelligence & Logistics",
+  "name": "FestivalFocus",
+  "line": "Discover over 150 UK music festivals",
+  "about": "A comprehensive festival discovery platform. Browse over 150 UK festivals from intimate 500-capacity gems to 250k+ mega-events. Expert guides, ticket links, and community reviews.",
+  "icon": "festivalfocus.svg",
+  "metaDescription": "A festival discovery platform: browse over 150 UK festivals, from 500-capacity gems to 250k+ mega-events, with expert guides, ticket links and reviews.",
+  "buttons": [
+   {
+    "href": "https://festivalfocus.uk",
+    "label": "Visit FestivalFocus →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free to browse; organiser Starter £495</p><p>Starter £495 for organisers</p><p>How to buy: Free browse; payment link for Starter.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/dRm6oB3rm9GmeXF1L92VG0e\" rel=\"noopener\">Pay £495 via Stripe: Organiser Starter</a></p>",
+  "siblings": [
+   "festivalfocus-ops",
+   "kitholder",
+   "kenny-lewis-events"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "festivalfocus-ops",
+  "category": "Event Intelligence & Logistics",
+  "name": "FestivalFocus Ops",
+  "line": "Festival operations support",
+  "about": "Festival operations support. Software when you need control, people when you need hands. Box office, accreditation, ingress, egress, night ops, green teams and live ops — one festival-specific platform plus trained non-SIA teams.",
+  "icon": "festivalfocus-ops.svg",
+  "metaDescription": "Festival operations support: software when you need control, people when you need hands. Box office, accreditation, ingress, egress, night ops and live ops.",
+  "buttons": [
+   {
+    "href": "https://ops.festivalfocus.uk",
+    "label": "Visit FestivalFocus Ops →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">From £1,500 per event</p><p>The operations layer for UK festivals.</p><p>How to buy: Pay £1,500 per event via Stripe; larger scopes by quote.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/eVq14h1je4m23eXgG32VG0f\" rel=\"noopener\">Pay £1,500 via Stripe: per event, larger scopes by quote</a></p>",
+  "siblings": [
+   "festivalfocus",
+   "kitholder",
+   "kenny-lewis-events"
+  ],
+  "parent": "festivalfocus"
+ },
+ {
+  "slug": "ghost-ledger",
+  "category": "Trust & Governance",
+  "name": "Ghost Ledger",
+  "line": "Institutional memory due diligence",
+  "about": "Ghost Ledger is institutional memory due diligence built on context-aware analysis.",
+  "icon": "ghost-ledger.svg",
+  "metaDescription": "Ghost Ledger is institutional memory due diligence built on context-aware analysis.",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/ghost-ledger/",
+    "label": "Visit Ghost Ledger →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">£4,000 pilot</p><p>£4,000 for each of the first three pilots, then review</p><p>How to buy: Pay the £4,000 pilot via Stripe, or ask for an invoice.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/14A3cp9PKbOu7vdblJ2VG0a\" rel=\"noopener\">Pay £4,000 via Stripe: Ghost Ledger pilot</a></p>",
+  "siblings": [
+   "goldberry",
+   "goldberry-for-students",
+   "stancewatch",
+   "cogniopublic",
+   "cognioenacted",
+   "accessibility-checker"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "goldberry",
+  "category": "Trust & Governance",
+  "name": "GoldBerry",
+  "line": "Eight-lens epistemic auditing for AI outputs",
+  "about": "GoldBerry is a source-available framework for structured epistemic auditing. Eight analytical lenses that any AI agent can load — portable identity files, inspectable examples, and explicit limits. PolyForm Noncommercial licensed.",
+  "icon": "goldberry.svg",
+  "metaDescription": "GoldBerry is a source-available framework for epistemic auditing: eight lenses any AI agent can load, with explicit limits. PolyForm Noncommercial licensed.",
+  "buttons": [
+   {
+    "href": "https://goldberry-here.co.uk",
+    "label": "Visit GoldBerry →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free for universities, charities and public bodies; private firms from £66/month</p><p>Only private firms pay for a licence.</p><p>How to buy: Free sign-up; private-firm licence by invoice.</p>",
+  "siblings": [
+   "goldberry-for-students",
+   "stancewatch",
+   "cogniopublic",
+   "cognioenacted",
+   "ghost-ledger",
+   "accessibility-checker"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "goldberry-for-students",
+  "category": "Trust & Governance",
+  "name": "GoldBerry for Students",
+  "line": "Transparent AI-assisted research",
+  "about": "Transparent AI-assisted research",
+  "icon": "goldberry-for-students.svg",
+  "metaDescription": "GoldBerry for Students: transparent AI-assisted research, part of GoldBerry. Free to use and self-serve, from the Cogniosynthesis Portal.",
+  "buttons": [
+   {
+    "href": "https://students.goldberry-here.co.uk",
+    "label": "Visit GoldBerry for Students →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "goldberry",
+   "stancewatch",
+   "cogniopublic",
+   "cognioenacted",
+   "ghost-ledger",
+   "accessibility-checker"
+  ],
+  "parent": "goldberry"
+ },
+ {
+  "slug": "kenny-lewis-events",
+  "category": "Event Intelligence & Logistics",
+  "name": "Kenny Lewis Events",
+  "line": "Event logistics specialist",
+  "about": "Kenny Lewis Events — an established UK event logistics practice. Planned to perfection. Delivered with passion. Kenny’s experience includes working at festivals such as Glastonbury, Boomtown, Unearthed and Farleigh Castle.",
+  "icon": "kenny-lewis-events.svg",
+  "metaDescription": "Kenny Lewis Events, a UK event logistics practice. Kenny’s experience includes working at Glastonbury, Boomtown, Unearthed and Farleigh Castle festivals.",
+  "buttons": [
+   {
+    "href": "https://kennylewisevents.uk/",
+    "label": "Visit Kenny Lewis Events →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">On quotation</p><p>Event logistics</p><p>How to buy: Quote.</p>",
+  "siblings": [
+   "festivalfocus",
+   "festivalfocus-ops",
+   "kitholder"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "kitholder",
+  "category": "Event Intelligence & Logistics",
+  "name": "KitHolder",
+  "line": "Custody ledger for event kit",
+  "about": "The asset office in a flight case. A custody ledger for radios, scanners, keys and kit at live events — offline by design, setup in an hour, evidence you own.",
+  "icon": "kitholder.svg",
+  "metaDescription": "The asset office in a flight case. A custody ledger for radios, scanners, keys and kit at live events — offline by design, setup in an hour, evidence you own.",
+  "buttons": [
+   {
+    "href": "https://kitholder.co.uk",
+    "label": "Visit KitHolder →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">From £395 per event</p><p><b>The Box</b> £395 (up to 100 assets) · <b>The Station</b> £795 (100–500 assets) · <b>The Office</b> from £1,750 (500+ assets / multi-department). Launch pricing for the 2027 season, as stated on kitholder.co.uk.</p><p>How to buy: Pay by tier via Stripe, or ask for an invoice.</p><p class=\"btns paylinks\"><a class=\"btn\" href=\"https://buy.stripe.com/00w6oBge819Q5n5cpN2VG0g\" rel=\"noopener\">Pay £395 via Stripe: The Box</a><a class=\"btn\" href=\"https://buy.stripe.com/dRmaERge8bOu16P9dB2VG0h\" rel=\"noopener\">Pay £795 via Stripe: The Station</a><a class=\"btn\" href=\"https://buy.stripe.com/eVq4gt8LG3hY6r91L92VG0i\" rel=\"noopener\">Pay £1,750 via Stripe: The Office, larger scopes by quote</a></p>",
+  "siblings": [
+   "festivalfocus",
+   "festivalfocus-ops",
+   "kenny-lewis-events"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "knowledge-ecosystem",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "Knowledge Ecosystem",
+  "line": "UNESCO-MOST BRIDGES, 45 projects",
+  "about": "Coalition Knowledge Ecosystem — 45 humanities-led sustainability projects, viewed in many ways.",
+  "icon": "knowledge-ecosystem.svg",
+  "metaDescription": "Coalition Knowledge Ecosystem — 45 humanities-led sustainability projects, viewed in many ways.",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/knowledge-ecosystem",
+    "label": "Visit Knowledge Ecosystem →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an Epistemic Audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
+  "siblings": [
+   "cognionews",
+   "cogniofem",
+   "acst-vocabulary",
+   "cogniocymru",
+   "cogniomap",
+   "ministry-of-digital-obscurity"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "ministry-of-digital-obscurity",
+  "category": "Civic & Cultural Infrastructure",
+  "name": "Ministry of Digital Obscurity",
+  "line": "Satire: an Edwardian reading-room for modern tech",
+  "about": "<strong>Satire.</strong> Speculative Historiography that uses the register of 1900 to reflect on the technology of the present. The Ministry of Digital Obscurity issues civic instruction upon the matter of Articulate Engines, predictive Seeing-Stones, smart-home Reflecting-Glass…",
+  "icon": "ministry-of-digital-obscurity.svg",
+  "metaDescription": "Satire: speculative historiography in the register of 1900, issuing civic instruction on Articulate Engines, predictive Seeing-Stones and Reflecting-Glass.",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/ministry/",
+    "label": "Visit Ministry of Digital Obscurity →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p>",
+  "siblings": [
+   "cognionews",
+   "cogniofem",
+   "acst-vocabulary",
+   "knowledge-ecosystem",
+   "cogniocymru",
+   "cogniomap"
+  ],
+  "parent": null
+ },
+ {
+  "slug": "stancewatch",
+  "category": "Trust & Governance",
+  "name": "StanceWatch",
+  "line": "Regular audits of 51 AI labs",
+  "about": "Regular GoldBerry-style epistemic audits of 51 AI labs. Sortable PALS leaderboard across Completeness, Multiplicity, Responsibility — plus the eight lenses.",
+  "icon": "stancewatch.svg",
+  "metaDescription": "Regular GoldBerry-style epistemic audits of 51 AI labs. Sortable PALS leaderboard across Completeness, Multiplicity, Responsibility — plus the eight lenses.",
+  "buttons": [
+   {
+    "href": "https://cogniosynthesisportal.uk/stancewatch/",
+    "label": "Visit StanceWatch →"
+   }
+  ],
+  "priceHtml": "<p class=\"ph\">Free</p><p>The public ranking of 51 AI labs is free to view.</p><p>Need an Epistemic Audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
+  "siblings": [
+   "goldberry",
+   "goldberry-for-students",
+   "cogniopublic",
+   "cognioenacted",
+   "ghost-ledger",
+   "accessibility-checker"
+  ],
+  "parent": "goldberry"
+ }
+]

@@ -10,7 +10,7 @@ export default {
         'cognio-section': '#ebe7e4',
       },
       fontFamily: {
-        primary: ['GT Standard Extended', 'system-ui', '-apple-system', 'sans-serif'],
+        primary: ['Archivo Expanded', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },

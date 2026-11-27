@@ -1,58 +1,130 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
 
 interface Props {
   title: string;
   description?: string;
+  /** Whole browser title, used as it is (the home page). Without it the title is "<title> | Cogniosynthesis Portal". */
+  fullTitle?: string;
+  /** Keep a page out of search results (the not-found page). */
+  noindex?: boolean;
 }
 
-const { title, description = 'CognioSynthesis Portal - Enterprise AI & Technology Solutions' } = Astro.props;
+const { title, description = 'Digital ecosystem support, analytics and reporting: AI Exploration, AI Health Check and Epistemic Audit. In your building, offline. Every one starts with a free 45-minute conversation.', fullTitle, noindex = false } = Astro.props;
+
+const SITE_NAME = 'Cogniosynthesis Portal';
+const pageTitle = fullTitle ?? `${title} | ${SITE_NAME}`;
+// The share image is the live site's own file, already on the web server at this address
+// (3.5 MB, kept out of this repository).
+const SHARE_IMAGE = 'https://cogniosynthesisportal.uk/assets/splash-collage.png';
+const SHARE_IMAGE_ALT = 'A torn collage of landscapes and eras rejoined with glowing bronze seams.';
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href={Astro.url} />
+    {!noindex && <link rel="canonical" href={Astro.url} />}
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Meta tags -->
-    <title>{title} | CognioSynthesis Portal</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
     
     <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:site_name" content="CognioSynthesis Portal" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={Astro.url} />}
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={SHARE_IMAGE} />
+    <meta property="og:image:alt" content={SHARE_IMAGE_ALT} />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={SHARE_IMAGE} />
+
+    <!-- Structured data and other per-page head tags -->
+    <slot name="head" />
     
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts are served from this site: no outside request -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/archivo-expanded-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/inter.css" />
+    <link rel="stylesheet" href="/fonts/archivo-expanded.css" />
   </head>
   <body>
     <!-- Skip to main content (accessibility) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <slot />
+    <Header />
+
+    <!-- Page title bar (shown on inner pages) -->
+    {currentPath !== '/' && (
+      <div class="page-title-bar">
+        <div class="container">
+          <nav aria-label="Breadcrumbs">
+            <a href="/" class="home-link" aria-label="Home">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="current-page">{title}</span>
+          </nav>
+        </div>
+      </div>
+    )}
+    
+    <main id="main-content">
+      <slot />
+    </main>
   </body>
 </html>
 
-<style is:global>
-  /* Import Inter font from Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+<style>
+  /* Page title bar (breadcrumbs area) */
+  .page-title-bar {
+    background-color: #f6f3f0;
+    border-bottom: 1px solid #e0dcd8;
+    padding: var(--spacing-16) 0;
+    font-size: var(--fontsize-body-sm);
+  }
   
-  /* Custom font face for GT Standard Extended (will need local files) */
-  @font-face {
-    font-family: 'GT Standard Extended';
-    src: url('/fonts/gt-standard-extended.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  .page-title-bar nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+  
+  .home-link {
+    display: flex;
+    align-items: center;
+    color: #2f6fd5;
+    transition: opacity 150ms ease-in-out;
+  }
+  
+  .home-link:hover {
+    opacity: 0.8;
+  }
+  
+  .breadcrumb-separator {
+    color: #dcdce0;
+  }
+  
+  .current-page {
+    color: #4b4d5d;
   }
 </style>

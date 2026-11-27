@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bgoldberry-for-students" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#28da6b"/><stop offset="1" stop-color="#0c371c"/></linearGradient>
+ <radialGradient id="ggoldberry-for-students" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#75eda3" stop-opacity=".85"/><stop offset="1" stop-color="#75eda3" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hgoldberry-for-students" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rgoldberry-for-students" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dgoldberry-for-students" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dgoldberry-for-students)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bgoldberry-for-students)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#ggoldberry-for-students)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><circle cx="108" cy="150" r="19" fill="#000"/><circle cx="148" cy="150" r="19" fill="#000"/><circle cx="88" cy="182" r="19" fill="#000"/><circle cx="128" cy="182" r="19" fill="#000"/><circle cx="168" cy="182" r="19" fill="#000"/><circle cx="128" cy="212" r="19" fill="#000"/><path d="M48 80 L128 48 L208 80 L128 112 Z" fill="#000"/><path d="M84 96 V122 C108 136 148 136 172 122 V96" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M200 84 V118" stroke="#000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+ <circle cx="108" cy="150" r="19" fill="#F2C14E"/><circle cx="148" cy="150" r="19" fill="#F2C14E"/><circle cx="88" cy="182" r="19" fill="#F2C14E"/><circle cx="128" cy="182" r="19" fill="#F2C14E"/><circle cx="168" cy="182" r="19" fill="#F2C14E"/><circle cx="128" cy="212" r="19" fill="#F2C14E"/><path d="M48 80 L128 48 L208 80 L128 112 Z" fill="#fff"/><path d="M84 96 V122 C108 136 148 136 172 122 V96" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M200 84 V118" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hgoldberry-for-students)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rgoldberry-for-students)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

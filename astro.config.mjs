@@ -1,9 +1,33 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://cogniosynthesisportal.uk',
-  integrations: [tailwind()],
+  integrations: [
+    tailwind(),
+    sitemap({
+      // Leave out the addresses that only forward elsewhere.
+      filter: (page) => !/\/(cookies|solutions|products\/(aligned-certified|bio-debt|feedmesafe|my-sovereign-home|oldschool-search|paichip))\/$/.test(page),
+      // Parts of the site that are served beside this build and were in the live sitemap.
+      customPages: [
+        'https://cogniosynthesisportal.uk/feedmesafe/',
+        'https://cogniosynthesisportal.uk/knowledge-ecosystem/'
+      ]
+    })
+  ],
+  // Addresses the live site uses today, kept so existing links and search results still land.
+  redirects: {
+    // /privacy.html and /terms.html are forwarded to /privacy/ and /terms/ by the web server
+    // (nginx), not here: a forward built here loops with the server's own rules.
+    // Products retired on 18 Nov 2026: their old pages land on the products list.
+    '/products/aligned-certified': '/products/',
+    '/products/bio-debt': '/products/',
+    '/products/feedmesafe': '/products/',
+    '/products/my-sovereign-home': '/products/',
+    '/products/oldschool-search': '/products/',
+    '/products/paichip': '/products/'
+  },
   build: {
     inlineStylesheets: 'auto'
   },
@@ -11,5 +35,8 @@ export default defineConfig({
     css: {
       devSourcemap: true
     }
-  }
+  },
+  publicDir: 'public',
+  // Serve compositions for HyperFrames runtime
+  compressPublic: false
 });

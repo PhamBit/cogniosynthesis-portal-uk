@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bfestivalfocus" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eb3b82"/><stop offset="1" stop-color="#560c2a"/></linearGradient>
+ <radialGradient id="gfestivalfocus" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#f782b1" stop-opacity=".85"/><stop offset="1" stop-color="#f782b1" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hfestivalfocus" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rfestivalfocus" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dfestivalfocus" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dfestivalfocus)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bfestivalfocus)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gfestivalfocus)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><path d="M40 196 L128 72 L216 196 Z" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M128 72 V40 L156 50 L128 60 Z" fill="#000" stroke="#000" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M112 196 L128 150 L144 196" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="128" cy="150" r="70" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="14 10" opacity=".8"/></g>
+ <path d="M40 196 L128 72 L216 196 Z" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M128 72 V40 L156 50 L128 60 Z" fill="#F2C14E" stroke="#F2C14E" stroke-width="6" stroke-linejoin="round"/>
+ <path d="M112 196 L128 150 L144 196" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="128" cy="150" r="70" stroke="#F2C14E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="14 10" opacity=".8"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hfestivalfocus)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rfestivalfocus)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

@@ -1,326 +1,39 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import HeroMotion from '../components/Hero-Motion.astro';
+import ServicesMotion from '../components/Services-Motion.astro';
+import HomeUnderside from '../components/HomeUnderside.astro';
+// Organisation details for search engines, as published on the live home page (read 27 Nov 2026).
+import organization from '../data/organization-ld.json';
 
 ---
 
 <BaseLayout 
   title="Home"
-  description="Three ways we help with AI: AI Exploration, AI Health Check, and Epistemic Audit. All on-site, all offline."
+  fullTitle="Cogniosynthesis Portal — AI Exploration · AI Health Check · Epistemic Audit"
 >
-  <Header />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(organization)} />
+  <!-- HyperFrames Motion Hero (replaces static Hero) -->
+  <HeroMotion 
+    headline="Cogniosynthesis Portal"
+    subheadline="We help organisations explore what AI could do for them, check the AI they already use, and see what their documents leave out. All on-site, all offline."
+    primaryCta="Book a Conversation"
+    primaryCtaLink="/contact"
+    secondaryCta="See the three ways we help"
+    secondaryCtaLink="#ways"
+    background="lens"
+  />
   
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="page-hero">
-      <div class="container">
-        <h1>Cogniosynthesis Portal</h1>
-        <p class="hero-subtitle">We help organisations explore what AI could do for them, check the AI they already use, and see what their documents leave out. All on-site, all offline.</p>
-      </div>
-    </section>
+  <!-- Animated Services Section -->
+  <ServicesMotion />
 
-    <!-- Three Services Section -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section__heading heading--h2">Three ways we help with AI</h2>
-        
-        <div class="services-grid">
-          <article class="service-card">
-            <h3><a href="/explore/">AI Exploration</a></h3>
-            <p>Not sure what AI could do for you? We sit down with you, look at how your work actually runs, and show what AI could take on, and what to keep human. You leave with a short written plan.</p>
-            <p class="service-price">Half a day — £750 + VAT</p>
-            <a href="/explore/" class="btn btn-primary">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <h3><a href="/health-check/">AI Health Check</a></h3>
-            <p>Already using AI? We check what your settings and supplier terms say about your data: who can see it, where it goes, how long it's kept, and what your own policies and notices don't mention.</p>
-            <p class="service-price">A day — £2,500 + VAT</p>
-            <a href="/health-check/" class="btn btn-primary">Learn more →</a>
-          </article>
-
-          <article class="service-card">
-            <h3><a href="/audits/">Epistemic Audit</a></h3>
-            <p>We show what was left out. An epistemic audit checks what a policy, notice or contract claims to know, and what it leaves out. One written finding per document, with the source in your own text.</p>
-            <p class="service-price">Half day (up to 3 docs) — £750 + VAT</p>
-            <a href="/audits/" class="btn btn-primary">Learn more →</a>
-          </article>
-        </div>
-
-        <div class="cta-banner">
-          <p><strong>Every service starts with a free 45-minute conversation.</strong></p>
-          <a href="mailto:info@cogniosynthesisportal.uk?subject=First%20conversation" class="btn btn-primary">Book a conversation</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- What You Get Section -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section__heading heading--h2">Your documents stay in the room</h2>
-        <p class="section__intro text--body-lg">Whichever you choose, we come to you. Where a machine is used, it is ours: it runs in your building, fully offline, sealed from the internet and from your network.</p>
-
-        <div class="offline-benefits">
-          <div class="benefit-item">
-            <h4>Your documents go in on your own USB stick</h4>
-            <p>What we leave with you comes out on paper or a fresh stick. On an AI Health Check or Epistemic Audit, the machine is wiped clean in front of you before we leave.</p>
-          </div>
-          <div class="benefit-item">
-            <h4>Signed visit record</h4>
-            <p>On an Epistemic Audit you keep a signed visit record of what was checked. Your documents are used only for your plan or finding.</p>
-          </div>
-          <div class="benefit-item">
-            <h4>Based in Wales</h4>
-            <p>We visit within 60 road miles of Lampeter (travel included). Up to 120 miles, £150 + VAT a visit.</p>
-          </div>
-        </div>
-
-        <p class="ic-registration">Registered with the Information Commissioner (ZC269688).</p>
-      </div>
-    </section>
-
-    <!-- Pricing Table -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section__heading heading--h2">What it costs</h2>
-        <p class="section__intro text--body-lg">Published prices for the three services. Every one starts with a free conversation.</p>
-
-        <div class="pricing-table">
-          <table>
-            <thead>
-              <tr>
-                <th>What you get</th>
-                <th>Price</th>
-                <th>For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>First conversation — 45 minutes, by phone or in person</td>
-                <td>Free</td>
-                <td>Before any of the three</td>
-              </tr>
-              <tr>
-                <td><a href="/explore/">AI Exploration</a> — half a day</td>
-                <td>£750 + VAT</td>
-                <td>On-site and offline</td>
-              </tr>
-              <tr>
-                <td><a href="/health-check/">AI Health Check</a> — a day</td>
-                <td>£2,500 + VAT</td>
-                <td>On-site and offline</td>
-              </tr>
-              <tr>
-                <td><a href="/audits/">Epistemic Audit visit</a> — half a day, up to 3 documents</td>
-                <td>£750 + VAT</td>
-                <td>On-site and offline</td>
-              </tr>
-              <tr>
-                <td><a href="/audits/">Epistemic Audit day</a> — up to 10 documents</td>
-                <td>£2,500 + VAT</td>
-                <td>On-site and offline</td>
-              </tr>
-              <tr>
-                <td><a href="/audits/">Epistemic Audit monthly visit</a></td>
-                <td>from £1,000 a month + VAT</td>
-                <td>A visit each month</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p class="pricing-note">Larger scopes by quote: <a href="mailto:info@cogniosynthesisportal.uk">info@cogniosynthesisportal.uk</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who We Are -->
-    <section class="section">
-      <div class="container" style="text-align: center;">
-        <h2>Who we are</h2>
-        <p class="text--body-lg" style="max-width: 800px; margin: 0 auto;">Cogniosynthesis Portal Ltd is a software company based in Wales, specialising in AI and context-aware analysis. We help organisations and sole traders explore what AI could do for them, check the AI they already use, and see what their documents leave out.</p>
-        <p class="text--body-lg" style="max-width: 800px; margin: 16px auto 0;">Every piece of work starts with a conversation and takes place in your building, offline, as outlined in our <a href="/sovereign-data/">sovereign data policy</a>.</p>
-      </div>
-    </section>
-
-    <!-- Other Products -->
-    <section class="section section--alt">
-      <div class="container">
-        <h2 class="section__heading heading--h2">Also from us</h2>
-        
-        <div class="other-products">
-          <article class="product-card">
-            <h3>For festivals — FestivalFocus</h3>
-            <p>A UK festival directory. For organisers, <a href="/products/festivalfocus-ops/">FestivalFocus Ops</a>.</p>
-          </article>
-
-          <article class="product-card">
-            <h3>For readers — CognioNews</h3>
-            <p><a href="https://cognionews.com/">CognioNews</a>: every repair to a story shown in gold, with its source.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+  <!-- Everything below the three services: finding, also from us, documents, prices, who we are -->
+  <HomeUnderside />
   
   <Footer />
 </BaseLayout>
 
+<!-- Global styles removed - now in components -->
 <style>
-  .page-hero {
-    background: linear-gradient(135deg, #f6f3f0 0%, #ebe7e4 100%);
-    padding: 80px 0;
-    border-bottom: 1px solid #e0dcd8;
-    text-align: center;
-  }
-
-  .page-hero h1 {
-    font-size: 48px;
-    color: #0e1020;
-    margin: 0 0 16px 0;
-  }
-
-  .hero-subtitle {
-    font-size: 20px;
-    color: #4b4d5d;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 32px;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-top: 48px;
-  }
-
-  .service-card {
-    background: #ffffff;
-    border: 1px solid #dcdce0;
-    border-radius: 8px;
-    padding: 32px;
-    transition: all 200ms ease-in-out;
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-color: #2f6fd5;
-  }
-
-  .service-card h3 {
-    font-size: 24px;
-    color: #0e1020;
-    margin: 0 0 16px 0;
-  }
-
-  .service-card h3 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .service-card p:not(.service-price) {
-    font-size: 16px;
-    color: #4b4d5d;
-    line-height: 28px;
-    margin: 0 0 16px 0;
-  }
-
-  .service-price {
-    font-size: 14px;
-    font-weight: 600;
-    color: #2f6fd5;
-    margin: 0 0 20px 0;
-  }
-
-  .cta-banner {
-    background: #f6f3f0;
-    padding: 32px;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 48px;
-  }
-
-  .offline-benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    margin-top: 32px;
-  }
-
-  .benefit-item h4 {
-    font-size: 18px;
-    color: #0e1020;
-    margin: 0 0 12px 0;
-  }
-
-  .benefit-item p {
-    font-size: 16px;
-    color: #4b4d5d;
-    line-height: 28px;
-    margin: 0;
-  }
-
-  .ic-registration {
-    margin-top: 32px;
-    font-size: 14px;
-    color: #4b4d5d;
-  }
-
-  .pricing-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 32px;
-  }
-
-  .pricing-table th,
-  .pricing-table td {
-    padding: 16px;
-    text-align: left;
-    border-bottom: 1px solid #dcdce0;
-  }
-
-  .pricing-table th {
-    background: #f6f3f0;
-    font-weight: 600;
-    color: #0e1020;
-  }
-
-  .pricing-table td a {
-    color: #2f6fd5;
-    text-decoration: none;
-  }
-
-  .pricing-note {
-    margin-top: 16px;
-    font-size: 14px;
-    color: #4b4d5d;
-  }
-
-  .other-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-    margin-top: 32px;
-  }
-
-  .product-card {
-    background: #ffffff;
-    border: 1px solid #dcdce0;
-    border-radius: 8px;
-    padding: 24px;
-  }
-
-  .product-card h3 {
-    font-size: 18px;
-    color: #0e1020;
-    margin: 0 0 12px 0;
-  }
-
-  .product-card p {
-    font-size: 16px;
-    color: #4b4d5d;
-    margin: 0;
-  }
 </style>

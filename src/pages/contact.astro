@@ -1,76 +1,99 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF, BOOK_MAILTO } from '../data/site';
 ---
 
-<Layout title="Contact" description="Get in touch with CognioSynthesis Portal">
+<Layout title="Book a conversation" description="Every piece of work starts with a free 45-minute conversation, by phone or in person. Email or call to book.">
   <div class="page-hero">
     <div class="container">
-      <h1>Contact Us</h1>
-      <p class="hero-subtitle">Ready to transform your enterprise? Let's start the conversation.</p>
+      <h1>Book a conversation</h1>
+      <p class="hero-subtitle">Every one starts with a free 45-minute conversation, by phone or in person.</p>
     </div>
   </div>
 
   <section class="section section--alt">
     <div class="container">
       <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Get in Touch</h2>
-          <p>Whether you have a question about our solutions, want to discuss a project, or just want to learn more about what we do, we'd love to hear from you.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <h3>Email</h3>
-              <a href="mailto:info@cogniosynthesisportal.uk">info@cogniosynthesisportal.uk</a>
-            </div>
-            
-            <div class="contact-item">
-              <h3>Headquarters</h3>
-              <address>United Kingdom</address>
-            </div>
+        <div class="contact-card contact-card--main">
+          <h2>Email to book</h2>
+          <p>Tell us where you are, what your work involves, and a few dates that suit you. The button opens an email with these headings ready to fill in:</p>
+          <ul class="contact-fields">
+            <li>Organisation</li>
+            <li>Town</li>
+            <li>Which of the three (if you know)</li>
+            <li>Preferred dates</li>
+          </ul>
+          <a href={BOOK_MAILTO} class="btn btn-primary btn-lg">Email to book a conversation</a>
+          <p class="contact-small">If the button does not open your email, write to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+        </div>
+
+        <div class="contact-side">
+          <div class="contact-card">
+            <h3>Phone</h3>
+            <p><a href={PHONE_HREF}>{PHONE_DISPLAY}</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p><a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>Where we visit</h3>
+            <p>Visits are on-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</p>
+            <p>Conversations can be booked now; visits from February 2027.</p>
           </div>
         </div>
-        
-        <div class="contact-form-wrapper">
-          <form class="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" />
-            </div>
-            
-            <div class="form-group">
-              <label for="interest">Area of Interest</label>
-              <select id="interest" name="interest">
-                <option value="">Select an option</option>
-                <option value="ai-platform">AI Platform</option>
-                <option value="data-analytics">Data Analytics</option>
-                <option value="cloud-services">Cloud Services</option>
-                <option value="cybersecurity">Cybersecurity</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary full-width">Send Message</button>
-          </form>
-        </div>
       </div>
+
+      <h2 class="contact-ways">The three ways we help</h2>
+      <ul class="contact-ways-list">
+        <li><a href="/explore/">AI Exploration</a> — half a day, £750 + VAT</li>
+        <li><a href="/health-check/">AI Health Check</a> — a day, £2,500 + VAT</li>
+        <li><a href="/audits/">Epistemic Audit</a> — visit from £750 + VAT</li>
+      </ul>
+      <p class="contact-small">All prices are on the <a href="/#costs">home page</a>. How we handle your documents: <a href="/sovereign-data/">sovereign data policy</a>.</p>
     </div>
   </section>
 
   <Footer />
 </Layout>
+
+<style>
+  .page-hero h1 { font-size: clamp(30px, 9vw, 48px); line-height: 1.15; }
+  .contact-fields { list-style: disc; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 1.5fr 1fr; gap: 32px; }
+  }
+  .contact-side { display: grid; gap: 16px; }
+  .contact-grid > * { min-width: 0; }
+  .contact-card .btn { max-width: 100%; white-space: normal; text-align: center; }
+  @media (max-width: 420px) { .contact-card--main { padding: 24px; } }
+  .contact-card {
+    background: #ffffff;
+    border: 1px solid #dcdce0;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .contact-card--main { padding: 32px; }
+  .contact-card h2 { font-size: 28px; line-height: 1.2; font-weight: 600; margin: 0 0 12px; color: #0e1020; }
+  .contact-card h3 {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #4b4d5d; margin: 0 0 8px;
+  }
+  .contact-card p { color: #4b4d5d; line-height: 1.7; margin: 0 0 12px; }
+  .contact-card p:last-child { margin-bottom: 0; }
+  .contact-card a:not(.btn) { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .contact-fields { margin: 0 0 24px; padding-left: 20px; color: #0e1020; line-height: 1.9; }
+  .contact-small { font-size: 14px; color: #4b4d5d; margin-top: 16px !important; }
+  .contact-small a { color: #1f57b3; text-decoration: underline; }
+  .contact-ways { font-size: 28px; line-height: 1.2; font-weight: 600; margin: 56px 0 16px; color: #0e1020; }
+  .contact-ways-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid #dcdce0; }
+  .contact-ways-list li { padding: 14px 0; border-bottom: 1px solid #dcdce0; color: #4b4d5d; }
+  .contact-ways-list a { color: #0e1020; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+</style>

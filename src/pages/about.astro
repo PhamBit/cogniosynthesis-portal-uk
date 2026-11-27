@@ -1,48 +1,92 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+import { ICO_NUMBER, ICO_HREF } from '../data/site';
+import products from '../data/products.json';
 ---
 
-<Layout title="About Us" description="Learn about CognioSynthesis Portal">
+<Layout title="About us" description="Cogniosynthesis Portal Ltd is a software company based in Wales, specialising in AI and context-aware analysis.">
   <div class="page-hero">
     <div class="container">
-      <h1>About Us</h1>
-      <p class="hero-subtitle">We deliver enterprise AI and technology solutions that transform businesses and drive outcomes at scale</p>
+      <h1>Who we are</h1>
+      <p class="hero-subtitle">A software company based in Wales, specialising in AI and context-aware analysis.</p>
     </div>
   </div>
 
   <section class="section section--alt">
-    <div class="container">
-      <h2>Our Mission</h2>
-      <p>CognioSynthesis Portal Ltd. is a leader in enterprise AI and technology solutions. We partner with global organizations to harness the power of artificial intelligence, data analytics, and cloud infrastructure to drive measurable business outcomes.</p>
-      
-      <h2 class="heading-with-spacer">What We Do</h2>
-      <p>Our team of experts delivers end-to-end solutions across four core areas:</p>
-      
-      <ul class="capabilities-list">
-        <li><strong>AI Platform Development</strong> - Custom AI models, machine learning pipelines, and intelligent automation systems</li>
-        <li><strong>Data Analytics & Intelligence</strong> - Advanced analytics, business intelligence, and predictive modeling</li>
-        <li><strong>Cloud Infrastructure</strong> - Cloud migration, modernization, and managed services</li>
-        <li><strong>Cybersecurity</strong> - Threat detection, compliance frameworks, and security operations</li>
-      </ul>
-      
-      <h2 class="heading-with-spacer">Why Choose Us</h2>
-      <div class="differentiators-grid">
-        <div class="differentiator">
-          <h3>Deep Expertise</h3>
-          <p>Our team brings decades of combined experience in enterprise technology and AI innovation.</p>
-        </div>
-        <div class="differentiator">
-          <h3>Proven Track Record</h3>
-          <p>We've delivered transformative solutions for organizations across multiple industries.</p>
-        </div>
-        <div class="differentiator">
-          <h3>Outcome-Focused</h3>
-          <p>We measure success by the business value we deliver, not just technical delivery.</p>
-        </div>
+    <div class="container about-body">
+      <p class="about-lead">
+        Cogniosynthesis Portal Ltd is a software company based in Wales, specialising in AI and context-aware analysis.
+        We help organisations and sole traders explore what AI could do for them, check the AI they already use, and see
+        what their documents leave out. Every piece of work starts with a conversation and takes place in your building,
+        offline, as outlined in our <a href="/sovereign-data/">sovereign data policy</a>.
+      </p>
+
+      <h2>Three ways we help with AI</h2>
+      <div class="about-grid">
+        <a class="about-card" href="/explore/">
+          <h3>AI Exploration</h3>
+          <p>Not sure what AI could do for you? We sit down with you, look at how your work actually runs, and show what AI could take on, and what to keep human. You leave with a short written plan.</p>
+        </a>
+        <a class="about-card" href="/health-check/">
+          <h3>AI Health Check</h3>
+          <p>Already using AI? We check what your settings and supplier terms say about your data: who can see it, where it goes, how long it's kept, and what your own policies and notices don't mention.</p>
+        </a>
+        <a class="about-card" href="/audits/">
+          <h3>Epistemic Audit</h3>
+          <p>An epistemic audit checks what a policy, notice or contract claims to know, and what it leaves out. One written finding per document, with the source in your own text.</p>
+        </a>
       </div>
+
+      <h2>Your documents stay in the room</h2>
+      <p>
+        Whichever you choose, we come to you. Where a machine is used, it is ours: it runs in your building, fully offline,
+        sealed from the internet and from your network. Registered with the Information Commission
+        (<a href={ICO_HREF} rel="noopener">{ICO_NUMBER}</a>).
+      </p>
+
+      <h2>Also from us</h2>
+      <p>
+        We also build and run {products.length} products, from <a href="/products/festivalfocus/">FestivalFocus</a>, a UK festival
+        directory, to <a href="/products/cognionews/">CognioNews</a>, where every repair to a story is shown in gold, with its source.
+        <a href="/products/">See all products →</a>
+      </p>
+
+      <h2>The company</h2>
+      <dl class="about-facts">
+        <div><dt>Company</dt><dd>Cogniosynthesis Portal Ltd</dd></div>
+        <div><dt>Company number</dt><dd>16225073</dd></div>
+        <div><dt>VAT number</dt><dd>GB 531 4777 86</dd></div>
+        <div><dt>Registered office</dt><dd>15 Neptune Court, Vanguard Way, Cardiff CF24 5PJ</dd></div>
+        <div><dt>Visits from</dt><dd>Lampeter, Wales: within 60 road miles, and up to 120 miles by arrangement</dd></div>
+      </dl>
+
+      <p class="about-cta"><a href="/contact" class="btn btn-primary btn-lg">Book a conversation</a></p>
     </div>
   </section>
 
   <Footer />
 </Layout>
+
+<style>
+  .page-hero h1 { font-size: clamp(30px, 9vw, 48px); line-height: 1.15; }
+  .about-body { max-width: 980px; }
+  .about-body p { color: #4b4d5d; line-height: 1.7; margin: 0 0 16px; }
+  .about-body p a:not(.btn) { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; }
+  .about-lead { font-size: 20px; color: #0e1020 !important; }
+  .about-body h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.2; font-weight: 600; color: #0e1020; margin: 56px 0 16px; }
+  .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .about-card {
+    display: block; background: #ffffff; border: 1px solid #dcdce0; border-radius: 12px; padding: 24px;
+    text-decoration: none; transition: border-color 150ms ease-in-out, transform 150ms ease-in-out;
+  }
+  .about-card:hover { border-color: #2f6fd5; transform: translateY(-2px); text-decoration: none; }
+  .about-card h3 { font-size: 20px; font-weight: 600; color: #0e1020; margin: 0 0 10px; }
+  .about-card p { font-size: 15px; margin: 0; }
+  .about-facts { margin: 0; border-top: 1px solid #dcdce0; }
+  .about-facts div { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 12px 0; border-bottom: 1px solid #dcdce0; }
+  .about-facts dt { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #4b4d5d; }
+  .about-facts dd { margin: 0; color: #0e1020; }
+  @media (min-width: 700px) { .about-facts div { grid-template-columns: 220px 1fr; gap: 24px; } }
+  .about-cta { margin-top: 48px !important; }
+</style>

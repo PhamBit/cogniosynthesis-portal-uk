@@ -1,0 +1,275 @@
+---
+/**
+ * Hero-Motion.astro - hero with a HyperFrames composition behind or beside the text
+ * background="grid"  subtle wireframe grid from /compositions/hero-grid.html (centred text, the original)
+ * background="lens"  examination-to-clarity lens from /compositions/hero-lens.html
+ *                    (text left and animation right on desktop, animation above the text on small screens)
+ */
+
+interface Props {
+  headline: string;
+  subheadline?: string;
+  primaryCta?: string;
+  secondaryCta?: string;
+  primaryCtaLink?: string;
+  secondaryCtaLink?: string;
+  background?: 'grid' | 'lens';
+}
+
+const { 
+  headline, 
+  subheadline,
+  primaryCta = 'Book a conversation',
+  secondaryCta = 'Learn More',
+  primaryCtaLink = '/contact',
+  secondaryCtaLink = '/#ways',
+  background = 'grid'
+} = Astro.props;
+
+// Generate random seed for variation on each page load
+const randomSeed = Math.floor(Math.random() * 10000);
+const compositionSrc = background === 'lens'
+  ? `/compositions/hero-lens.html?embed=1&seed=${randomSeed}`
+  : `/compositions/hero-grid.html?seed=${randomSeed}`;
+---
+
+<section class:list={['hero-motion', background === 'lens' && 'hero-motion--lens']}>
+  <!-- HyperFrames background composition -->
+  <div class="hyperframes-bg-container">
+    <iframe 
+      src={compositionSrc}
+      frameborder="0"
+      class="hyperframes-iframe"
+      aria-hidden="true"
+      tabindex="-1"
+    ></iframe>
+  </div>
+  
+  <!-- Overlay for text readability -->
+  <div class="hero-motion-overlay"></div>
+  
+  <!-- Hero content -->
+  <div class="container hero-motion-content">
+    <h1 class="hero-motion-headline">{headline}</h1>
+    
+    {subheadline && (
+      <p class="hero-motion-subheadline">{subheadline}</p>
+    )}
+    
+    <div class="hero-motion-ctas">
+      <a href={primaryCtaLink} class="btn btn-primary btn-lg">
+        {primaryCta}
+      </a>
+      
+      {secondaryCta && (
+        <a href={secondaryCtaLink} class="btn btn-secondary btn-lg">
+          {secondaryCta}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-motion {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-96) 0;
+    overflow: hidden;
+  }
+  
+  /* Background composition container */
+  .hyperframes-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hyperframes-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  /* Gradient overlay for readability (lighter for grid bg) */
+  .hero-motion-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(246, 243, 240, 0.75) 0%,
+      rgba(246, 243, 240, 0.6) 50%,
+      rgba(246, 243, 240, 0.7) 100%
+    );
+    pointer-events: none;
+  }
+  
+  /* Hero content */
+  .hero-motion-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-motion-headline {
+    font-family: var(--font-primary);
+    font-size: clamp(29px, 4vw, 51px);
+    line-height: 1.1;
+    color: #0e1020;
+    margin-bottom: var(--spacing-24);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-shadow: none;
+  }
+  
+  .hero-motion-subheadline {
+    font-family: var(--font-secondary);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
+    color: #4b4d5d;
+    margin-bottom: var(--spacing-40);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: none;
+  }
+  
+  .hero-motion-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-16);
+  }
+  
+  /* Lens variant: the animation has its own space, so the text needs no veil */
+  .hero-motion--lens {
+    background: #f6f3f0;
+  }
+
+  .hero-motion--lens .hero-motion-overlay {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-motion--lens .hyperframes-bg-container {
+      left: 46%;
+      width: 54%;
+    }
+
+    .hero-motion--lens .hero-motion-content {
+      max-width: var(--container-max);
+      text-align: left;
+    }
+
+    .hero-motion--lens .hero-motion-headline,
+    .hero-motion--lens .hero-motion-subheadline,
+    .hero-motion--lens .hero-motion-ctas {
+      max-width: 46%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .hero-motion--lens .hero-motion-ctas {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero-motion--lens {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--spacing-32);
+      padding-bottom: var(--spacing-48);
+    }
+
+    .hero-motion--lens .hyperframes-bg-container {
+      position: relative;
+      inset: auto;
+      height: min(82vw, 46vh);
+      min-height: 250px;
+      margin-bottom: var(--spacing-24);
+    }
+  }
+
+  /* Entrance animations */
+  .hero-motion-headline,
+  .hero-motion-subheadline,
+  .hero-motion-ctas {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
+  .hero-motion-headline { animation-delay: 0.2s; }
+  .hero-motion-subheadline { animation-delay: 0.4s; }
+  .hero-motion-ctas { animation-delay: 0.6s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+// Plays the composition while the hero is on screen, pauses it when it is not,
+// and shows a still frame to visitors who have motion switched off.
+const iframe = document.querySelector<HTMLIFrameElement>('.hyperframes-iframe');
+
+if (iframe) {
+  const motionOff = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let onScreen = true;
+
+  type Timeline = {
+    play?: () => void;
+    pause?: () => void;
+    seek?: (seconds: number) => void;
+    __stillAt?: number;
+  };
+  type CompositionWindow = Window & { __timelines?: Record<string, Timeline> };
+
+  const timelines = (): Timeline[] => {
+    try {
+      return Object.values((iframe.contentWindow as CompositionWindow | null)?.__timelines ?? {});
+    } catch {
+      return [];
+    }
+  };
+
+  const sync = () => {
+    timelines().forEach((tl) => {
+      if (motionOff.matches) {
+        tl.pause?.();
+        tl.seek?.(tl.__stillAt ?? 2);
+      } else if (onScreen && !document.hidden) {
+        tl.play?.();
+      } else {
+        tl.pause?.();
+      }
+    });
+  };
+
+  iframe.addEventListener('load', sync);
+  setTimeout(sync, 300);
+  document.addEventListener('visibilitychange', sync);
+  motionOff.addEventListener?.('change', sync);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      onScreen = entries[0].isIntersecting;
+      sync();
+    }).observe(iframe);
+  }
+}
+</script>

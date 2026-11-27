@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+import { EMAIL, PHONE_HREF, CANCELLATION_TERM, PAYMENT_TERM } from '../data/site';
 ---
 
 <BaseLayout 
@@ -11,6 +12,10 @@ import Footer from '../components/Footer.astro';
     <div class="container">
       <h1>We show what was left out.</h1>
       <p class="hero-subtitle">An epistemic audit checks what a document claims to know, and what it leaves out. One written finding per point, with the source in your own text.</p>
+      <p class="hero-actions">
+        <a href="#book" class="btn btn-primary">Contact us now</a>
+        <a href="#how" class="btn btn-secondary">How a visit works</a>
+      </p>
     </div>
   </div>
 
@@ -21,7 +26,7 @@ import Footer from '../components/Footer.astro';
       <p><strong>Based in Lampeter, Wales. We visit within 60 road miles, and up to 120 miles by arrangement.</strong></p>
       <p><em>Conversations can be booked now; visits from February 2027.</em></p>
 
-      <h2 style="margin-top: 48px;">How a visit works</h2>
+      <h2 id="how" style="margin-top: 48px;">How a visit works</h2>
       <ol class="steps-list">
         <li><strong>Start.</strong> We switch on one machine in front of you. It shows its fingerprint on screen, and the same fingerprint is printed on your signed visit record.</li>
         <li><strong>Offline.</strong> The machine is fully offline, sealed from the internet and from your network. We show you.</li>
@@ -63,12 +68,12 @@ import Footer from '../components/Footer.astro';
           </thead>
           <tbody>
             <tr>
-              <td>Audit Visit — half a day, up to 3 documents</td>
+              <td>Epistemic Audit visit — half a day, up to 3 documents</td>
               <td>£750 + VAT</td>
               <td>Up to three documents of up to 20 pages each</td>
             </tr>
             <tr>
-              <td>Audit Day — up to 10 documents</td>
+              <td>Epistemic Audit day — up to 10 documents</td>
               <td>£2,500 + VAT</td>
               <td>Up to ten documents, plus a page on the gaps they share</td>
             </tr>
@@ -96,20 +101,28 @@ import Footer from '../components/Footer.astro';
       <h2 style="margin-top: 48px;">Terms of a visit</h2>
       <ul class="terms-list">
         <li><strong>Notice:</strong> 10 working days for a first visit, so your IT or security team can sign off; we send a one-page device statement. Monthly visits are booked three months ahead on a fixed day.</li>
-        <li><strong>You provide:</strong> a private room with a table, one UK power socket, and your documents on your own USB stick.</li>
-        <li><strong>Audit Visit:</strong> at most 4 hours on site; one written finding per document of up to 20 pages each (up to 3 documents).</li>
-        <li><strong>Audit Day:</strong> at most 7 hours on site; one written finding per document (up to 10 documents), plus a page on the gaps they share.</li>
-        <li><strong>Monthly visit:</strong> at most 4 hours on site; up to four documents; we show what changed since last month's audit.</li>
-        <li><strong>Cancellation:</strong> free to move or cancel up to 5 working days before. Later than that, or if there is no room or no one from your team on the day, the fee carries to one new date within 60 days. If we cancel, you choose a full refund or a new date.</li>
-        <li><strong>Payment:</strong> private firms pay on booking; public bodies by purchase order, invoiced on the day at 30 days.</li>
-        <li><strong>Travel:</strong> on-site within 60 road miles of Lampeter; travel included. Up to 120 miles, £150 + VAT a visit.</li>
+        <li><strong>You provide:</strong> a private room with a table, one UK power socket, your documents as PDF or Word on your own USB stick, and someone from your team to be present at the start and the finish.</li>
+        <li><strong>Epistemic Audit visit:</strong> at most 4 hours on site; up to 3 documents of up to 20 pages each (a longer document counts as two); a 30-minute follow-up call within 10 working days.</li>
+        <li><strong>Epistemic Audit day:</strong> at most 7 hours on site; up to 10 documents of up to 20 pages each, plus one page on the gaps they share.</li>
+        <li><strong>Monthly visit:</strong> one half-day visit a month, up to 4 documents. A 20% deposit on the first month secures your start date. 3-month minimum, then rolling with 30 days' notice.</li>
+        <li><strong>Cancellation:</strong> {CANCELLATION_TERM}</li>
+        <li><strong>Payment:</strong> {PAYMENT_TERM}</li>
+        <li><strong>Paying the deposit:</strong> email <a href={`mailto:${EMAIL}?subject=Audit%20deposit%20invoice`}>{EMAIL}</a> or call 01570 574220 and we will send you an invoice for the deposit, which you pay by bank transfer. Our bank details are on the invoice. Or pay deposit by card: <a href="https://buy.stripe.com/28E9AN2nidWC8zh9dB2VG0p">Epistemic Audit visit, £180 (£150 + VAT)</a>; <a href="https://buy.stripe.com/9B6fZb7HCbOu16P1L92VG0q">Epistemic Audit day, £600 (£500 + VAT)</a>; <a href="https://buy.stripe.com/fZucMZ3rm3hY02LfBZ2VG0s">Monthly visit quoted at £1,000 + VAT for the first month, £240 deposit (£200 + VAT)</a>. If we've quoted more than £1,000 + VAT for your first month, ask us for a deposit invoice. Public bodies still book by purchase order.</li>
+        <li><strong>Upgrade credit:</strong> a visit fee counts in full towards an Epistemic Audit day or the first monthly visit booked within 60 days.</li>
       </ul>
 
-      <div class="cta-banner" style="margin-top: 48px;">
-        <h3 style="margin: 0 0 16px 0;">Book a conversation</h3>
-        <p style="margin: 0 0 20px 0;">It starts with a free 45-minute conversation. You tell us what you need; we can show the method on a public document you choose.</p>
-        <a href="mailto:info@cogniosynthesisportal.uk?subject=Epistemic%20Audit%20conversation" class="btn btn-primary">Email to book</a>
+      <div class="cta-banner" id="book" style="margin-top: 48px;">
+        <h3 style="margin: 0 0 16px 0;">Contact us now</h3>
+        <p style="margin: 0 0 20px 0;">Tell us where you are, how many documents, and a few dates that suit you.</p>
+        <div class="cta-actions">
+          <a href={`mailto:${EMAIL}?subject=Audit%20visit&body=Organisation%3A%0ATown%3A%0ADocuments%20(how%20many)%3A%0APreferred%20dates%3A`} class="btn btn-primary">Email to book a conversation</a>
+          <a href={PHONE_HREF} class="btn btn-secondary">Call 01570 574220</a>
+        </div>
+        <p style="margin: 20px 0 0 0;">We'll reply to arrange a date.</p>
       </div>
+
+      <h2 style="margin-top: 48px;">About the system</h2>
+      <p>Audits run on CognioEngine, our own offline system.</p>
     </div>
   </section>
 
@@ -221,5 +234,24 @@ import Footer from '../components/Footer.astro';
     font-size: 16px;
     color: #4b4d5d;
     line-height: 28px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 0 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .also-from-us {
+    margin-top: 32px;
+    font-size: 16px;
+    color: #4b4d5d;
   }
 </style>

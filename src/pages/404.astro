@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../data/site';
+
+const places = [
+  { href: '/', label: 'Home' },
+  { href: '/explore/', label: 'AI Exploration' },
+  { href: '/health-check/', label: 'AI Health Check' },
+  { href: '/audits/', label: 'Epistemic Audit' },
+  { href: '/products/', label: 'Products' },
+  { href: '/contact', label: 'Book a conversation' }
+];
+---
+
+<BaseLayout title="Page not found" noindex description="That page is not here. Use the links to find what you were looking for.">
+  <div class="page-hero">
+    <div class="container">
+      <h1>We could not find that page</h1>
+      <p class="hero-subtitle">The address may have changed, or the link that brought you here is out of date.</p>
+    </div>
+  </div>
+  <section class="section section--alt">
+    <div class="container">
+      <nav class="nf-grid" aria-label="Places to go">
+        {places.map((p) => <a class="nf-link" href={p.href}>{p.label}</a>)}
+      </nav>
+      <p class="nf-contact">
+        Or tell us what you were looking for: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>.
+      </p>
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .nf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .nf-link {
+    display: flex; align-items: center; min-height: 56px; padding: 12px 16px;
+    background: #ffffff; border: 1px solid #dcdce0; border-radius: 10px;
+    color: #0e1020; font-weight: 500; text-decoration: none;
+  }
+  .nf-link:hover { border-color: #2f6fd5; }
+  .nf-contact { margin: 32px 0 0; color: #4b4d5d; line-height: 1.7; }
+  .nf-contact a { color: #1f57b3; text-decoration: underline; text-underline-offset: 3px; }
+</style>

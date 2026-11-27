@@ -9,17 +9,31 @@
     "lint": "eslint src/"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
     "@astrojs/tailwind": "^6.0.2",
     "@hyperframes/core": "^0.9.80",
     "@hyperframes/player": "^0.9.80",
     "astro": "^5.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "@types/node": "^22.0.0",
     "autoprefixer": "^10.7.0",
     "eslint": "^9.0.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "globals": "^17.14.0",
     "postcss": "^8.5.33",
     "prettier": "^3.0.0",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^3.4.19",
+    "typescript-eslint": "^8.74.0"
+  },
+  "overrides": {
+    "sharp": "^0.35.5",
+    "astro": {
+      "esbuild": "^0.28.2",
+      "vite": {
+        "esbuild": "^0.25.0"
+      }
+    }
   }
 }

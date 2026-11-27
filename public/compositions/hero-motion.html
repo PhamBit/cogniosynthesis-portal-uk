@@ -1,0 +1,163 @@
+<!-- 
+  Hero Motion Composition - Procedural animated gradient background
+  This composition can be loaded as an iframe or directly into the page
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="/vendor/gsap.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: transparent; overflow: hidden; }
+    
+    #hero-motion-root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    }
+    
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      will-change: transform, opacity;
+    }
+    
+    #blob-1 {
+      background: radial-gradient(circle closest-side, 
+        hsl(220, 75%, 65%) 0%, rgba(47, 111, 213, 0) 70%);
+      width: 1200px;
+      height: 1200px;
+      top: -300px;
+      left: -200px;
+      opacity: 0.8;
+    }
+    
+    #blob-2 {
+      background: radial-gradient(circle closest-side, 
+        hsl(280, 70%, 60%) 0%, rgba(139, 92, 246, 0) 70%);
+      width: 1400px;
+      height: 1400px;
+      bottom: -400px;
+      right: -300px;
+      opacity: 0.75;
+    }
+    
+    #blob-3 {
+      background: radial-gradient(circle closest-side, 
+        hsl(260, 80%, 68%) 0%, rgba(147, 51, 234, 0) 70%);
+      width: 900px;
+      height: 900px;
+      top: 50%;
+      left: 50%;
+      opacity: 0.6;
+    }
+    
+    /* Subtle grain overlay for texture */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+  <div 
+    id="hero-motion-root"
+    data-composition-id="hero-motion"
+    data-start="0"
+    data-duration="20"
+    data-width="1920"
+    data-height="1080"
+  >
+    <div id="blob-1" class="hero-blob"></div>
+    <div id="blob-2" class="hero-blob"></div>
+    <div id="blob-3" class="hero-blob"></div>
+    <div class="hero-grain"></div>
+  </div>
+  
+  <script>
+    (function() {
+      window.__timelines = window.__timelines || {};
+      
+      var root = document.getElementById('hero-motion-root');
+      var blob1 = document.getElementById('blob-1');
+      var blob2 = document.getElementById('blob-2');
+      var blob3 = document.getElementById('blob-3');
+      
+      // Random seed for variation on each load - configurable via query string
+      var urlParams = new URLSearchParams(window.location.search);
+      var seed = parseFloat(urlParams.get('seed')) || Math.random();
+      
+      // Custom animation parameters based on seed
+      var config = {
+        blob1: {
+          x: 50 + (seed * 123) % 200,
+          y: 80 + (seed * 456) % 150,
+          scale: 0.9 + (seed * 789) % 0.4,
+          duration: 8 + (seed * 1011) % 6
+        },
+        blob2: {
+          x: -80 - (seed * 1234) % 150,
+          y: -100 + (seed * 5678) % 200,
+          scale: 0.85 + (seed * 910) % 0.4,
+          duration: 10 + (seed * 1112) % 7
+        },
+        blob3: {
+          x: -60 + (seed * 1314) % 180,
+          y: 70 + (seed * 1516) % 120,
+          scale: 0.8 + (seed * 1718) % 0.5,
+          duration: 9 + (seed * 1920) % 8
+        }
+      };
+      
+      var tl = gsap.timeline({ paused: true });
+      
+      // Entrance animation - fade in blobs
+      tl.from([blob1, blob2, blob3], {
+        opacity: 0,
+        scale: 0.7,
+        duration: 1.5,
+        ease: 'power2.out'
+      }, 0);
+      
+      // Continuous drift - slow sine wave motion
+      tl.to(blob1, {
+        x: config.blob1.x,
+        y: config.blob1.y,
+        scale: config.blob1.scale,
+        duration: config.blob1.duration,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+      }, 0.5);
+      
+      tl.to(blob2, {
+        x: config.blob2.x,
+        y: config.blob2.y,
+        scale: config.blob2.scale,
+        duration: config.blob2.duration,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+      }, 0.7);
+      
+      tl.to(blob3, {
+        x: config.blob3.x,
+        y: config.blob3.y,
+        scale: config.blob3.scale,
+        duration: config.blob3.duration,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+      }, 0.9);
+      
+      window.__timelines['hero-motion'] = tl;
+    })();
+  </script>
+</body>
+</html>

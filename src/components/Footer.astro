@@ -1,4 +1,6 @@
 ---
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF, ICO_NUMBER, ICO_HREF, COMPANY_LINE } from '../data/site';
+
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
@@ -9,13 +11,14 @@ const footerLinks = {
   ],
   company: [
     { href: '/about', label: 'About Us' },
+    { href: '/products/', label: 'Products' },
     { href: '/sovereign-data/', label: 'Sovereign Data Policy' },
     { href: 'https://cognionews.com/', label: 'CognioNews' }
   ],
   contact: [
-    { href: 'mailto:info@cogniosynthesisportal.uk', label: 'Contact Us' },
-    { href: '/privacy.html', label: 'Privacy Notice' },
-    { href: '/terms.html', label: 'Terms' }
+    { href: '/contact', label: 'Book a conversation' },
+    { href: `mailto:${EMAIL}`, label: EMAIL },
+    { href: PHONE_HREF, label: `Tel ${PHONE_DISPLAY}` }
   ]
 };
 ---
@@ -27,13 +30,13 @@ const footerLinks = {
       <div class="footer-company-info">
         <div class="footer-logo-slogan">
           <svg width="180" height="32" viewBox="0 0 240 40" fill="none" aria-hidden="true">
-            <text x="0" y="24" font-family="GT Standard Extended, system-ui" font-size="16" font-weight="600" fill="currentColor">
-              CognioSynthesis
+            <text x="0" y="24" font-family="Archivo Expanded, system-ui" font-size="16" font-weight="600" fill="currentColor">
+              Cogniosynthesis
             </text>
           </svg>
         </div>
         <p class="footer-description">
-          Enterprise AI & Technology Solutions for the Modern World
+          Digital ecosystem support, analytics and reporting. AI Exploration, AI Health Check and Epistemic Audit: in your building, offline.
         </p>
       </div>
       
@@ -68,15 +71,16 @@ const footerLinks = {
     <!-- Bottom Bar -->
     <div class="footer-copyright">
       <p class="footer-copyright-text">
-        © {currentYear} CognioSynthesis Portal Ltd. All rights reserved.
+        © {currentYear} {COMPANY_LINE}
+      </p>
+      <p class="footer-copyright-text">
+        Registered with the Information Commission: <a href={ICO_HREF} rel="noopener">{ICO_NUMBER}</a>
       </p>
       
       <nav class="footer-legal" aria-label="Legal links">
         <a href="/privacy">Privacy Policy</a>
         <span class="footer-divider">•</span>
         <a href="/terms">Terms of Service</a>
-        <span class="footer-divider">•</span>
-        <a href="/cookies">Cookie Policy</a>
       </nav>
     </div>
   </div>
@@ -86,19 +90,19 @@ const footerLinks = {
   .footer {
     background-color: var(--color-background-surface);
     color: var(--color-text-primary);
-    padding: var(--space-8) 0 var(--space-6);
+    padding: var(--spacing-64) 0 var(--spacing-32);
     border-top: 1px solid var(--color-border-subtle);
   }
   
   .footer-content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    padding-bottom: var(--space-8);
+    gap: var(--spacing-40);
+    padding-bottom: var(--spacing-40);
     
     @media (min-width: 768px) {
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: var(--space-10);
+      grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+      gap: var(--spacing-48);
     }
   }
   
@@ -110,17 +114,17 @@ const footerLinks = {
     font-size: var(--fontsize-body-sm);
     line-height: var(--line-height-body-md);
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--spacing-24);
   }
   
   .footer-logo-slogan {
-    margin-top: var(--space-4);
+    margin-top: var(--spacing-16);
   }
   
   .footer-heading {
     font-size: var(--fontsize-body-sm);
     font-weight: 600;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--spacing-16);
     color: var(--color-text-primary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -132,14 +136,18 @@ const footerLinks = {
     margin: 0;
     
     li {
-      margin-bottom: var(--space-3);
+      margin-bottom: 0;
     }
     
     a {
+      /* Tall enough to tap on a phone */
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       color: var(--color-text-secondary);
       font-size: var(--fontsize-body-sm);
       line-height: var(--line-height-body-md);
-      transition: color var(--transition-fast);
+      transition: color 150ms ease-in-out;
       text-decoration: none;
       
       &:hover {
@@ -149,35 +157,49 @@ const footerLinks = {
   }
   
   .footer-copyright {
-    padding-top: var(--space-6);
+    padding-top: var(--spacing-24);
     border-top: 1px solid var(--color-border-subtle);
-    margin-top: var(--space-8);
+    margin-top: var(--spacing-40);
     
     @media (min-width: 768px) {
       grid-column: 1 / -1;
-      padding-top: var(--space-6);
+      padding-top: var(--spacing-24);
       border-top: 1px solid var(--color-border-subtle);
-      margin-top: var(--space-8);
+      margin-top: var(--spacing-40);
     }
   }
   
   .footer-copyright-text {
     font-size: var(--fontsize-body-xs);
     color: var(--color-text-secondary);
-    margin: 0;
+    margin: 0 0 var(--spacing-8);
+  }
+
+  .footer-copyright-text a {
+    color: inherit;
+    text-decoration: underline;
+    /* Tall enough to tap on a phone */
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
   
   .footer-legal {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
-    margin-top: var(--space-4);
+    align-items: center;
+    gap: var(--spacing-16);
+    margin-top: var(--spacing-8);
     
     a {
       font-size: var(--fontsize-body-xs);
       color: var(--color-text-secondary);
       text-decoration: none;
-      transition: color var(--transition-fast);
+      transition: color 150ms ease-in-out;
+      /* Tall enough to tap on a phone */
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       
       &:hover {
         color: var(--color-primary-blue);

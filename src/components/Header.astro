@@ -1,43 +1,52 @@
 ---
+const currentPath = Astro.url.pathname;
+
+// The logo is the Home link and the button is the Contact link, so neither is repeated in the desktop menu.
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/explore/', label: 'AI Exploration' },
   { href: '/health-check/', label: 'AI Health Check' },
   { href: '/audits/', label: 'Epistemic Audit' },
+  { href: '/products/', label: 'Products' },
   { href: '/about', label: 'About' }
 ];
+const mobileLinks = [{ href: '/', label: 'Home' }, ...navLinks];
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href.replace(/\/$/, ''));
+}
 ---
 
 <header class="header">
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container nav-container">
       <!-- Logo -->
-      <a href="/" class="nav-logo" aria-label="CognioSynthesis Portal Home">
+      <a href="/" class="nav-logo" aria-label="Cogniosynthesis Portal Home">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="40" height="40" rx="6" fill="#2f6fd5"/>
           <text x="20" y="26" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="700" fill="#ffffff">C</text>
         </svg>
-        <span class="nav-logo-text">CognioSynthesis</span>
+        <span class="nav-logo-text">Cogniosynthesis</span>
       </a>
       
       <!-- Desktop Navigation -->
       <ul class="nav-links">
         {navLinks.map(link => (
-          <li class="nav-item">
-            <a href={link.href} class="nav-link">{link.label}</a>
+          <li class={`nav-item ${isActive(link.href) ? 'nav-item--active' : ''}`}>
+            <a href={link.href} class={`nav-link ${isActive(link.href) ? 'nav-link--active' : ''}`}>{link.label}</a>
           </li>
         ))}
       </ul>
       
       <!-- Desktop CTA Button -->
-      <a href="/contact" class="btn btn-primary desktop-cta">Get Started</a>
+      <a href="/contact" class="btn btn-primary desktop-cta">Book a conversation</a>
       
       <!-- Mobile Menu Toggle -->
       <button 
         class="mobile-menu-toggle" 
         aria-expanded="false" 
         aria-label="Toggle menu"
-        onclick="document.body.classList.toggle('menu-open')"
+        onclick="this.setAttribute('aria-expanded', String(document.body.classList.toggle('menu-open')))"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -49,13 +58,13 @@ const navLinks = [
     <div class="mobile-menu-panel">
       <div class="mobile-menu-content">
         <ul class="mobile-nav-links">
-          {navLinks.map(link => (
-            <li class="mobile-nav-item">
-              <a href={link.href} class="mobile-nav-link" onclick="document.body.classList.remove('menu-open')">{link.label}</a>
+          {mobileLinks.map(link => (
+            <li class={`mobile-nav-item ${isActive(link.href) ? 'mobile-nav-item--active' : ''}`}>
+              <a href={link.href} class={`mobile-nav-link ${isActive(link.href) ? 'mobile-nav-link--active' : ''}`} onclick="document.body.classList.remove('menu-open')">{link.label}</a>
             </li>
           ))}
         </ul>
-        <a href="/contact" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Get Started</a>
+        <a href="/contact" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Book a conversation</a>
       </div>
     </div>
   </nav>
@@ -132,6 +141,14 @@ const navLinks = [
   }
   
   .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .nav-link--active {
+    color: #2f6fd5;
+  }
+  
+  .nav-link--active::after {
     width: 100%;
   }
   
@@ -244,13 +261,31 @@ const navLinks = [
     color: #2f6fd5;
   }
   
+  .mobile-nav-link--active {
+    color: #2f6fd5;
+    font-weight: 600;
+  }
+  
   .mobile-cta {
     margin-top: auto;
     text-align: center;
   }
   
-  /* Desktop breakpoint */
-  @media (min-width: 768px) {
+  .desktop-cta {
+    display: none;
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    gap: clamp(16px, 2vw, 32px);
+  }
+
+  /* Desktop breakpoint: the full menu needs about 1160px, below that the menu button is used */
+  @media (min-width: 1160px) {
     .nav-links {
       display: flex;
     }

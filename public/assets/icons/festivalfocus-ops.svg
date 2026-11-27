@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bfestivalfocus-ops" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e30442"/><stop offset="1" stop-color="#29020d"/></linearGradient>
+ <radialGradient id="gfestivalfocus-ops" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#ff5383" stop-opacity=".85"/><stop offset="1" stop-color="#ff5383" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hfestivalfocus-ops" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="rfestivalfocus-ops" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dfestivalfocus-ops" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dfestivalfocus-ops)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bfestivalfocus-ops)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gfestivalfocus-ops)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><rect x="64" y="56" width="128" height="160" rx="12" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="100" y="42" width="56" height="28" rx="6" fill="#000"/>
+ <path d="M88 108 L98 118 L114 100 M128 110 H168 M88 148 L98 158 L114 140 M128 150 H168 M88 188 L98 198 L114 180 M128 190 H168" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+ <rect x="64" y="56" width="128" height="160" rx="12" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="100" y="42" width="56" height="28" rx="6" fill="#F2C14E"/>
+ <path d="M88 108 L98 118 L114 100 M128 110 H168 M88 148 L98 158 L114 140 M128 150 H168 M88 188 L98 198 L114 180 M128 190 H168" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hfestivalfocus-ops)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#rfestivalfocus-ops)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

@@ -1,0 +1,301 @@
+---
+/**
+ * Services-Motion.astro - Animated 3-service showcase with motion backgrounds
+ * Each service gets its own section with:
+ * - AI Exploration: Magnifying glass/microscope metaphor (deconstructing models)
+ * - AI Health Check: Navigator/compass metaphor (finding through trees)
+ * - Epistemic Audit: Discovery/integration metaphor (connecting ideas)
+ */
+
+interface ServiceCard {
+  title: string;
+  subtitle: string;
+  description: string;
+  price: string;
+  cta: string;
+  link: string;
+  bgType: 'exploration' | 'health' | 'audit';
+}
+
+const services: ServiceCard[] = [
+  {
+    title: "AI Exploration",
+    subtitle: "See what AI could do for you",
+    description: "Not sure what AI could do for you? We sit down with you, look at how your work actually runs, and show what AI could take on, and what to keep human. You leave with a short written plan.",
+    price: "Half a day — £750 + VAT",
+    cta: "Learn more →",
+    link: "/explore/",
+    bgType: 'exploration'
+  },
+  {
+    title: "AI Health Check",
+    subtitle: "Navigate your AI landscape",
+    description: "Already using AI? We check what your settings and supplier terms say about your data: who can see it, where it goes, how long it's kept, and what your own policies and notices don't mention.",
+    price: "A day — £2,500 + VAT",
+    cta: "Learn more →",
+    link: "/health-check/",
+    bgType: 'health'
+  },
+  {
+    title: "Epistemic Audit",
+    subtitle: "Discover what's left out",
+    description: "We show what was left out. An epistemic audit checks what a policy, notice or contract claims to know, and what it leaves out. One written finding per document, with the source in your own text.",
+    price: "Half day (up to 3 docs) — £750 + VAT",
+    cta: "Learn more →",
+    link: "/audits/",
+    bgType: 'audit'
+  }
+];
+
+const globalSeed = Math.floor(Math.random() * 10000);
+---
+
+<section class="services-motion" id="ways">
+  <h2 class="services-heading heading--h2">Three ways we help with AI</h2>
+  
+  <div class="services-grid">
+    {services.map((service, index) => (
+      <article class="service-card-wrapper">
+        <!-- Animated background composition -->
+        <div class="service-bg-container">
+          <iframe 
+            src={`/compositions/service-bg.html?type=${service.bgType}&seed=${globalSeed + index}`}
+            frameborder="0"
+            class="service-bg-iframe"
+            aria-hidden="true"
+            tabindex="-1"
+          ></iframe>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="service-overlay"></div>
+        
+        <!-- Card content -->
+        <div class="service-content">
+          <!-- Icon based on service type -->
+          <div class={`service-icon service-icon--${service.bgType}`}>
+            {service.bgType === 'exploration' && (
+              /* Magnifying glass / microscope icon */
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="M20 20l-3.5-3.5"/>
+                <circle cx="11" cy="11" r="3" opacity="0.6"/>
+              </svg>
+            )}
+            
+            {service.bgType === 'health' && (
+              /* Compass / navigation icon */
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
+                <path d="M12 7l-2 5 5-2-3 6"/>
+              </svg>
+            )}
+            
+            {service.bgType === 'audit' && (
+              /* Discovery / integration icon */
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="18" r="3"/>
+                <path d="M9 6h6M6 9v6M18 9v6M9 18h6"/>
+              </svg>
+            )}
+          </div>
+          
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-subtitle">{service.subtitle}</p>
+          <p class="service-description">{service.description}</p>
+          <p class="service-price">{service.price}</p>
+          <a href={service.link} class="btn btn-primary service-cta">
+            {service.cta}
+          </a>
+        </div>
+        
+        <!-- Staggered entrance animation -->
+        <style is:global>
+          .service-card-wrapper:nth-child(1) .service-content { animation: cardEntrance 0.8s ease-out both; animation-delay: 0.2s; }
+          .service-card-wrapper:nth-child(2) .service-content { animation: cardEntrance 0.8s ease-out both; animation-delay: 0.4s; }
+          .service-card-wrapper:nth-child(3) .service-content { animation: cardEntrance 0.8s ease-out both; animation-delay: 0.6s; }
+          
+          @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        </style>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .services-motion {
+    position: relative;
+    scroll-margin-top: 72px;
+    padding: var(--spacing-96) 0;
+    background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+  }
+  
+  .services-heading {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: clamp(32px, 4vw, 48px);
+    color: #ffffff;
+    margin-bottom: var(--spacing-64);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-32);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-24);
+  }
+  
+  .service-card-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 520px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease-out;
+  }
+  
+  .service-card-wrapper:hover {
+    transform: translateY(-8px);
+    border-color: rgba(47, 111, 213, 0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Background composition */
+  .service-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  .service-bg-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  
+  /* Overlay */
+  .service-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 14, 39, 0.7) 0%,
+      rgba(10, 14, 39, 0.85) 50%,
+      rgba(10, 14, 39, 0.95) 100%
+    );
+    pointer-events: none;
+  }
+  
+  /* Content */
+  .service-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-32);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--spacing-20);
+    color: #ffffff;
+    opacity: 0.95;
+  }
+  
+  .service-icon svg {
+    width: 100%;
+    height: 100%;
+    animation: iconPulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.95; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+  
+  .service-title {
+    font-family: var(--font-primary);
+    font-size: 28px;
+    color: #ffffff;
+    margin: 0 0 var(--spacing-12) 0;
+    font-weight: 600;
+  }
+  
+  .service-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 var(--spacing-16) 0;
+    font-weight: 400;
+  }
+  
+  .service-description {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin: 0 0 var(--spacing-24) 0;
+    flex-grow: 1;
+  }
+  
+  .service-price {
+    font-family: var(--font-primary);
+    font-size: 15px;
+    color: #2f6fd5;
+    margin: 0 0 var(--spacing-24) 0;
+    font-weight: 600;
+  }
+  
+  .service-cta {
+    align-self: flex-start;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-card-wrapper {
+      min-height: 480px;
+    }
+  }
+</style>
+
+<script>
+// Client-side script to play animations when iframes load
+if (typeof window !== 'undefined') {
+  const checkServiceBgs = () => {
+    document.querySelectorAll('.service-bg-iframe').forEach(iframe => {
+      if (iframe.contentWindow?.__timelines) {
+        Object.values(iframe.contentWindow.__timelines).forEach(tl => {
+          if (tl.play) tl.play();
+        });
+      }
+    });
+  };
+  
+  document.querySelectorAll('.service-bg-iframe').forEach(iframe => {
+    iframe.addEventListener('load', checkServiceBgs);
+  });
+  
+  setTimeout(checkServiceBgs, 200);
+}
+</script>

@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cogniosynthesis Portal",
+  "legalName": "Cogniosynthesis Portal Ltd",
+  "url": "https://cogniosynthesisportal.uk/",
+  "description": "Digital ecosystem support, analytics and reporting: AI Exploration · AI Health Check · Epistemic Audit. In your building, offline. Every one starts with a conversation. Cogniosynthesis Portal Ltd, Cardiff. A UNESCO-MOST BRIDGES Coalition member.",
+  "slogan": "AI Exploration · AI Health Check · Epistemic Audit",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Three ways we help with AI",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Exploration",
+          "url": "https://cogniosynthesisportal.uk/explore/",
+          "description": "For anyone not sure what AI could do for them. A half-day in your building, offline, and a short written plan: what AI could take on, and what to keep human."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Health Check",
+          "url": "https://cogniosynthesisportal.uk/health-check/",
+          "description": "For anyone already using AI. A day in your building, offline. We review your AI set-up from what you show us in the room: settings, policies, supplier terms and exports, and note what they say about who has access, where data goes and how long it is kept."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Epistemic Audit",
+          "url": "https://cogniosynthesisportal.uk/audits/",
+          "description": "An epistemic audit checks what a policy, notice or contract claims to know, and what it leaves out. One written finding per document, with the source in your own text. In your building, offline."
+        }
+      }
+    ]
+  },
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Wales"
+  },
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Kenny Lewis"
+    },
+    {
+      "@type": "Person",
+      "name": "Rosemary Northover"
+    }
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Company No.",
+    "value": "16225073"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name": "UNESCO-MOST BRIDGES Coalition"
+  }
+}

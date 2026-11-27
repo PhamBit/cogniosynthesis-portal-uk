@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+<defs>
+ <linearGradient id="bacst-vocabulary" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19b5de"/><stop offset="1" stop-color="#082932"/></linearGradient>
+ <radialGradient id="gacst-vocabulary" cx=".5" cy="1.05" r=".75"><stop offset="0" stop-color="#68d7f4" stop-opacity=".85"/><stop offset="1" stop-color="#68d7f4" stop-opacity="0"/></radialGradient>
+ <linearGradient id="hacst-vocabulary" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient>
+ <linearGradient id="racst-vocabulary" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+ <radialGradient id="dacst-vocabulary" cx=".5" cy=".5" r=".5"><stop offset=".7" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="128" cy="240" rx="104" ry="12" fill="url(#dacst-vocabulary)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#bacst-vocabulary)"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="url(#gacst-vocabulary)"/>
+<g transform="translate(128 124) scale(.74) translate(-128 -128)">
+ <g transform="translate(0 7)" opacity=".28"><path d="M84 60 C64 60 64 76 64 96 C64 116 52 128 44 128 C52 128 64 140 64 160 C64 180 64 196 84 196" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M172 60 C192 60 192 76 192 96 C192 116 204 128 212 128 C204 128 192 140 192 160 C192 180 192 196 172 196" stroke="#000" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="166.0" cy="128.0" r="8" fill="#000"/><circle cx="154.9" cy="154.9" r="8" fill="#000"/><circle cx="128.0" cy="166.0" r="8" fill="#000"/><circle cx="101.1" cy="154.9" r="8" fill="#000"/><circle cx="90.0" cy="128.0" r="8" fill="#000"/><circle cx="101.1" cy="101.1" r="8" fill="#000"/><circle cx="128.0" cy="90.0" r="8" fill="#000"/><circle cx="154.9" cy="101.1" r="8" fill="#000"/></g>
+ <path d="M84 60 C64 60 64 76 64 96 C64 116 52 128 44 128 C52 128 64 140 64 160 C64 180 64 196 84 196" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M172 60 C192 60 192 76 192 96 C192 116 204 128 212 128 C204 128 192 140 192 160 C192 180 192 196 172 196" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <circle cx="166.0" cy="128.0" r="8" fill="#F2C14E"/><circle cx="154.9" cy="154.9" r="8" fill="#F2C14E"/><circle cx="128.0" cy="166.0" r="8" fill="#F2C14E"/><circle cx="101.1" cy="154.9" r="8" fill="#F2C14E"/><circle cx="90.0" cy="128.0" r="8" fill="#F2C14E"/><circle cx="101.1" cy="101.1" r="8" fill="#F2C14E"/><circle cx="128.0" cy="90.0" r="8" fill="#F2C14E"/><circle cx="154.9" cy="101.1" r="8" fill="#F2C14E"/>
+</g>
+<path d="M14 66 A56 56 0 0 1 70 10 H186 A56 56 0 0 1 242 66 V92 C190 122 66 122 14 92 Z" fill="url(#hacst-vocabulary)"/>
+<rect x="13.5" y="9.5" width="229" height="225" rx="56.5" fill="none" stroke="url(#racst-vocabulary)" stroke-width="3"/>
+<rect x="12" y="8" width="232" height="228" rx="58" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+</svg>

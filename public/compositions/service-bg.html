@@ -1,0 +1,279 @@
+<!--
+  Service Background Composition - Three types based on URL parameter
+  
+  ?type=exploration&seed=X - Magnifying glass/microscope metaphor (blobs expanding/contracting)
+  ?type=health&seed=X - Navigator compass (rotating grid/orbit)
+  ?type=audit&seed=X - Discovery integration (connecting particles/lines)
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="/vendor/gsap.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: transparent; overflow: hidden; }
+    
+    #service-root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    }
+    
+    /* === EXPLORATION TYPE - Blobs/Magnifying glass metaphor === */
+    .exp-particle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      will-change: transform, opacity;
+    }
+    
+    .exp-ring {
+      position: absolute;
+      border: 3px solid rgba(47, 111, 213, 0.4);
+      border-radius: 50%;
+      transform-origin: center;
+      will-change: transform;
+    }
+    
+    /* === HEALTH TYPE - Navigator compass === */
+    .health-grid {
+      position: absolute;
+      width: 2000px;
+      height: 2000px;
+      background-image: 
+        linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+      background-size: 80px 80px;
+      transform-origin: center;
+      will-change: transform;
+    }
+    
+    .health-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+    
+    .health-orbit:nth-child(2) { width: 900px; height: 900px; opacity: 0.6; }
+    .health-orbit:nth-child(3) { width: 1200px; height: 1200px; opacity: 0.3; }
+    
+    /* === AUDIT TYPE - Connecting particles === */
+    .audit-point {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 1) 0%, rgba(167, 139, 250, 0) 70%);
+      border-radius: 50%;
+      will-change: transform;
+    }
+    
+    .audit-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        rgba(167, 139, 250, 0) 0%, 
+        rgba(167, 139, 250, 0.4) 50%, 
+        rgba(167, 139, 250, 0) 100%);
+      transform-origin: left center;
+      will-change: transform, opacity;
+    }
+    
+    /* Common overlays */
+    .grain-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+<body>
+  <div 
+    id="service-root"
+    data-composition-id="service-bg"
+    data-start="0"
+    data-duration="15"
+    data-width="1920"
+    data-height="1080"
+  >
+    <!-- Content injected by script based on type -->
+    <div class="grain-overlay"></div>
+  </div>
+  
+  <script>
+    (function() {
+      window.__timelines = window.__timelines || {};
+      
+      var root = document.getElementById('service-root');
+      var urlParams = new URLSearchParams(window.location.search);
+      var type = urlParams.get('type') || 'exploration';
+      var seed = parseFloat(urlParams.get('seed')) || Math.random();
+      
+      var tl = gsap.timeline({ paused: true });
+      
+      // === EXPLORATION TYPE ===
+      if (type === 'exploration') {
+        // Create floating magnified blobs
+        for (var i = 0; i < 5; i++) {
+          var particle = document.createElement('div');
+          particle.className = 'exp-particle';
+          var size = 400 + (seed * 234 % 400);
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          particle.style.left = (10 + seed * 23 % 80) + '%';
+          particle.style.top = (10 + seed * 34 % 80) + '%';
+          
+          var hue1 = 200 + (seed * 45 % 40);
+          var hue2 = 240 + (seed * 56 % 40);
+          particle.style.background = 'radial-gradient(circle, hsla(' + hue1 + ', 80%, 70%, 0.8) 0%, transparent 70%)';
+          
+          root.appendChild(particle);
+          
+          tl.to(particle, {
+            x: (seed * 789 % 200) - 100,
+            y: (seed * 890 % 150) - 75,
+            scale: 0.8 + (seed * 901 % 40) / 100,
+            duration: 6 + (seed * 123 % 5),
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1
+          }, 0.1 * i);
+        }
+        
+        // Create expanding/contracting rings (magnifying glass effect)
+        for (var j = 0; j < 3; j++) {
+          var ring = document.createElement('div');
+          ring.className = 'exp-ring';
+          ring.style.width = '200px';
+          ring.style.height = '200px';
+          ring.style.left = '50%';
+          ring.style.top = '50%';
+          ring.style.transform = 'translate(-50%, -50%)';
+          
+          root.appendChild(ring);
+          
+          tl.to(ring, {
+            width: 600 + (j * 200),
+            height: 600 + (j * 200),
+            opacity: 0,
+            duration: 3 + j,
+            ease: 'power1.out',
+            repeat: -1,
+            repeatDelay: 1
+          }, j * 0.8);
+        }
+      }
+      
+      // === HEALTH TYPE ===
+      else if (type === 'health') {
+        // Create rotating grid
+        var grid = document.createElement('div');
+        grid.className = 'health-grid';
+        grid.style.position = 'absolute';
+        grid.style.top = '50%';
+        grid.style.left = '50%';
+        grid.style.transform = 'translate(-50%, -50%)';
+        root.appendChild(grid);
+        
+        tl.to(grid, {
+          rotation: 360,
+          duration: 20 + (seed * 123 % 20),
+          ease: 'none',
+          repeat: -1
+        }, 0);
+        
+        // Create orbiting rings
+        for (var k = 0; k < 3; k++) {
+          var orbit = document.createElement('div');
+          orbit.className = 'health-orbit';
+          
+          if (k === 0) {
+            orbit.style.left = '50%';
+            orbit.style.top = '50%';
+            orbit.style.transform = 'translate(-50%, -50%)';
+          } else {
+            orbit.style.position = 'absolute';
+          }
+          
+          root.appendChild(orbit);
+          
+          tl.to(orbit, {
+            rotation: k % 2 === 0 ? 360 : -360,
+            duration: 12 + (seed * 89 % 15),
+            ease: 'none',
+            repeat: -1
+          }, 0);
+        }
+      }
+      
+      // === AUDIT TYPE ===
+      else if (type === 'audit') {
+        var numPoints = 8;
+        var points = [];
+        
+        // Create connection points
+        for (var m = 0; m < numPoints; m++) {
+          var point = document.createElement('div');
+          point.className = 'audit-point';
+          point.style.left = (15 + seed * 34 % 70) + '%';
+          point.style.top = (15 + seed * 45 % 70) + '%';
+          
+          root.appendChild(point);
+          points.push(point);
+        }
+        
+        // Create connecting lines between points
+        for (var n = 0; n < points.length; n++) {
+          for (var p = n + 1; p < points.length; p++) {
+            if (Math.random() > 0.6) continue; // Only some connections
+            
+            var line = document.createElement('div');
+            line.className = 'audit-line';
+            
+            var angle = Math.atan2(
+              parseFloat(points[p].style.top) - parseFloat(points[n].style.top),
+              parseFloat(points[p].style.left) - parseFloat(points[n].style.left)
+            );
+            var dist = Math.sqrt(
+              Math.pow(parseFloat(points[p].style.top) - parseFloat(points[n].style.top), 2) +
+              Math.pow(parseFloat(points[p].style.left) - parseFloat(points[n].style.left), 2)
+            );
+            
+            line.style.width = dist + 'px';
+            line.style.left = points[n].style.left;
+            line.style.top = points[n].style.top;
+            line.style.transform = 'rotate(' + angle + 'rad)';
+            
+            root.appendChild(line);
+            
+            tl.fromTo(line, 
+              { opacity: 0, scaleX: 0 },
+              { 
+                opacity: 0.6, 
+                scaleX: 1, 
+                duration: 2,
+                ease: 'power2.inOut',
+                yoyo: true,
+                repeat: -1,
+                repeatDelay: 1
+              },
+              n * 0.3
+            );
+          }
+        }
+      }
+      
+      window.__timelines['service-bg'] = tl;
+    })();
+  </script>
+</body>
+</html>
