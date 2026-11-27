@@ -8,7 +8,7 @@ export default defineConfig({
     tailwind(),
     sitemap({
       // Leave out the addresses that only forward elsewhere.
-      filter: (page) => !/\/(cookies|solutions|products\/(aligned-certified|bio-debt|feedmesafe|my-sovereign-home|oldschool-search|paichip))\/$/.test(page),
+      filter: (page) => !/\/(cookies|solutions|access\/cognioenacted|products\/(aligned-certified|bio-debt|feedmesafe|my-sovereign-home|oldschool-search|paichip))\/$/.test(page),
       // Parts of the site that are served beside this build and were in the live sitemap.
       customPages: [
         'https://cogniosynthesisportal.uk/feedmesafe/',
