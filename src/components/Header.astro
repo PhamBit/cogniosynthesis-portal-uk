@@ -7,7 +7,7 @@ const navLinks = [
   { href: '/health-check/', label: 'AI Health Check' },
   { href: '/audits/', label: 'Epistemic Audit' },
   { href: '/products/', label: 'Products' },
-  { href: '/about', label: 'About' }
+  { href: '/about/', label: 'About' }
 ];
 const mobileLinks = [{ href: '/', label: 'Home' }, ...navLinks];
 
@@ -39,7 +39,7 @@ function isActive(href: string) {
       </ul>
       
       <!-- Desktop CTA Button -->
-      <a href="/contact" class="btn btn-primary desktop-cta">Book a conversation</a>
+      <a href="/contact/" class="btn btn-primary desktop-cta">Book a conversation</a>
       
       <!-- Mobile Menu Toggle -->
       <button 
@@ -64,7 +64,7 @@ function isActive(href: string) {
             </li>
           ))}
         </ul>
-        <a href="/contact" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Book a conversation</a>
+        <a href="/contact/" class="btn btn-primary mobile-cta" onclick="document.body.classList.remove('menu-open')">Book a conversation</a>
       </div>
     </div>
   </nav>
