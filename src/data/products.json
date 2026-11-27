@@ -84,11 +84,11 @@
   "metaDescription": "Mapping epistemic completeness to UK legislation through the Seven Lenses. How well does UK law address knowledge equity across 25 legislative instruments?",
   "buttons": [
    {
-    "href": "https://cogniosynthesisportal.uk/enacted/",
-    "label": "Visit CognioEnacted →"
+    "href": "/access/cognioenacted/",
+    "label": "Apply for access →"
    }
   ],
-  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
+  "priceHtml": "<p class=\"ph\">Access by application</p><p>How to get access: apply by email from the Apply for access page. We review each application and send a personal login if access is granted.</p><p>Need an audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
   "siblings": [
    "goldberry",
    "goldberry-for-students",
