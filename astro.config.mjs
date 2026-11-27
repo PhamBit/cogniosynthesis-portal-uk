@@ -18,8 +18,8 @@ export default defineConfig({
   ],
   // Addresses the live site uses today, kept so existing links and search results still land.
   redirects: {
-    '/privacy.html': '/privacy',
-    '/terms.html': '/terms',
+    // /privacy.html and /terms.html are forwarded to /privacy/ and /terms/ by the web server
+    // (nginx), not here: a forward built here loops with the server's own rules.
     // Products retired on 18 Nov 2026: their old pages land on the products list.
     '/products/aligned-certified': '/products/',
     '/products/bio-debt': '/products/',

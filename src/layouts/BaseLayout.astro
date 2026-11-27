@@ -5,34 +5,58 @@ import Header from '../components/Header.astro';
 interface Props {
   title: string;
   description?: string;
+  /** Whole browser title, used as it is (the home page). Without it the title is "<title> | Cogniosynthesis Portal". */
+  fullTitle?: string;
+  /** Keep a page out of search results (the not-found page). */
+  noindex?: boolean;
 }
 
-const { title, description = 'Digital ecosystem support, analytics and reporting: AI Exploration, AI Health Check and Epistemic Audit. In your building, offline. Every one starts with a free 45-minute conversation.' } = Astro.props;
+const { title, description = 'Digital ecosystem support, analytics and reporting: AI Exploration, AI Health Check and Epistemic Audit. In your building, offline. Every one starts with a free 45-minute conversation.', fullTitle, noindex = false } = Astro.props;
+
+const SITE_NAME = 'Cogniosynthesis Portal';
+const pageTitle = fullTitle ?? `${title} | ${SITE_NAME}`;
+// The share image is the live site's own file, already on the web server at this address
+// (3.5 MB, kept out of this repository).
+const SHARE_IMAGE = 'https://cogniosynthesisportal.uk/assets/splash-collage.png';
+const SHARE_IMAGE_ALT = 'A torn collage of landscapes and eras rejoined with glowing bronze seams.';
 
 const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href={Astro.url} />
+    {!noindex && <link rel="canonical" href={Astro.url} />}
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Meta tags -->
-    <title>{title} | CognioSynthesis Portal</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
     
     <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:site_name" content="CognioSynthesis Portal" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:url" content={Astro.url} />}
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={SHARE_IMAGE} />
+    <meta property="og:image:alt" content={SHARE_IMAGE_ALT} />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={SHARE_IMAGE} />
+
+    <!-- Structured data and other per-page head tags -->
+    <slot name="head" />
     
     <!-- Fonts are served from this site: no outside request -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />

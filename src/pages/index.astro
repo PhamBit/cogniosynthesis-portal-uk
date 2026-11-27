@@ -4,13 +4,16 @@ import Footer from '../components/Footer.astro';
 import HeroMotion from '../components/Hero-Motion.astro';
 import ServicesMotion from '../components/Services-Motion.astro';
 import HomeUnderside from '../components/HomeUnderside.astro';
+// Organisation details for search engines, as published on the live home page (read 27 Nov 2026).
+import organization from '../data/organization-ld.json';
 
 ---
 
 <BaseLayout 
   title="Home"
-  description="Three ways we help with AI: AI Exploration, AI Health Check, and Epistemic Audit. All on-site, all offline."
+  fullTitle="Cogniosynthesis Portal — AI Exploration · AI Health Check · Epistemic Audit"
 >
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(organization)} />
   <!-- HyperFrames Motion Hero (replaces static Hero) -->
   <HeroMotion 
     headline="Cogniosynthesis Portal"

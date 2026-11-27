@@ -4,7 +4,7 @@ Allow: /
 Disallow: /feedmesafe/api/
 Disallow: /summer-leys-app/api/
 
-Sitemap: https://cogniosynthesisportal.uk/sitemap-index.xml
+Sitemap: https://cogniosynthesisportal.uk/sitemap.xml
 
 Sitemap: https://cogniosynthesisportal.uk/stancewatch/sitemap.xml
 Sitemap: https://cogniosynthesisportal.uk/ghost-ledger/sitemap.xml
