@@ -411,7 +411,7 @@
     "label": "Visit Knowledge Ecosystem →"
    }
   ],
-  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an audit? From £450 for one document, £2,500 for ten, monitoring from £1,000 a month.</p>",
+  "priceHtml": "<p class=\"ph\">Free</p><p>How to buy: Self-serve.</p><p>Need an Epistemic Audit? <a href=\"/audits/\">On site and offline</a>: Epistemic Audit visit £750 + VAT (half a day, up to 3 documents), Epistemic Audit day £2,500 + VAT (up to 10 documents), monthly visit from £1,000 a month + VAT.</p>",
   "siblings": [
    "cognionews",
    "cogniofem",
